@@ -47,8 +47,14 @@ jobs:
         if: ${{ env.NPM_TOKEN != '' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --access public --tag next -w $(echo "$PUBLISH_WORKSPACES")
+        run: |
+          for w in $PUBLISH_WORKSPACES; do
+            npm publish --access public --tag next --workspace "$w"
+          done
 
       - name: "[DrMxrcy] Publish selected workspaces (trusted publishing)"
         if: ${{ env.NPM_TOKEN == '' }}
-        run: npm publish --access public --tag next -w $(echo "$PUBLISH_WORKSPACES")
+        run: |
+          for w in $PUBLISH_WORKSPACES; do
+            npm publish --access public --tag next --workspace "$w"
+          done
