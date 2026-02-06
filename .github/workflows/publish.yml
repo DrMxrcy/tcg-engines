@@ -12,6 +12,15 @@ jobs:
       id-token: write
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # Lorcana-focused publish set
+      PUBLISH_WORKSPACES: >-
+        @drmxrcy/tcg-core
+        @drmxrcy/tcg-core-types
+        @drmxrcy/tcg-shared
+        @drmxrcy/tcg-config
+        @drmxrcy/tcg-lorcana
+        @drmxrcy/tcg-lorcana-types
+        @drmxrcy/tcg-lorcana-cards
     steps:
       - uses: actions/checkout@v4
         with:
@@ -34,12 +43,12 @@ jobs:
           TS=$(date -u +"%Y%m%d%H%M")
           TS="$TS" node -e 'const fs=require("fs"); const path=require("path"); const TS=process.env.TS; const pkgs=JSON.parse(fs.readFileSync("package.json","utf8")).workspaces || []; const globs=pkgs.flatMap(p=>p.replace("/*","")); const dirs=globs.map(g=>g).filter(Boolean); const walk=(dir)=>fs.existsSync(dir)?fs.readdirSync(dir).map(f=>path.join(dir,f)).filter(p=>fs.existsSync(path.join(p,"package.json"))):[]; const packages=dirs.flatMap(walk); packages.forEach(p=>{ const file=path.join(p,"package.json"); const json=JSON.parse(fs.readFileSync(file,"utf8")); json.version = `0.0.0-${TS}`; fs.writeFileSync(file, JSON.stringify(json,null,2)); }); const root=JSON.parse(fs.readFileSync("package.json","utf8")); root.version = `0.0.0-${TS}`; fs.writeFileSync("package.json", JSON.stringify(root,null,2));'
 
-      - name: "[DrMxrcy] Publish all workspaces (token)"
+      - name: "[DrMxrcy] Publish selected workspaces (token)"
         if: ${{ env.NPM_TOKEN != '' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish -ws --access public --tag next
+        run: npm publish --access public --tag next -w $(echo "$PUBLISH_WORKSPACES")
 
-      - name: "[DrMxrcy] Publish all workspaces (trusted publishing)"
+      - name: "[DrMxrcy] Publish selected workspaces (trusted publishing)"
         if: ${{ env.NPM_TOKEN == '' }}
-        run: npm publish -ws --access public --tag next
+        run: npm publish --access public --tag next -w $(echo "$PUBLISH_WORKSPACES")
