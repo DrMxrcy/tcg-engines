@@ -2,7 +2,7 @@
 
 > Complete type definitions for the Gundam Card Game engine based on official rules v1.0
 
-This document provides an overview of the type system implemented for the `@tcg/gundam` engine package. All types are based on the official Bandai Gundam Card Game Comprehensive Rules Ver. 1.0.
+This document provides an overview of the type system implemented for the `@drmxrcy/tcg-gundam` engine package. All types are based on the official Bandai Gundam Card Game Comprehensive Rules Ver. 1.0.
 
 ## Table of Contents
 
@@ -446,7 +446,7 @@ function hasKeywordEffect(card: UnitCardDefinition | BaseCardDefinition, keyword
 ## References
 
 - **Official Rules**: Gundam Card Game Comprehensive Rules Ver. 1.0 (November 29, 2024)
-- **Framework**: `@tcg/core` - Core TCG engine framework
+- **Framework**: `@drmxrcy/tcg-core` - Core TCG engine framework
 - **Architecture**: See `ARCHITECTURE.md` for implementation patterns
 - **Spec**: See `.agent-os/packages/gundam-engine/specs/2025-10-08-core-game-mechanics/` for detailed specifications
 
@@ -459,7 +459,7 @@ import type {
   GundamGameState,
   DeployUnitParams,
   DeployUnitMove,
-} from "@tcg/gundam";
+} from "@drmxrcy/tcg-gundam";
 
 // Type-safe move parameters
 const deployParams: DeployUnitParams = {
@@ -489,5 +489,5 @@ const deployUnitMove: DeployUnitMove = {
 
 ---
 
-*This type system provides complete TypeScript type safety for implementing the Gundam Card Game while adhering to official rules and the @tcg/core framework patterns.*
+*This type system provides complete TypeScript type safety for implementing the Gundam Card Game while adhering to official rules and the @drmxrcy/tcg-core framework patterns.*
 

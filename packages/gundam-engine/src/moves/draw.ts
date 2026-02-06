@@ -1,7 +1,7 @@
 /**
  * Draw Move Implementation
  *
- * Implements the draw move for Gundam Card Game using @tcg/core patterns.
+ * Implements the draw move for Gundam Card Game using @drmxrcy/tcg-core patterns.
  * Handles:
  * - Drawing cards from deck to hand
  * - Validation to prevent drawing from empty/insufficient deck
@@ -13,8 +13,8 @@
  * - Rule 4-7: Some card effects may draw multiple cards
  */
 
-import type { GameMoveDefinition, MoveContext } from "@tcg/core";
-import { draw, getZoneSize } from "@tcg/core";
+import type { GameMoveDefinition, MoveContext } from "@drmxrcy/tcg-core";
+import { draw, getZoneSize } from "@drmxrcy/tcg-core";
 import type { Draft } from "immer";
 import type { GundamGameState } from "../types";
 
@@ -112,7 +112,7 @@ export const drawMove: GameMoveDefinition<GundamGameState> = {
   /**
    * Reducer: Execute the draw
    *
-   * Draws cards from deck to hand using @tcg/core's draw function.
+   * Draws cards from deck to hand using @drmxrcy/tcg-core's draw function.
    * Assumes condition has already validated the move is legal.
    *
    * @param draft - Immer draft of game state (mutable)
@@ -137,7 +137,7 @@ export const drawMove: GameMoveDefinition<GundamGameState> = {
     // Handle no-op case
     if (count === 0) return;
 
-    // Use @tcg/core's draw function to move cards
+    // Use @drmxrcy/tcg-core's draw function to move cards
     // This will throw if trying to draw more cards than available
     const { fromZone, toZone } = draw(deck, hand, count);
 

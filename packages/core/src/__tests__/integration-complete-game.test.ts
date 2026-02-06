@@ -16,7 +16,7 @@ import { createPlayerId, type PlayerId } from "../types";
  * - History and replay
  * - Player views
  *
- * This validates the entire @tcg/core framework works cohesively.
+ * This validates the entire @drmxrcy/tcg-core framework works cohesively.
  */
 
 type CompleteGameState = {

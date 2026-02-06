@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { captainHookThinkingAHappyThought } from "./175-captain-hook-thinking-a-happy-thought";
 
 describe("Captain Hook - Thinking a Happy Thought", () => {

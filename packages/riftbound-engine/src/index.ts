@@ -1,7 +1,7 @@
 /**
- * @tcg/riftbound - Riftbound TCG Tabletop Simulator
+ * @drmxrcy/tcg-riftbound - Riftbound TCG Tabletop Simulator
  *
- * A tabletop simulator implementation of Riftbound TCG using the @tcg/core framework.
+ * A tabletop simulator implementation of Riftbound TCG using the @drmxrcy/tcg-core framework.
  * This is NOT a rules engine - players enforce rules themselves.
  * The system handles card movement, counters/tokens, and phase tracking.
  *
@@ -20,7 +20,7 @@ export type {
   MoveExecutionResult,
   RuleEngine,
   RuleEngineOptions,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 // Engine exports
 export { RiftboundEngine } from "./engine/riftbound-engine";

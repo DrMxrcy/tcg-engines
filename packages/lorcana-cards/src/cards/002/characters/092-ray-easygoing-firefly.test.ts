@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine } from "@drmxrcy/tcg-lorcana/testing";
 import { rayEasygoingFirefly } from "./092-ray-easygoing-firefly";
 
 describe("Ray - Easygoing Firefly", () => {

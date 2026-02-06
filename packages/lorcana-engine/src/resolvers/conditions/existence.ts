@@ -1,10 +1,10 @@
-import type { CardInstance } from "@tcg/core";
+import type { CardInstance } from "@drmxrcy/tcg-core";
 import type {
   HasCharacterCountCondition,
   HasCharacterWithClassificationCondition,
   HasNamedCharacterCondition,
   ResourceCountCondition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import type { LorcanaFilter } from "../../targeting/lorcana-target-dsl";
 import type { LorcanaCardMeta, LorcanaGameState } from "../../types/game-state";
 import { conditionRegistry } from "../condition-registry";

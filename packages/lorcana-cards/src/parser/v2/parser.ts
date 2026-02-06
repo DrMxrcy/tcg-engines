@@ -125,7 +125,7 @@ export function parseAbilityText(
     const name = (ability as { name?: string }).name;
     const abilityWithText: AbilityWithText = {
       ability: ability as AbilityWithText["ability"],
-      // TODO: Type assertion needed because @tcg/lorcana-engine and @tcg/lorcana-types
+      // TODO: Type assertion needed because @drmxrcy/tcg-lorcana-engine and @drmxrcy/tcg-lorcana-types
       // have incompatible Ability, Trigger, and Target types. This is a broader
       // architectural issue that needs to be resolved by re-exporting all ability
       // types from lorcana-types in the engine, similar to what was done for Condition.

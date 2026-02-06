@@ -1,4 +1,4 @@
-import type { CommandCardDefinition } from "@tcg/gundam-types";
+import type { CommandCardDefinition } from "@drmxrcy/tcg-gundam-types";
 
 export const StealthStratagem: CommandCardDefinition = {
   id: "gd01-116",

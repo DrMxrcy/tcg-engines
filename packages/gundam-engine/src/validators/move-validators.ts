@@ -13,7 +13,7 @@
  * - Type-safe with proper context
  */
 
-import type { CardId, MoveContext, PlayerId, ZoneId } from "@tcg/core";
+import type { CardId, MoveContext, PlayerId, ZoneId } from "@drmxrcy/tcg-core";
 import type { GundamCardMeta, GundamGameState } from "../types";
 
 /**

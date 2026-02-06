@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { elsaIceSurfer } from "./109-elsa-ice-surfer";
 
 describe("Elsa - Ice Surfer", () => {

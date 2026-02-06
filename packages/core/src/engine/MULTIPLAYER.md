@@ -53,7 +53,7 @@
 ### Server Setup
 
 ```typescript
-import { MultiplayerEngine } from "@tcg/core";
+import { MultiplayerEngine } from "@drmxrcy/tcg-core";
 
 const server = new MultiplayerEngine(gameDefinition, players, {
   mode: "server",
@@ -87,7 +87,7 @@ const result = server.executeMove("playCard", {
 ### Client Setup
 
 ```typescript
-import { MultiplayerEngine } from "@tcg/core";
+import { MultiplayerEngine } from "@drmxrcy/tcg-core";
 
 const client = new MultiplayerEngine(gameDefinition, players, {
   mode: "client",
@@ -302,7 +302,7 @@ See `multiplayer-engine.example.ts` for comprehensive examples including:
 
 ```typescript
 // packages/lorcana-engine/src/multiplayer/server.ts
-import { MultiplayerEngine } from "@tcg/core";
+import { MultiplayerEngine } from "@drmxrcy/tcg-core";
 import { lorcanaGameDefinition } from "../game-definition";
 
 export function createLorcanaServer(players) {
@@ -318,7 +318,7 @@ export function createLorcanaServer(players) {
 
 ```typescript
 // packages/gundam-engine/src/multiplayer/server.ts
-import { MultiplayerEngine } from "@tcg/core";
+import { MultiplayerEngine } from "@drmxrcy/tcg-core";
 import { gundamGameDefinition } from "../game-definition";
 
 export function createGundamServer(players) {

@@ -1,4 +1,4 @@
-import type { ActionCard } from "@tcg/lorcana-types";
+import type { ActionCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const cantHoldItBackAnymore: ActionCard = {
   id: "1ry",

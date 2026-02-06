@@ -1,6 +1,6 @@
 # Telemetry System
 
-Event-based telemetry system for `@tcg/core` to track player actions, engine events, and performance metrics.
+Event-based telemetry system for `@drmxrcy/tcg-core` to track player actions, engine events, and performance metrics.
 
 ## Overview
 
@@ -15,7 +15,7 @@ The telemetry system provides:
 ## Quick Start
 
 ```typescript
-import { RuleEngine } from '@tcg/core';
+import { RuleEngine } from '@drmxrcy/tcg-core';
 
 const engine = new RuleEngine(gameDefinition, players, {
   seed: 'game-123',

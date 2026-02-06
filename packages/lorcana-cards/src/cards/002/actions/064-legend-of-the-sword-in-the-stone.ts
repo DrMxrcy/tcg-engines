@@ -1,4 +1,4 @@
-import type { ActionCard } from "@tcg/lorcana-types";
+import type { ActionCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const legendOfTheSwordInTheStone: ActionCard = {
   id: "t20",

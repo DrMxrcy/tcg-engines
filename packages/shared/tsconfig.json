@@ -1,5 +1,5 @@
 {
-  "extends": "@lorcanito/typescript-config/node.json",
+  "extends": "@drmxrcy/tcg-typescript-config/node.json",
   "compilerOptions": {
     "baseUrl": "."
   },

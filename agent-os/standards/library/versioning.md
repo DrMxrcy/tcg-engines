@@ -33,8 +33,8 @@ alwaysApply: true
   ```json
   {
     "dependencies": {
-      "@tcg/shared": "workspace:*",
-      "@tcg/core-engine": "workspace:*"
+      "@drmxrcy/tcg-shared": "workspace:*",
+      "@drmxrcy/tcg-core-engine": "workspace:*"
     }
   }
   ```

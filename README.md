@@ -7,7 +7,7 @@
 
 ## What Is This Project?
 
-TCG Engines is a **monorepo** containing a complete TypeScript framework (`@tcg/core`) for building trading card games, along with reference implementations, development tools, and comprehensive documentation. It empowers developers to build sophisticated card games by focusing on game-specific rules rather than infrastructure concerns.
+TCG Engines is a **monorepo** containing a complete TypeScript framework (`@drmxrcy/tcg-core`) for building trading card games, along with reference implementations, development tools, and comprehensive documentation. It empowers developers to build sophisticated card games by focusing on game-specific rules rather than infrastructure concerns.
 
 ### Mission
 
@@ -25,7 +25,7 @@ To become the definitive TypeScript framework for TCG development, empowering de
 
 ## What It Offers
 
-### 🎮 Core Framework (`@tcg/core`)
+### 🎮 Core Framework (`@drmxrcy/tcg-core`)
 
 A production-ready, declarative game engine framework providing:
 
@@ -50,21 +50,21 @@ A production-ready, declarative game engine framework providing:
 
 Complete, production-ready game engines demonstrating best practices:
 
-- **`@tcg/lorcana`** - Disney Lorcana TCG implementation
+- **`@drmxrcy/tcg-lorcana`** - Disney Lorcana TCG implementation
   - Complete game rules and mechanics
   - Card definitions and abilities
   - Phase and turn management
   - [Lorcana Engine README](packages/lorcana-engine/README.md)
 
-- **`@tcg/gundam`** - Gundam Card Game implementation
+- **`@drmxrcy/tcg-gundam`** - Gundam Card Game implementation
   - Full game rules implementation
   - Card definitions for all sets
   - Tooling for card management (scraper, parser, generator)
   - [Gundam Engine README](packages/gundam-engine/README.md)
 
-- **`@tcg/template`** - Template for creating new engines
+- **`@drmxrcy/tcg-template`** - Template for creating new engines
   - Minimal working example
-  - Follows @tcg/core best practices
+  - Follows @drmxrcy/tcg-core best practices
   - Fully tested with TDD approach
   - [Template Engine README](packages/template-engine/README.md)
 
@@ -72,16 +72,16 @@ Complete, production-ready game engines demonstrating best practices:
 
 Supporting packages for building and maintaining game engines:
 
-- **`@tcg/core-ui`** - Svelte-based UI component library
+- **`@drmxrcy/tcg-core-ui`** - Svelte-based UI component library
   - Reusable components for TCG interfaces
   - Storybook integration
   - Internationalization support
 
-- **`@tcg/shared`** - Shared utilities and types
+- **`@drmxrcy/tcg-shared`** - Shared utilities and types
   - Common utilities across packages
   - Shared type definitions
 
-- **`@tcg/typescript-config`** - Shared TypeScript configurations
+- **`@drmxrcy/tcg-typescript-config`** - Shared TypeScript configurations
   - Consistent TypeScript settings across packages
   - Base, library, Next.js, React, and strict configs
 
@@ -91,7 +91,7 @@ Comprehensive documentation and coding standards:
 
 - **Product Documentation** - Mission, roadmap, tech stack
 - **Coding Standards** - Frontend, backend, library, and testing guidelines
-- **Integration Guides** - How to build game engines with @tcg/core
+- **Integration Guides** - How to build game engines with @drmxrcy/tcg-core
 - **API Documentation** - Complete API reference
 - **Examples** - Integration examples and patterns
 
@@ -102,7 +102,7 @@ This project is organized as a **monorepo** using [Turborepo](https://turbo.buil
 ```
 tcg-engines/
 ├── packages/
-│   ├── core/                    # Core framework (@tcg/core)
+│   ├── core/                    # Core framework (@drmxrcy/tcg-core)
 │   │   ├── src/                 # Framework source code
 │   │   │   ├── engine/          # RuleEngine - Main orchestration
 │   │   │   ├── game-definition/ # GameDefinition types and validation
@@ -179,7 +179,7 @@ tcg-engines/
                      │ depends on
                      ▼
 ┌─────────────────────────────────────────────────────────┐
-│                    @tcg/core                            │
+│                    @drmxrcy/tcg-core                            │
 │              (Core Framework)                           │
 └────────────────────┬────────────────────────────────────┘
                      │
@@ -261,7 +261,7 @@ For more detailed troubleshooting, see the [Troubleshooting section in agents.md
 
 ### Quick Start for Framework Users
 
-If you want to **use** `@tcg/core` to build your own game:
+If you want to **use** `@drmxrcy/tcg-core` to build your own game:
 
 1. **Read the Core Documentation**
    ```bash

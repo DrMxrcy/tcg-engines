@@ -1,4 +1,4 @@
-import type { CharacterCard } from "@tcg/lorcana-types";
+import type { CharacterCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const peterPansShadowNotSewnOn: CharacterCard = {
   id: "1n6",

@@ -13,14 +13,14 @@ import type {
   DeckValidationResult,
   InkType,
   LorcanaCardDefinition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import {
   getFullName,
   getInkTypes,
   MAX_COPIES_PER_CARD,
   MAX_INK_TYPES,
   MIN_DECK_SIZE,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 
 /**
  * Validate a deck against Lorcana rules

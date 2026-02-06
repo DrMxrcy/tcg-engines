@@ -1,5 +1,5 @@
-import type { CardInstance, CardRegistry } from "@tcg/core";
-import type { LorcanaCardDefinition } from "@tcg/lorcana-types";
+import type { CardInstance, CardRegistry } from "@drmxrcy/tcg-core";
+import type { LorcanaCardDefinition } from "@drmxrcy/tcg-lorcana-types";
 import type { LorcanaCardMeta, LorcanaGameState } from "../types/game-state";
 import type { LorcanaContext, LorcanaFilter } from "./lorcana-target-dsl";
 

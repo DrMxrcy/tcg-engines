@@ -5,7 +5,7 @@
  */
 
 import { describe, expect, it } from "bun:test";
-import type { TriggeredAbility } from "@tcg/lorcana";
+import type { TriggeredAbility } from "@drmxrcy/tcg-lorcana";
 import { parseTriggeredAbility } from "../parsers/triggered-parser";
 
 describe("Trigger Pattern: Whenever you play a card", () => {

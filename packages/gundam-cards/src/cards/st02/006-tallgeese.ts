@@ -1,4 +1,4 @@
-import type { UnitCardDefinition } from "@tcg/gundam-types";
+import type { UnitCardDefinition } from "@drmxrcy/tcg-gundam-types";
 
 export const Tallgeese: UnitCardDefinition = {
   id: "st02-006",

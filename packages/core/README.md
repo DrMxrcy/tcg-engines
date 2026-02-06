@@ -1,8 +1,8 @@
-# @tcg/core
+# @drmxrcy/tcg-core
 
 > Production-ready game engine for trading card games and turn-based strategy games
 
-**@tcg/core** is a declarative, type-safe game engine built with **Immer** for immutable state management and **delta synchronization** for multiplayer games. It provides a complete framework for building complex card games with deterministic gameplay, network synchronization, and time-travel debugging.
+**@drmxrcy/tcg-core** is a declarative, type-safe game engine built with **Immer** for immutable state management and **delta synchronization** for multiplayer games. It provides a complete framework for building complex card games with deterministic gameplay, network synchronization, and time-travel debugging.
 
 ## Features
 
@@ -27,16 +27,16 @@
 ### Installation
 
 ```bash
-bun add @tcg/core
+bun add @drmxrcy/tcg-core
 # or
-npm install @tcg/core
+npm install @drmxrcy/tcg-core
 ```
 
 ### Create Your First Game
 
 ```typescript
-import { RuleEngine, createPlayerId } from "@tcg/core";
-import type { GameDefinition } from "@tcg/core";
+import { RuleEngine, createPlayerId } from "@drmxrcy/tcg-core";
+import type { GameDefinition } from "@drmxrcy/tcg-core";
 
 // 1. Define your game state
 type CoinFlipState = {
@@ -278,7 +278,7 @@ const flow: FlowDefinition<GameState> = {
 
 ## Multiplayer Pattern
 
-**@tcg/core** is designed for server-authoritative multiplayer:
+**@drmxrcy/tcg-core** is designed for server-authoritative multiplayer:
 
 ```typescript
 // SERVER
@@ -341,7 +341,7 @@ console.log(replayedState === state1); // true
 Safe type wrappers prevent ID mixups:
 
 ```typescript
-import { createPlayerId, createCardId, createZoneId } from "@tcg/core";
+import { createPlayerId, createCardId, createZoneId } from "@drmxrcy/tcg-core";
 
 const playerId = createPlayerId("p1");  // PlayerId type
 const cardId = createCardId("c1");      // CardId type
@@ -356,7 +356,7 @@ engine.executeMove("draw", { playerId: cardId }); // ❌ Type error
 Built-in zone system for card locations:
 
 ```typescript
-import { createZone, moveCard } from "@tcg/core";
+import { createZone, moveCard } from "@drmxrcy/tcg-core";
 
 const deck = createZone({
   id: createZoneId("deck"),
@@ -379,7 +379,7 @@ moveCard(state, cardId, sourcezone, destZone);
 Query cards with a fluent API:
 
 ```typescript
-import { selectCards } from "@tcg/core";
+import { selectCards } from "@drmxrcy/tcg-core";
 
 // Find all creatures with power >= 3
 const creatures = selectCards(state, {
@@ -430,7 +430,7 @@ Production-grade logging and telemetry for debugging, transparency, and analytic
 Structured logging with zero-overhead SILENT mode:
 
 ```typescript
-import { RuleEngine, LogLevel } from '@tcg/core';
+import { RuleEngine, LogLevel } from '@drmxrcy/tcg-core';
 
 const engine = new RuleEngine(gameDefinition, players, {
   seed: 'game-123',
@@ -512,7 +512,7 @@ import {
   expectStateProperty,
   createTestCard,
   withSeed,
-} from '@tcg/core/testing';
+} from '@drmxrcy/tcg-core/testing';
 
 // Create test engine with deterministic seed
 const engine = createTestEngine(gameDefinition, players, { seed: 'test' });
@@ -550,7 +550,7 @@ import {
   FileWriter,
   formatTypeScript,
   generateVariableName,
-} from '@tcg/core/tooling';
+} from '@drmxrcy/tcg-core/tooling';
 
 // Extend CardParser for game-specific parsing
 class MyCardParser extends CardParser<string, MyCard> {
@@ -589,7 +589,7 @@ import {
   isCardOfType,
   ValidatorBuilder,
   combineTypeGuards,
-} from '@tcg/core/validation';
+} from '@drmxrcy/tcg-core/validation';
 
 // Type guards for filtering
 const isCreature = isCardOfType('creature');
@@ -637,7 +637,7 @@ import {
   findCardInZones,
   createPlayerZones,
   moveCardInState,
-} from '@tcg/core';
+} from '@drmxrcy/tcg-core';
 
 // Basic operations
 let deck = createZone(config, [card1, card2, card3]);
@@ -734,7 +734,7 @@ See the `examples/` directory for complete game implementations:
 
 ## Testing
 
-@tcg/core is built with Test-Driven Development:
+@drmxrcy/tcg-core is built with Test-Driven Development:
 
 ```bash
 # Run all tests
@@ -750,7 +750,7 @@ bun test --watch
 ## Architecture
 
 ```
-@tcg/core
+@drmxrcy/tcg-core
 ├── engine/          # RuleEngine - Main orchestration
 ├── game-definition/ # GameDefinition types and validation
 ├── moves/           # Move system and execution
@@ -763,9 +763,9 @@ bun test --watch
 ├── logging/         # Structured logging system
 ├── telemetry/       # Event-based telemetry
 ├── delta-sync/      # Patch utilities
-├── testing/         # Testing utilities (@tcg/core/testing)
-├── tooling/         # Card tooling infrastructure (@tcg/core/tooling)
-├── validation/      # Type guards and validators (@tcg/core/validation)
+├── testing/         # Testing utilities (@drmxrcy/tcg-core/testing)
+├── tooling/         # Card tooling infrastructure (@drmxrcy/tcg-core/tooling)
+├── validation/      # Type guards and validators (@drmxrcy/tcg-core/validation)
 └── types/           # Branded types and utilities
 ```
 
@@ -873,9 +873,9 @@ MIT © The Card Goat Team
 
 ## Related Packages
 
-- **@tcg/lorcana** - Disney Lorcana TCG implementation
-- **@tcg/server** - Authoritative game server
-- **@tcg/client** - Client SDK for web/mobile
+- **@drmxrcy/tcg-lorcana** - Disney Lorcana TCG implementation
+- **@drmxrcy/tcg-server** - Authoritative game server
+- **@drmxrcy/tcg-client** - Client SDK for web/mobile
 
 ---
 

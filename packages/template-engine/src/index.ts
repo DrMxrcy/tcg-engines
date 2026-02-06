@@ -1,7 +1,7 @@
 /**
  * Template Game Engine
  *
- * A minimal working example showing how to build a TCG engine with @tcg/core.
+ * A minimal working example showing how to build a TCG engine with @drmxrcy/tcg-core.
  * Clone this package and modify it to create your own game!
  */
 
@@ -11,7 +11,7 @@ export type {
   MoveContext,
   MoveExecutionResult,
   RuleEngine,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 // Export game definition
 export { templateGameDefinition } from "./game-definition";
@@ -24,7 +24,7 @@ export type {
 } from "./types";
 
 // Helper to create game
-import { type Player, RuleEngine } from "@tcg/core";
+import { type Player, RuleEngine } from "@drmxrcy/tcg-core";
 import { templateGameDefinition } from "./game-definition";
 
 /**
@@ -36,7 +36,7 @@ import { templateGameDefinition } from "./game-definition";
  *
  * @example
  * ```typescript
- * import { createTemplateGame, createPlayerId } from "@tcg/template";
+ * import { createTemplateGame, createPlayerId } from "@drmxrcy/tcg-template";
  *
  * const game = createTemplateGame([
  *   { id: createPlayerId("p1"), name: "Alice" },

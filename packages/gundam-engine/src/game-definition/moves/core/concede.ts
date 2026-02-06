@@ -1,4 +1,4 @@
-import { createMove, type PlayerId, type ZoneId } from "@tcg/core";
+import { createMove, type PlayerId, type ZoneId } from "@drmxrcy/tcg-core";
 import type {
   GundamCardMeta,
   GundamGameState,

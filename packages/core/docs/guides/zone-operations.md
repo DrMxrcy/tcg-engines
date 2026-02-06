@@ -1,6 +1,6 @@
 # Zone Operations Guide
 
-> Complete guide to zone management utilities in @tcg/core
+> Complete guide to zone management utilities in @drmxrcy/tcg-core
 
 ## Overview
 
@@ -22,7 +22,7 @@ The zone operations module provides a comprehensive API for managing card zones 
 A zone is a container for cards with specific properties:
 
 ```typescript
-import { createZone, createZoneId } from '@tcg/core';
+import { createZone, createZoneId } from '@drmxrcy/tcg-core';
 
 const deck = createZone({
   id: createZoneId('deck'),
@@ -57,7 +57,7 @@ console.log(newDeck.cards.length);  // 2 (new zone)
 ### Adding Cards
 
 ```typescript
-import { addCard, addCardToTop, addCardToBottom } from '@tcg/core';
+import { addCard, addCardToTop, addCardToBottom } from '@drmxrcy/tcg-core';
 
 // Add to default position (end for unordered, top for ordered)
 const newZone = addCard(zone, cardId);
@@ -78,7 +78,7 @@ const newDeck = addCardToBottom(deck, cardId);
 ### Removing Cards
 
 ```typescript
-import { removeCard } from '@tcg/core';
+import { removeCard } from '@drmxrcy/tcg-core';
 
 const newZone = removeCard(zone, cardId);
 ```
@@ -89,7 +89,7 @@ const newZone = removeCard(zone, cardId);
 ### Moving Cards Between Zones
 
 ```typescript
-import { moveCard } from '@tcg/core';
+import { moveCard } from '@drmxrcy/tcg-core';
 
 const { fromZone, toZone } = moveCard(
   deck,
@@ -114,7 +114,7 @@ import {
   getCardsInZone,
   getTopCard,
   getBottomCard,
-} from '@tcg/core';
+} from '@drmxrcy/tcg-core';
 
 // Check if card is in zone
 if (isCardInZone(hand, cardId)) {
@@ -135,7 +135,7 @@ const bottomCard = getBottomCard(deck); // CardId | undefined
 ### Clearing a Zone
 
 ```typescript
-import { clearZone } from '@tcg/core';
+import { clearZone } from '@drmxrcy/tcg-core';
 
 // Remove all cards from zone
 const emptyZone = clearZone(zone);
@@ -146,7 +146,7 @@ const emptyZone = clearZone(zone);
 ### Drawing Cards
 
 ```typescript
-import { draw } from '@tcg/core';
+import { draw } from '@drmxrcy/tcg-core';
 
 const { fromZone, toZone, drawnCards } = draw(
   deck,
@@ -166,7 +166,7 @@ Standard draw operation that moves cards from deck to hand and returns what was 
 ### Milling Cards
 
 ```typescript
-import { mill } from '@tcg/core';
+import { mill } from '@drmxrcy/tcg-core';
 
 const { fromZone, toZone, milledCards } = mill(
   deck,
@@ -183,7 +183,7 @@ Moving cards from deck to graveyard (common in many card games).
 ### Shuffling
 
 ```typescript
-import { shuffle } from '@tcg/core';
+import { shuffle } from '@drmxrcy/tcg-core';
 
 // Deterministic shuffle using seeded RNG
 const shuffledDeck = shuffle(deck, 'game-123-shuffle-1');
@@ -200,7 +200,7 @@ Always use seeded RNG for deterministic replay and network sync.
 ### Searching Zones
 
 ```typescript
-import { search } from '@tcg/core';
+import { search } from '@drmxrcy/tcg-core';
 
 // Find all creatures
 const creatures = search(zone, (cardId) => {
@@ -221,7 +221,7 @@ Array of matching CardIds (does not modify zone).
 ### Peeking at Cards
 
 ```typescript
-import { peek } from '@tcg/core';
+import { peek } from '@drmxrcy/tcg-core';
 
 // Look at top 3 cards without removing them
 const topCards = peek(deck, 3);
@@ -236,7 +236,7 @@ Scrying, surveillance, or preview effects that don't modify the deck.
 ### Revealing Cards
 
 ```typescript
-import { reveal } from '@tcg/core';
+import { reveal } from '@drmxrcy/tcg-core';
 
 // Make cards temporarily visible to all players
 const revealedCards = reveal([card1, card2, card3]);
@@ -251,7 +251,7 @@ Effects that reveal cards to all players (mill effects, tutors, etc.).
 ### Finding Cards Across Multiple Zones
 
 ```typescript
-import { findCardInZones } from '@tcg/core';
+import { findCardInZones } from '@drmxrcy/tcg-core';
 
 const zones = [hand, deck, graveyard, exile];
 const zone = findCardInZones(cardId, zones);
@@ -273,7 +273,7 @@ For games using flat state objects with zones as properties, use these helpers:
 ### Creating Player Zones
 
 ```typescript
-import { createPlayerZones } from '@tcg/core';
+import { createPlayerZones } from '@drmxrcy/tcg-core';
 
 // Create empty zones for each player
 const hands = createPlayerZones(playerIds);
@@ -295,7 +295,7 @@ const zones = createPlayerZones(playerIds, () => ({
 ### Moving Cards in Flat State
 
 ```typescript
-import { moveCardInState } from '@tcg/core';
+import { moveCardInState } from '@drmxrcy/tcg-core';
 
 type GameState = {
   hand: Zone;
@@ -328,7 +328,7 @@ const newState = moveCardInState(
 ### Finding Card Location in State
 
 ```typescript
-import { getCardZone } from '@tcg/core';
+import { getCardZone } from '@drmxrcy/tcg-core';
 
 const zoneName = getCardZone(state, cardId);
 
@@ -383,7 +383,7 @@ const newZone = addCard(zone, cardId);
 
 ```typescript
 // Use branded types for safety
-import { createCardId, createZoneId } from '@tcg/core';
+import { createCardId, createZoneId } from '@drmxrcy/tcg-core';
 
 const cardId = createCardId('card-123');
 const zoneId = createZoneId('hand');
@@ -414,7 +414,7 @@ const newState = moveCardInState(state, 'deck', 'hand', cardId);
 ### Complete Draw Phase
 
 ```typescript
-import { draw, shuffle, getZoneSize } from '@tcg/core';
+import { draw, shuffle, getZoneSize } from '@drmxrcy/tcg-core';
 
 function executeDrawPhase(state: GameState, playerId: PlayerId, seed: string) {
   const playerState = state.players[playerId];
@@ -451,7 +451,7 @@ function executeDrawPhase(state: GameState, playerId: PlayerId, seed: string) {
 ### Tutor Effect (Search and Move)
 
 ```typescript
-import { search, moveCard } from '@tcg/core';
+import { search, moveCard } from '@drmxrcy/tcg-core';
 
 function tutorForCreature(
   deck: Zone,
@@ -482,7 +482,7 @@ function tutorForCreature(
 ### Mill and Reveal
 
 ```typescript
-import { mill, reveal } from '@tcg/core';
+import { mill, reveal } from '@drmxrcy/tcg-core';
 
 function millAndReveal(
   deck: Zone,
@@ -505,7 +505,7 @@ function millAndReveal(
 ### Multi-Zone Search
 
 ```typescript
-import { findCardInZones, moveCard } from '@tcg/core';
+import { findCardInZones, moveCard } from '@drmxrcy/tcg-core';
 
 function returnCardFromAnywhere(
   cardId: CardId,
@@ -593,12 +593,12 @@ function moveCardBetweenZones(from, to, cardId) {
   };
 }
 
-// NEW (@tcg/core)
-import { moveCard } from '@tcg/core';
+// NEW (@drmxrcy/tcg-core)
+import { moveCard } from '@drmxrcy/tcg-core';
 const { fromZone, toZone } = moveCard(from, to, cardId);
 ```
 
-**Benefits of @tcg/core:**
+**Benefits of @drmxrcy/tcg-core:**
 - Immutability enforced with Immer
 - Error handling built-in
 - Type safety with branded types

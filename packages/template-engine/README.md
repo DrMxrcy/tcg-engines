@@ -1,13 +1,13 @@
-# @tcg/template - Template Card Game Engine
+# @drmxrcy/tcg-template - Template Card Game Engine
 
-A minimal working example showing how to build a trading card game engine using `@tcg/core`.
+A minimal working example showing how to build a trading card game engine using `@drmxrcy/tcg-core`.
 
 **Use this as a starting point for your own game!** Clone this package and modify it to implement your game's rules.
 
 ## Features
 
 - ✅ **Complete working implementation** - Not just placeholders
-- ✅ **Follows @tcg/core best practices** - Uses actual framework APIs
+- ✅ **Follows @drmxrcy/tcg-core best practices** - Uses actual framework APIs
 - ✅ **Minimal complexity** - Easy to understand and extend
 - ✅ **Fully tested** - Shows TDD approach
 - ✅ **Production patterns** - Multiplayer, determinism, player views
@@ -31,7 +31,7 @@ bun run typecheck
 ## Usage
 
 ```typescript
-import { createTemplateGame, createPlayerId } from "@tcg/template";
+import { createTemplateGame, createPlayerId } from "@drmxrcy/tcg-template";
 
 // Create game
 const game = createTemplateGame([
@@ -156,7 +156,7 @@ Follow the test patterns in `src/__tests__/game-definition.test.ts`:
 
 ### No Helper Functions
 
-`@tcg/core` is **declarative**. It uses TypeScript types, not helper functions:
+`@drmxrcy/tcg-core` is **declarative**. It uses TypeScript types, not helper functions:
 
 ✅ **DO:**
 ```typescript
@@ -261,10 +261,10 @@ playerView: (state, playerId) => ({
 
 ## Resources
 
-- [@tcg/core README](../core/README.md) - Core framework documentation
+- [@drmxrcy/tcg-core README](../core/README.md) - Core framework documentation
 - [GAME_ENGINE_SETUP_GUIDE.md](../../GAME_ENGINE_SETUP_GUIDE.md) - Complete setup guide
 - [Integration Tests](../core/src/__tests__/integration-*.test.ts) - Advanced patterns
 
 ---
 
-**Built with @tcg/core** - A declarative framework for trading card games
+**Built with @drmxrcy/tcg-core** - A declarative framework for trading card games

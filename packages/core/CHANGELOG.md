@@ -1,6 +1,6 @@
-# @tcg/core Changelog
+# @drmxrcy/tcg-core Changelog
 
-All notable changes to the @tcg/core framework will be documented in this file.
+All notable changes to the @drmxrcy/tcg-core framework will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -20,7 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `moveCardInState` for immutable state updates across zones
   - `getCardZone` for finding cards in flat zone structures
 
-#### Testing Utilities Package (`@tcg/core/testing`)
+#### Testing Utilities Package (`@drmxrcy/tcg-core/testing`)
 - Added `test-engine-builder.ts` with `createTestEngine(definition, players?, options?)` for rapid test setup
 - Added `test-player-builder.ts` with `createTestPlayers(count, names?)` for test player creation
 - Added `test-state-builder.ts` with `createTestState<T>(overrides?)` for state factories
@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `test-rng-helpers.ts` with `withSeed` and deterministic test utilities
 - Added `test-replay-assertions.ts` with `expectDeterministicReplay` for replay verification
 
-#### Card Tooling Foundation (`@tcg/core/tooling`)
+#### Card Tooling Foundation (`@drmxrcy/tcg-core/tooling`)
 - Added abstract `CardParser<TInput, TOutput>` base class for extensible text parsers
 - Added abstract `CardGenerator<TCard>` base class for code generation workflows
 - Added abstract `CardValidator<TCard>` base class for validation pipelines
@@ -41,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `format-utils.ts` with `formatTypeScript` using Biome
 - Added `naming-utils.ts` with `generateVariableName`, `toKebabCase`, `toPascalCase`, `toCamelCase`, `toSnakeCase`
 
-#### Validation Utilities (`@tcg/core/validation`)
+#### Validation Utilities (`@drmxrcy/tcg-core/validation`)
 - Added `createTypeGuard<T, K, V>(field: K, value: V)` for type guard builder pattern
 - Added `isCardOfType` generic helper for card type narrowing
 - Added `ValidatorBuilder<T>` class with fluent API (required, type, min, max, custom, build)

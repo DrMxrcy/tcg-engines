@@ -1,4 +1,4 @@
-import type { CommandCardDefinition } from "@tcg/gundam-types";
+import type { CommandCardDefinition } from "@drmxrcy/tcg-gundam-types";
 
 export const CloseCombat: CommandCardDefinition = {
   id: "st03-013",

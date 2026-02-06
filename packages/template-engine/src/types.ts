@@ -1,4 +1,4 @@
-import type { CardId, PlayerId } from "@tcg/core";
+import type { CardId, PlayerId } from "@drmxrcy/tcg-core";
 
 /**
  * Template Game State

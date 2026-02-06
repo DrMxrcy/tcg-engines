@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { createPlayerId } from "@tcg/core";
+import { createPlayerId } from "@drmxrcy/tcg-core";
 import { createTemplateGame } from "../index";
 
 describe("Template Game", () => {

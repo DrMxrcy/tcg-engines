@@ -1,4 +1,4 @@
-import type { PilotCardDefinition } from "@tcg/gundam-types";
+import type { PilotCardDefinition } from "@drmxrcy/tcg-gundam-types";
 
 export const AthrunZala: PilotCardDefinition = {
   id: "st04-011",

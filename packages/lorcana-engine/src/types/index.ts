@@ -38,7 +38,7 @@ export type {
   TooManyInkTypesError,
   TriggeredAbilityDefinition,
   TurnMetadata,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 
 export {
   CARD_TYPES,
@@ -62,7 +62,7 @@ export {
   MAX_COPIES_PER_CARD,
   MAX_INK_TYPES,
   MIN_DECK_SIZE,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 // Branded types (primary source for type-safe IDs)
 export * from "./branded-types";
 // Game state - exclude PlayerId/CardId/ZoneId (use branded-types)

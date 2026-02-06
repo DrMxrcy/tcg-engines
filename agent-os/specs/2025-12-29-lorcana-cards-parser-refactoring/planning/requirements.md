@@ -162,7 +162,7 @@ No visual files found in the planning/visuals directory.
 **Type Safety:**
 - Full TypeScript support throughout
 - Leverage Chevrotain's TypeScript-native design
-- Maintain branded types from @tcg/lorcana
+- Maintain branded types from @drmxrcy/tcg-lorcana
 
 **Testing:**
 - 95%+ test coverage on v2 parser code (lexer, grammar, visitors, effect parsers)
@@ -206,7 +206,7 @@ No existing similar patterns identified in the codebase. This is a greenfield re
 
 **Dependencies:**
 - Add `chevrotain` package to lorcana-cards package.json
-- Ensure compatibility with existing @tcg/lorcana types
+- Ensure compatibility with existing @drmxrcy/tcg-lorcana types
 - Maintain compatibility with Bun test runner
 
 **Existing System Constraints:**
@@ -241,7 +241,7 @@ No existing similar patterns identified in the codebase. This is a greenfield re
 **Integration Points:**
 - Card generation scripts: `scripts/generate-cards.ts`
 - Parser entry point: `src/parser/index.ts`
-- Type definitions: Import from `@tcg/lorcana`
+- Type definitions: Import from `@drmxrcy/tcg-lorcana`
 
 **Logging Requirements:**
 - Use structured logging (JSON or similar)
@@ -270,7 +270,7 @@ No existing similar patterns identified in the codebase. This is a greenfield re
 **Import Order:**
 1. Type-only imports
 2. External packages (chevrotain)
-3. Internal packages (@tcg/lorcana)
+3. Internal packages (@drmxrcy/tcg-lorcana)
 4. Relative imports
 
 **Error Handling:**

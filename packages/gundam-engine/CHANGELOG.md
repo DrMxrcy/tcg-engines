@@ -1,6 +1,6 @@
-# @tcg/gundam Changelog
+# @drmxrcy/tcg-gundam Changelog
 
-All notable changes to the @tcg/gundam game engine will be documented in this file.
+All notable changes to the @drmxrcy/tcg-gundam game engine will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -38,13 +38,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Tests for zone visibility rules (secret, private, public)
   - Tests for multi-zone operations and complex game scenarios
   - Tests for zone immutability guarantees
-- Added test suite using @tcg/core/testing utilities in `src/__tests__/zone-helpers.test.ts` (18 tests):
+- Added test suite using @drmxrcy/tcg-core/testing utilities in `src/__tests__/zone-helpers.test.ts` (18 tests):
   - Demonstrates proper usage of `createTestCard`, `createTestCards`, `resetCardCounter`
   - Tests for game flow scenarios (draw, deploy, resource placement, combat)
   - Tests for edge cases (capacity limits, damage handling)
 
 #### Card Type Guards
-- Migrated type guards to use `@tcg/core/validation` utilities:
+- Migrated type guards to use `@drmxrcy/tcg-core/validation` utilities:
   - `isUnitCard` - Using `createTypeGuard<CardDefinition, "cardType", "UNIT">`
   - `isPilotCard` - Using `createTypeGuard<CardDefinition, "cardType", "PILOT">`
   - `isCommandCard` - Using `createTypeGuard<CardDefinition, "cardType", "COMMAND">`
@@ -55,18 +55,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added comprehensive zone and testing guide: `docs/zones-and-testing.md`
   - Complete Gundam zone structure documentation
   - Zone operation API reference with examples
-  - Testing patterns using @tcg/core/testing
-  - Integration with @tcg/core best practices
+  - Testing patterns using @drmxrcy/tcg-core/testing
+  - Integration with @drmxrcy/tcg-core best practices
   - Migration guide from custom implementations
 
 ### Changed
 - Updated `src/zones/index.ts` to export all zone operations
 - Improved test coverage to 49 passing tests (25 todo tests for future features)
-- All zone operations now use immutable patterns from @tcg/core
+- All zone operations now use immutable patterns from @drmxrcy/tcg-core
 - Type safety enhanced with proper branded type handling (CardId, PlayerId, ZoneId)
 
 ### Performance
-- Zone operations use optimized @tcg/core implementations
+- Zone operations use optimized @drmxrcy/tcg-core implementations
 - Deterministic shuffle with seeded RNG for replay capability
 - All tests pass with no performance regressions
 

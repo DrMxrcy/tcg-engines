@@ -5,7 +5,7 @@
  * - Input JSON structure (lorcana-input.json)
  * - Output JSON structures (canonical cards, printings, sets)
  *
- * Uses types from @tcg/lorcana-types for card definitions to ensure
+ * Uses types from @drmxrcy/tcg-lorcana-types for card definitions to ensure
  * compatibility between generated cards and the game engine.
  */
 
@@ -21,7 +21,7 @@ export type {
   KeywordAbility,
   LocationCard,
   LorcanaCard,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 
 // Import types needed for internal use
 import type {
@@ -33,7 +33,7 @@ import type {
   KeywordAbility,
   LocationCard,
   LorcanaCard,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 
 // ============================================================================
 // Input Types (ravensburger-input.json structure)
@@ -154,7 +154,7 @@ export type LorcanaInputJson = RavensburgerInputJson;
 // Output Types (Generated JSON structures)
 // ============================================================================
 
-// CardType and InkType are now imported from @tcg/lorcana-types
+// CardType and InkType are now imported from @drmxrcy/tcg-lorcana-types
 
 export type Rarity =
   | "common"

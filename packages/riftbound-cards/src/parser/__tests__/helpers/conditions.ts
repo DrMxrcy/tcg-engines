@@ -2,7 +2,7 @@
  * Test helper builders for Riftbound conditions
  *
  * Provides fluent builders for creating condition objects in tests.
- * These match the types in @tcg/riftbound-types.
+ * These match the types in @drmxrcy/tcg-riftbound-types.
  */
 
 import type {
@@ -33,7 +33,7 @@ import type {
   WhileAtBattlefieldCondition,
   WhileBuffedCondition,
   WhileMightyCondition,
-} from "@tcg/riftbound-types";
+} from "@drmxrcy/tcg-riftbound-types";
 
 /**
  * Condition builder helpers for tests

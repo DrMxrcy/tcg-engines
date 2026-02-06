@@ -4,7 +4,7 @@
  * Parses cost strings into structured Cost objects.
  */
 
-import type { Cost, Domain } from "@tcg/riftbound-types/abilities/cost-types";
+import type { Cost, Domain } from "@drmxrcy/tcg-riftbound-types/abilities/cost-types";
 import {
   ENERGY_PATTERN,
   EXHAUST_PATTERN,

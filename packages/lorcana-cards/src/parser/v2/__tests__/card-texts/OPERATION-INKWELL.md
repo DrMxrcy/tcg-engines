@@ -8,7 +8,7 @@
 
 ## Overview
 
-**Goal:** Refactor `@tcg/lorcana-types` to use helper-based API with breaking changes.
+**Goal:** Refactor `@drmxrcy/tcg-lorcana-types` to use helper-based API with breaking changes.
 
 **Constraints:**
 - ❌ NO backward compatibility
@@ -334,7 +334,7 @@ import type {
   KeywordAbilityDefinition,
   StaticAbilityDefinition,
   TriggeredAbilityDefinition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 ```
 
 To:
@@ -346,7 +346,7 @@ import {
   Conditions,
   Targets,
   Costs,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 ```
 
 ### Step 3.2: Update Test Assertions

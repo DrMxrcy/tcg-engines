@@ -1,17 +1,17 @@
 /**
  * Gundam Card Game Type Definitions
  *
- * Defines all game-specific types that extend the @tcg/core framework.
+ * Defines all game-specific types that extend the @drmxrcy/tcg-core framework.
  * These types provide strong typing for game state, moves, and game entities.
  */
 
-import type { CardId, PlayerId, Zone } from "@tcg/core";
+import type { CardId, PlayerId, Zone } from "@drmxrcy/tcg-core";
 
 /**
  * Gundam Game State
  *
  * Extends core game state with Gundam-specific properties.
- * Uses @tcg/core's Zone type for all zone management.
+ * Uses @drmxrcy/tcg-core's Zone type for all zone management.
  */
 export type GundamGameState = {
   /** Player identifiers */

@@ -9,7 +9,7 @@ import type {
   Quantity,
   Target,
   TargetController,
-} from "@tcg/riftbound-types/targeting";
+} from "@drmxrcy/tcg-riftbound-types/targeting";
 
 /**
  * Parse a target string into an AnyTarget object

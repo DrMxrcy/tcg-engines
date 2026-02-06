@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { motherGothelSelfishManipulator } from "./090-mother-gothel-selfish-manipulator";
 
 describe("Mother Gothel - Selfish Manipulator", () => {

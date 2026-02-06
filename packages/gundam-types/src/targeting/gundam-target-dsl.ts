@@ -9,7 +9,7 @@
  * @module targeting/gundam-target-dsl
  */
 
-import type { BaseContext, PlayerTargetDSL, TargetDSL } from "@tcg/core";
+import type { BaseContext, PlayerTargetDSL, TargetDSL } from "@drmxrcy/tcg-core";
 
 /** Gundam locations IDs */
 export type GundamLocationsId =

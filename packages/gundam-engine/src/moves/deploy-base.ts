@@ -14,8 +14,8 @@
  * - Rule 5-6: Pay resource cost to deploy base
  */
 
-import type { CardId, GameMoveDefinition, MoveContext } from "@tcg/core";
-import { getZoneSize, isCardInZone, moveCard } from "@tcg/core";
+import type { CardId, GameMoveDefinition, MoveContext } from "@drmxrcy/tcg-core";
+import { getZoneSize, isCardInZone, moveCard } from "@drmxrcy/tcg-core";
 import type { Draft } from "immer";
 import type { GundamGameState } from "../types";
 

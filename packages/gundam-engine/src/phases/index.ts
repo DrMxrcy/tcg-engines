@@ -2,7 +2,7 @@
  * Gundam Card Game - Phase/Flow Definitions
  *
  * This file defines the turn structure and phase flow for the Gundam Card Game.
- * In @tcg/core, flow is managed through FlowDefinition (optional) or simple state tracking.
+ * In @drmxrcy/tcg-core, flow is managed through FlowDefinition (optional) or simple state tracking.
  *
  * Gundam Turn Structure:
  * 1. Setup Phase (turn 1 only) - Draw initial hand, deploy base, shuffle shields
@@ -43,7 +43,7 @@
  *
  * @example Advanced Flow with FlowDefinition (Optional)
  * ```typescript
- * import type { FlowDefinition } from "@tcg/core";
+ * import type { FlowDefinition } from "@drmxrcy/tcg-core";
  *
  * const flow: FlowDefinition<GundamGameState> = {
  *   turn: {

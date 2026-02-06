@@ -1,8 +1,8 @@
-# @tcg/core - Product Roadmap
+# @drmxrcy/tcg-core - Product Roadmap
 
 ## Overview
 
-This roadmap outlines the phased development plan for @tcg/core, organized into strategic phases with prioritized features and milestones.
+This roadmap outlines the phased development plan for @drmxrcy/tcg-core, organized into strategic phases with prioritized features and milestones.
 
 ## Roadmap Principles
 
@@ -181,9 +181,9 @@ This roadmap outlines the phased development plan for @tcg/core, organized into 
 - [ ] Balance analysis tools
 
 #### UI Integration
-- [ ] React hooks package (@tcg/react)
-- [ ] Vue composables package (@tcg/vue)
-- [ ] Svelte stores package (@tcg/svelte)
+- [ ] React hooks package (@drmxrcy/tcg-react)
+- [ ] Vue composables package (@drmxrcy/tcg-vue)
+- [ ] Svelte stores package (@drmxrcy/tcg-svelte)
 - [ ] Preact integration
 - [ ] Web components
 

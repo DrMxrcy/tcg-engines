@@ -8,7 +8,7 @@ import { createPlayerId, type PlayerId } from "../../types";
 /**
  * Task 15: Example Game Implementation - Coin Flip Game
  *
- * Simple game to validate the entire @tcg/core framework:
+ * Simple game to validate the entire @drmxrcy/tcg-core framework:
  * - Players take turns flipping a coin (using seeded RNG)
  * - Heads = score +1, Tails = no score
  * - First player to reach 3 points wins

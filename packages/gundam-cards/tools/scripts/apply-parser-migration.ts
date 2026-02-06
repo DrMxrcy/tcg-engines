@@ -1,4 +1,4 @@
-import type { CardDefinition } from "@tcg/gundam-types";
+import type { CardDefinition } from "@drmxrcy/tcg-gundam-types";
 import { join } from "path";
 import { GD01, ST01, ST02, ST03, ST04, ST05 } from "../../src";
 import { generateSetIndex, saveCardFile } from "../generator/file-writer";

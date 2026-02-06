@@ -3,7 +3,7 @@
  *
  * Task 1.2: Create branded types for domain-specific IDs
  *
- * Re-exports core branded types from @tcg/core for consistency across the monorepo.
+ * Re-exports core branded types from @drmxrcy/tcg-core for consistency across the monorepo.
  * Adds Lorcana-specific branded types using the same pattern.
  *
  * @example
@@ -17,15 +17,15 @@
  */
 
 // Re-export core branded types for consistency
-export type { CardId, GameId, PlayerId, ZoneId } from "@tcg/core";
+export type { CardId, GameId, PlayerId, ZoneId } from "@drmxrcy/tcg-core";
 
 // Import the Brand type from core for creating additional branded types
-import type { CardId, GameId, PlayerId, ZoneId } from "@tcg/core";
+import type { CardId, GameId, PlayerId, ZoneId } from "@drmxrcy/tcg-core";
 
 /**
  * AbilityId - Branded string for ability identification (Lorcana-specific)
  *
- * Uses the same pattern as @tcg/core branded types for compatibility.
+ * Uses the same pattern as @drmxrcy/tcg-core branded types for compatibility.
  */
 declare const abilityIdBrand: unique symbol;
 export type AbilityId = string & { readonly [abilityIdBrand]: "AbilityId" };

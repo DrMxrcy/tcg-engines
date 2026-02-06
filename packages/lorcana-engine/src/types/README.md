@@ -15,7 +15,7 @@ This directory contains TypeScript type definitions specific to Lorcana.
 
 This directory provides strong TypeScript types that:
 
-1. Extend base types from `@tcg/core` with Lorcana specifics
+1. Extend base types from `@drmxrcy/tcg-core` with Lorcana specifics
 2. Ensure type safety throughout the engine
 3. Enable IDE autocomplete and type checking
 4. Document the data structures through types
@@ -27,7 +27,7 @@ This directory provides strong TypeScript types that:
 The root state type for Lorcana games:
 
 ```typescript
-import type { GameState, PlayerId, CardId } from "@tcg/core";
+import type { GameState, PlayerId, CardId } from "@drmxrcy/tcg-core";
 
 export type LorcanaState = GameState & {
   lorcana: {

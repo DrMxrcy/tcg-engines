@@ -3,7 +3,7 @@
  */
 
 import { describe, expect, it } from "bun:test";
-import type { TriggeredEffect } from "@tcg/gundam-types";
+import type { TriggeredEffect } from "@drmxrcy/tcg-gundam-types";
 import type { ParseResult } from "../../parser/text-parser";
 import type { ScrapedCardData } from "../../scraper/card-scraper";
 import {

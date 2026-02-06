@@ -1,6 +1,6 @@
-# @tcg/core Integration Guide
+# @drmxrcy/tcg-core Integration Guide
 
-This guide explains how to build trading card game engines using the `@tcg/core` framework. It covers the architecture, extension points, and patterns for creating game-specific implementations.
+This guide explains how to build trading card game engines using the `@drmxrcy/tcg-core` framework. It covers the architecture, extension points, and patterns for creating game-specific implementations.
 
 ## Table of Contents
 
@@ -14,7 +14,7 @@ This guide explains how to build trading card game engines using the `@tcg/core`
 
 ## Overview
 
-The `@tcg/core` framework provides a foundation for building TCG engines with:
+The `@drmxrcy/tcg-core` framework provides a foundation for building TCG engines with:
 
 - **Immutable State Management**: All state changes create new state objects
 - **Type-Safe Move System**: Strongly typed moves with validation and execution
@@ -96,7 +96,7 @@ packages/your-game-engine/
 All game implementations start with type definitions that extend the core framework types:
 
 ```typescript
-import type { GameState, Move, Zone, Card } from "@tcg/core";
+import type { GameState, Move, Zone, Card } from "@drmxrcy/tcg-core";
 
 // Extend core state with game-specific properties
 export type YourGameState = GameState & {
@@ -146,7 +146,7 @@ function addResource(state: GameState, playerId: PlayerId) {
 Moves are the only way to modify game state. Each move has three parts:
 
 ```typescript
-import { defineMove } from "@tcg/core";
+import { defineMove } from "@drmxrcy/tcg-core";
 
 export const YourMove = defineMove({
   type: "YOUR_MOVE",
@@ -179,7 +179,7 @@ export const YourMove = defineMove({
 Games are defined through a configuration object:
 
 ```typescript
-import { defineGame } from "@tcg/core";
+import { defineGame } from "@drmxrcy/tcg-core";
 
 export const yourGame = defineGame({
   id: "your-game",
@@ -233,7 +233,7 @@ See `packages/gundam-engine` for a complete example.
 Create `src/types.ts` with your game-specific type definitions:
 
 ```typescript
-import type { GameState, PlayerId, CardId } from "@tcg/core";
+import type { GameState, PlayerId, CardId } from "@drmxrcy/tcg-core";
 
 export type YourGameState = GameState & {
   yourGame: {
@@ -263,7 +263,7 @@ Create move files in `src/moves/`:
 
 ```typescript
 // src/moves/play-card.ts
-import { defineMove } from "@tcg/core";
+import { defineMove } from "@drmxrcy/tcg-core";
 import type { YourGameState } from "../types";
 
 type PlayCardParams = {
@@ -328,7 +328,7 @@ Create phase definitions in `src/phases/`:
 
 ```typescript
 // src/phases/main-phase.ts
-import { definePhase } from "@tcg/core";
+import { definePhase } from "@drmxrcy/tcg-core";
 import type { YourGameState } from "../types";
 
 export const MainPhase = definePhase<YourGameState>({
@@ -364,7 +364,7 @@ Create zone configurations in `src/zones/`:
 
 ```typescript
 // src/zones/hand-zone.ts
-import { defineZone } from "@tcg/core";
+import { defineZone } from "@drmxrcy/tcg-core";
 
 export const HandZone = defineZone({
   id: "hand",
@@ -400,7 +400,7 @@ export const HandZone = defineZone({
 Bring it all together in `src/game-definition.ts`:
 
 ```typescript
-import { defineGame } from "@tcg/core";
+import { defineGame } from "@drmxrcy/tcg-core";
 import type { YourGameState, YourGameMove } from "./types";
 import * as moves from "./moves";
 import * as phases from "./phases";

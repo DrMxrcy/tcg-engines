@@ -1,10 +1,10 @@
 # Card Tooling Guide
 
-> Building card management tools with @tcg/core/tooling
+> Building card management tools with @drmxrcy/tcg-core/tooling
 
 ## Overview
 
-The `@tcg/core/tooling` module provides reusable infrastructure for building card management tools including parsers, generators, validators, and file utilities. This allows game engines to focus on game-specific logic while leveraging a battle-tested foundation for card tooling.
+The `@drmxrcy/tcg-core/tooling` module provides reusable infrastructure for building card management tools including parsers, generators, validators, and file utilities. This allows game engines to focus on game-specific logic while leveraging a battle-tested foundation for card tooling.
 
 ## Table of Contents
 
@@ -27,7 +27,7 @@ import {
   FileWriter,
   formatTypeScript,
   generateVariableName,
-} from '@tcg/core/tooling';
+} from '@drmxrcy/tcg-core/tooling';
 
 // 1. Define your card type
 type MyCard = {
@@ -76,7 +76,7 @@ The `CardParser` abstract class provides infrastructure for parsing card data fr
 ### Basic Parser
 
 ```typescript
-import { CardParser, type ParserResult } from '@tcg/core/tooling';
+import { CardParser, type ParserResult } from '@drmxrcy/tcg-core/tooling';
 
 type CardData = {
   name: string;
@@ -242,8 +242,8 @@ The `CardGenerator` abstract class generates TypeScript code from card definitio
 ### Basic Generator
 
 ```typescript
-import { CardGenerator } from '@tcg/core/tooling';
-import { generateVariableName, toPascalCase } from '@tcg/core/tooling';
+import { CardGenerator } from '@drmxrcy/tcg-core/tooling';
+import { generateVariableName, toPascalCase } from '@drmxrcy/tcg-core/tooling';
 
 class SimpleCardGenerator extends CardGenerator<CardData> {
   protected generateContent(card: CardData): string {
@@ -309,7 +309,7 @@ class TemplatedCardGenerator extends CardGenerator<CardData> {
   private generateImports(card: CardData): string {
     return `
 import type { ${toPascalCase(card.type)}Card } from './types';
-import { createCardId } from '@tcg/core';
+import { createCardId } from '@drmxrcy/tcg-core';
     `.trim();
   }
 
@@ -363,7 +363,7 @@ ${this.generateCardObject(card)}
 The `CardValidator` abstract class validates card definitions.
 
 ```typescript
-import { CardValidator, type ValidationResult } from '@tcg/core/tooling';
+import { CardValidator, type ValidationResult } from '@drmxrcy/tcg-core/tooling';
 
 class MyCardValidator extends CardValidator<CardData> {
   protected doValidate(card: CardData): ValidationResult {
@@ -426,7 +426,7 @@ const validCards = validator.validateSuccessful(cards);
 Handles writing generated files with formatting:
 
 ```typescript
-import { FileWriter, formatTypeScript } from '@tcg/core/tooling';
+import { FileWriter, formatTypeScript } from '@drmxrcy/tcg-core/tooling';
 
 const writer = new FileWriter('./output/cards');
 
@@ -450,7 +450,7 @@ import {
   ensureDirectory,
   createDirectory,
   pathExists,
-} from '@tcg/core/tooling';
+} from '@drmxrcy/tcg-core/tooling';
 
 // Ensure directory exists (creates if needed)
 await ensureDirectory('./output/cards');
@@ -475,7 +475,7 @@ import {
   toPascalCase,
   toCamelCase,
   toSnakeCase,
-} from '@tcg/core/tooling';
+} from '@drmxrcy/tcg-core/tooling';
 
 const name = 'Lightning Bolt';
 
@@ -505,7 +505,7 @@ const typeName = `${toPascalCase(card.type)}Card`;
 Format generated code with Biome:
 
 ```typescript
-import { formatTypeScript, formatJSON } from '@tcg/core/tooling';
+import { formatTypeScript, formatJSON } from '@drmxrcy/tcg-core/tooling';
 
 // Format TypeScript
 const code = `const x={name:'test',cost:5};`;
@@ -542,7 +542,7 @@ import {
   toKebabCase,
   type ParserResult,
   type ValidationResult,
-} from '@tcg/core/tooling';
+} from '@drmxrcy/tcg-core/tooling';
 
 // 1. Define card type
 type GameCard = {
@@ -634,7 +634,7 @@ class GameCardGenerator extends CardGenerator<GameCard> {
 
     let content = `
 import type { ${card.type === 'creature' ? 'CreatureCard' : 'SpellCard'} } from './types';
-import { createCardId } from '@tcg/core';
+import { createCardId } from '@drmxrcy/tcg-core';
 
 export const ${varName}: ${card.type === 'creature' ? 'CreatureCard' : 'SpellCard'} = {
   id: createCardId('${toKebabCase(card.name)}'),
@@ -851,8 +851,8 @@ function generateCard(card: Card): string {
   return `export const ${card.name.toUpperCase()} = ${JSON.stringify(card)};`;
 }
 
-// NEW (@tcg/core/tooling)
-import { CardParser, CardGenerator, type ParserResult } from '@tcg/core/tooling';
+// NEW (@drmxrcy/tcg-core/tooling)
+import { CardParser, CardGenerator, type ParserResult } from '@drmxrcy/tcg-core/tooling';
 
 class MyParser extends CardParser<string, Card> {
   protected doParse(text: string): ParserResult<Card> {
@@ -869,7 +869,7 @@ class MyGenerator extends CardGenerator<Card> {
 }
 ```
 
-**Benefits of @tcg/core/tooling:**
+**Benefits of @drmxrcy/tcg-core/tooling:**
 - Built-in error handling
 - Consistent API across games
 - Batch operation support

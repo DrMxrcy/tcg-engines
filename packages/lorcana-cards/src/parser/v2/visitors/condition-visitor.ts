@@ -3,13 +3,13 @@
  * Transforms CST nodes for condition clauses into typed condition objects.
  */
 
-import type { IfCondition } from "@tcg/lorcana-types/abilities";
+import type { IfCondition } from "@drmxrcy/tcg-lorcana-types/abilities";
 import type { CstNode, IToken } from "chevrotain";
 import { logger } from "../logging";
 
 /**
  * Intermediate condition object representing when/under what circumstances an effect applies.
- * This is converted to full Condition types from @tcg/lorcana-types before use.
+ * This is converted to full Condition types from @drmxrcy/tcg-lorcana-types before use.
  */
 export interface VisitorCondition {
   type: "if" | "during" | "at" | "with" | "without";
@@ -279,7 +279,7 @@ export function parseConditionFromText(text: string): VisitorCondition | null {
 }
 
 /**
- * Convert VisitorCondition to full Condition type from @tcg/lorcana-types.
+ * Convert VisitorCondition to full Condition type from @drmxrcy/tcg-lorcana-types.
  * All variants are converted to IfCondition as the catch-all type.
  * The expression is preserved without adding the type prefix.
  */

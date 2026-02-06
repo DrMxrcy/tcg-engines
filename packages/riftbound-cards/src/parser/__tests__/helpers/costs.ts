@@ -2,10 +2,10 @@
  * Test helper builders for Riftbound costs
  *
  * Provides fluent builders for creating cost objects in tests.
- * These match the types in @tcg/riftbound-types.
+ * These match the types in @drmxrcy/tcg-riftbound-types.
  */
 
-import type { Cost, Domain, Target } from "@tcg/riftbound-types";
+import type { Cost, Domain, Target } from "@drmxrcy/tcg-riftbound-types";
 
 /**
  * Cost builder helpers for tests

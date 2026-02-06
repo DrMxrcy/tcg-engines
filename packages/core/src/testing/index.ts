@@ -1,5 +1,5 @@
 /**
- * @tcg/core/testing
+ * @drmxrcy/tcg-core/testing
  *
  * Testing utilities for game engine development
  *
@@ -21,7 +21,7 @@
  *   createTestDeck,
  *   withSeed,
  *   expectDeterministicReplay
- * } from '@tcg/core/testing';
+ * } from '@drmxrcy/tcg-core/testing';
  *
  * // Test move execution
  * expectMoveSuccess(engine, 'playCard', {
@@ -45,7 +45,7 @@
  * expectDeterministicReplay(engine);
  * ```
  *
- * @module @tcg/core/testing
+ * @module @drmxrcy/tcg-core/testing
  */
 
 // Move assertions

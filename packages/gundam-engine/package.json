@@ -1,7 +1,7 @@
 {
   "name": "@drmxrcy/tcg-gundam",
   "version": "0.1.0",
-  "description": "Gundam Card Game engine implementation using @tcg/core framework",
+  "description": "Gundam Card Game engine implementation using @drmxrcy/tcg-core framework",
   "private": false,
   "main": "./src/index.ts",
   "types": "./src/index.d.ts",

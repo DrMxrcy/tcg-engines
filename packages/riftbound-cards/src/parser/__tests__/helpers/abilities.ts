@@ -2,7 +2,7 @@
  * Test helper builders for Riftbound abilities
  *
  * Provides fluent builders for creating ability objects in tests.
- * These match the types in @tcg/riftbound-types.
+ * These match the types in @drmxrcy/tcg-riftbound-types.
  */
 
 import type {
@@ -25,7 +25,7 @@ import type {
   TriggeredAbility,
   ValueKeyword,
   ValueKeywordAbility,
-} from "@tcg/riftbound-types";
+} from "@drmxrcy/tcg-riftbound-types";
 
 /**
  * Ability builder helpers for tests

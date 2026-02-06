@@ -11,7 +11,7 @@
  *
  * References:
  * - Gundam Official Rules: Draw Phase
- * - @tcg/core draw function
+ * - @drmxrcy/tcg-core draw function
  */
 
 import { beforeEach, describe, expect, it } from "bun:test";
@@ -20,7 +20,7 @@ import {
   createCardId,
   createPlayerId,
   type PlayerId,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 import { createDeckZone, createHandZone, drawCards } from "../../zones";
 
 describe("Draw Move", () => {

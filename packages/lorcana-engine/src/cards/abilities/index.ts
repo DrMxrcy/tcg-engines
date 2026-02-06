@@ -54,7 +54,7 @@
  */
 
 // Re-export all types from lorcana-types
-export * from "@tcg/lorcana-types/abilities";
+export * from "@drmxrcy/tcg-lorcana-types/abilities";
 
 // ============================================================================
 // Version Info

@@ -1,4 +1,4 @@
-import type { ItemCard } from "@tcg/lorcana-types";
+import type { ItemCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const visionSlab: ItemCard = {
   id: "1s5",

@@ -2,7 +2,7 @@
  * Test helper builders for Riftbound targets
  *
  * Provides fluent builders for creating target objects in tests.
- * These match the types in @tcg/riftbound-types.
+ * These match the types in @drmxrcy/tcg-riftbound-types.
  */
 
 import type {
@@ -16,7 +16,7 @@ import type {
   Target,
   TargetController,
   TriggerSourceTarget,
-} from "@tcg/riftbound-types";
+} from "@drmxrcy/tcg-riftbound-types";
 
 /**
  * Target builder helpers for tests

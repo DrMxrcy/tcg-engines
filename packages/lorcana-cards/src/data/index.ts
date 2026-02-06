@@ -118,7 +118,7 @@ export const sets = setsData as unknown as Record<string, SetDefinition>;
 export const idMapping = idMappingData as unknown as IdMapping;
 
 // Computed collections
-// Internal-only: allCanonicalCards should not be exported - use allCards from @tcg/lorcana-cards/cards instead
+// Internal-only: allCanonicalCards should not be exported - use allCards from @drmxrcy/tcg-lorcana-cards/cards instead
 const allCanonicalCards: CanonicalCard[] = Object.values(canonicalCards);
 export const allPrintings: CardPrinting[] = Object.values(printings);
 export const allSets: SetDefinition[] = Object.values(sets).sort(

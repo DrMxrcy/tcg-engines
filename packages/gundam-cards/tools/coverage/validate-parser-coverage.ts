@@ -1,4 +1,4 @@
-import type { Effect } from "@tcg/gundam-types";
+import type { Effect } from "@drmxrcy/tcg-gundam-types";
 import { GD01, ST01, ST02, ST03, ST04, ST05 } from "../../src";
 import { parseCardText } from "../parser/text-parser";
 

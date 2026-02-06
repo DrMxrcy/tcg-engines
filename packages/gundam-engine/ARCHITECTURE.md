@@ -1,16 +1,16 @@
-# @tcg/gundam Architecture
+# @drmxrcy/tcg-gundam Architecture
 
-This document describes the architecture and design patterns for implementing TCG engines using the `@tcg/core` framework, using the Gundam Card Game as a reference implementation.
+This document describes the architecture and design patterns for implementing TCG engines using the `@drmxrcy/tcg-core` framework, using the Gundam Card Game as a reference implementation.
 
 ## Overview
 
-The `@tcg/gundam` package demonstrates how to build a production-ready TCG engine by extending the `@tcg/core` framework. This architecture serves as a template for implementing other trading card games.
+The `@drmxrcy/tcg-gundam` package demonstrates how to build a production-ready TCG engine by extending the `@drmxrcy/tcg-core` framework. This architecture serves as a template for implementing other trading card games.
 
 ## Architectural Principles
 
 ### 1. Framework Extension, Not Modification
 
-The game-specific implementation extends `@tcg/core` without modifying it. The core framework provides:
+The game-specific implementation extends `@drmxrcy/tcg-core` without modifying it. The core framework provides:
 
 - Base state management
 - Move execution system
@@ -31,7 +31,7 @@ The game implementation provides:
 All game-specific types extend core framework types:
 
 ```typescript
-import type { GameState, Move, Zone } from "@tcg/core";
+import type { GameState, Move, Zone } from "@drmxrcy/tcg-core";
 
 // Extend core state with game-specific properties
 type GundamGameState = GameState & {
@@ -57,7 +57,7 @@ type GundamMove =
 The game is defined declaratively through a `GameDefinition`:
 
 ```typescript
-import { defineGame } from "@tcg/core";
+import { defineGame } from "@drmxrcy/tcg-core";
 
 const gundamGame = defineGame({
   id: "gundam-card-game",
@@ -172,7 +172,7 @@ packages/gundam-engine/
 State is immutable and managed by the framework. Game-specific state extends the core state:
 
 ```typescript
-// Core state (provided by @tcg/core)
+// Core state (provided by @drmxrcy/tcg-core)
 type CoreGameState = {
   players: Player[];
   currentPlayer: PlayerId;
@@ -203,7 +203,7 @@ Moves are the only way to modify game state. Each move:
 3. Returns new state or error
 
 ```typescript
-import { defineMove } from "@tcg/core";
+import { defineMove } from "@drmxrcy/tcg-core";
 
 export const DeployUnitMove = defineMove({
   type: "DEPLOY_UNIT",
@@ -240,7 +240,7 @@ Phases define the game flow. Each phase:
 3. Determines next phase
 
 ```typescript
-import { definePhase } from "@tcg/core";
+import { definePhase } from "@drmxrcy/tcg-core";
 
 export const MainPhase = definePhase({
   id: "main",
@@ -276,7 +276,7 @@ export const MainPhase = definePhase({
 Zones are configured with visibility, ordering, and rules:
 
 ```typescript
-import { defineZone } from "@tcg/core";
+import { defineZone } from "@drmxrcy/tcg-core";
 
 export const BattleAreaZone = defineZone({
   id: "battle-area",
@@ -312,7 +312,7 @@ export const BattleAreaZone = defineZone({
 Cards are defined declaratively with abilities and effects:
 
 ```typescript
-import { defineCard } from "@tcg/core";
+import { defineCard } from "@drmxrcy/tcg-core";
 
 export const RX78_2Gundam = defineCard({
   id: "gd01-001",
@@ -341,7 +341,7 @@ export const RX78_2Gundam = defineCard({
 });
 ```
 
-## Integration with @tcg/core
+## Integration with @drmxrcy/tcg-core
 
 ### Required Exports
 

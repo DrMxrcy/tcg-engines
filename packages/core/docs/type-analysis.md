@@ -1,4 +1,4 @@
-# @tcg/core Type Analysis
+# @drmxrcy/tcg-core Type Analysis
 
 **Date:** 2025-10-09  
 **Purpose:** Complete inventory and analysis of types across core, lorcana-engine, and gundam-engine  
@@ -15,7 +15,7 @@ This document provides a comprehensive analysis of type definitions across the t
 
 ## 1. Branded Types System
 
-### 1.1 @tcg/core (Current)
+### 1.1 @drmxrcy/tcg-core (Current)
 
 **File:** `packages/core/src/types/branded.ts`
 
@@ -35,7 +35,7 @@ export type ZoneId = Brand<string, "ZoneId">;
 
 ###
 
- 1.2 @tcg/lorcana-engine (Duplication)
+ 1.2 @drmxrcy/tcg-lorcana-engine (Duplication)
 
 **File:** `packages/lorcana-engine/src/types/branded-types.ts`
 
@@ -60,7 +60,7 @@ export type GameId = Brand<string, "GameId">;
 - Includes `AbilityId` type not in core
 - Adds validation (throws on empty string)
 
-### 1.3 @tcg/gundam-engine
+### 1.3 @drmxrcy/tcg-gundam-engine
 
 **Status:** No branded types redefined, would use core types (not yet implemented)
 
@@ -80,7 +80,7 @@ export type GameId = Brand<string, "GameId">;
 
 ## 2. Zone System
 
-### 2.1 @tcg/core (Current)
+### 2.1 @drmxrcy/tcg-core (Current)
 
 **File:** `packages/core/src/zones/zone.ts`
 
@@ -109,7 +109,7 @@ export type Zone = {
 - `shuffle`, `draw`, `mill`, `peek`, `reveal`, `search`
 - `getTopCard`, `getBottomCard`
 
-### 2.2 @tcg/lorcana-engine (Conflict)
+### 2.2 @drmxrcy/tcg-lorcana-engine (Conflict)
 
 **File:** `packages/lorcana-engine/src/game-definition/zones.ts`
 
@@ -141,7 +141,7 @@ export type ZoneState = Record<PlayerId, CardId[]>;
 - Different state structure: Record vs Zone object
 - Simpler operations (no shuffle, search, etc.)
 
-### 2.3 @tcg/gundam-engine
+### 2.3 @drmxrcy/tcg-gundam-engine
 
 **Status:** Not yet implemented, documented intention to use core
 
@@ -175,7 +175,7 @@ Lorcana's model combines visibility with the `facedown` property:
 
 ## 3. Card System
 
-### 3.1 @tcg/core (Current)
+### 3.1 @drmxrcy/tcg-core (Current)
 
 **File:** `packages/core/src/cards/card-definition.ts`
 
@@ -210,7 +210,7 @@ export type CardInstance<TCustomState = Record<string, never>> =
 **Modifiers:** `packages/core/src/cards/modifiers.ts`
 - `Modifier<TGameState>` type with duration, conditions, effects
 
-### 3.2 @tcg/lorcana-engine
+### 3.2 @drmxrcy/tcg-lorcana-engine
 
 **Status:** Not yet implemented (README.md only)
 
@@ -228,7 +228,7 @@ export type LorcanaCard = {
 };
 ```
 
-### 3.3 @tcg/gundam-engine
+### 3.3 @drmxrcy/tcg-gundam-engine
 
 **File:** `packages/gundam-engine/src/cards/card-types.ts`
 
@@ -300,7 +300,7 @@ export type CardDefinition =
 
 ## 4. Move System
 
-### 4.1 @tcg/core (Current)
+### 4.1 @drmxrcy/tcg-core (Current)
 
 **File:** `packages/core/src/moves/move-system.ts`
 
@@ -351,7 +351,7 @@ export type GameMoveDefinitions<TState, TMoves extends Record<string, any>> = {
 };
 ```
 
-### 4.2 @tcg/lorcana-engine
+### 4.2 @drmxrcy/tcg-lorcana-engine
 
 **Status:** Not yet implemented (README.md only)
 
@@ -364,7 +364,7 @@ Planned moves (from README):
 
 Move parameter types planned but not implemented.
 
-### 4.3 @tcg/gundam-engine
+### 4.3 @drmxrcy/tcg-gundam-engine
 
 **Status:** Not yet implemented (documented in architecture)
 
@@ -385,7 +385,7 @@ Move parameter types planned but not implemented.
 
 ## 5. Game State
 
-### 5.1 @tcg/core (Current)
+### 5.1 @drmxrcy/tcg-core (Current)
 
 **Status:** No base game state type defined
 
@@ -409,7 +409,7 @@ export type GameDefinition<TState, TMoves extends Record<string, any>> = {
 
 **Observation:** `TState` is completely generic, no base structure
 
-### 5.2 @tcg/lorcana-engine
+### 5.2 @drmxrcy/tcg-lorcana-engine
 
 **File:** `packages/lorcana-engine/src/types/lorcana-state.ts`
 
@@ -435,7 +435,7 @@ export type LorcanaState = {
 };
 ```
 
-### 5.3 @tcg/gundam-engine
+### 5.3 @drmxrcy/tcg-gundam-engine
 
 **Status:** Documented structure (from ARCHITECTURE.md):
 
@@ -487,7 +487,7 @@ type LorcanaState = GameState & {
 
 ## 6. Flow System
 
-### 6.1 @tcg/core (Current)
+### 6.1 @drmxrcy/tcg-core (Current)
 
 **File:** `packages/core/src/flow/flow-definition.ts`
 
@@ -506,7 +506,7 @@ Comprehensive flow system with:
 - Lifecycle hooks at every level
 - Automatic end conditions
 
-### 6.2 @tcg/lorcana-engine
+### 6.2 @drmxrcy/tcg-lorcana-engine
 
 **Status:** Not yet implemented
 
@@ -514,7 +514,7 @@ Planned:
 - 3 phases (beginning, main, end)
 - 3 steps in beginning phase (ready, set, draw)
 
-### 6.3 @tcg/gundam-engine
+### 6.3 @drmxrcy/tcg-gundam-engine
 
 **Status:** Documented structure (from ARCHITECTURE.md):
 
@@ -535,7 +535,7 @@ Both engines can use as-is:
 
 ## 7. Targeting System
 
-### 7.1 @tcg/core (Current)
+### 7.1 @drmxrcy/tcg-core (Current)
 
 **File:** `packages/core/src/targeting/target-definition.ts`
 
@@ -563,11 +563,11 @@ export type TargetDefinition = {
 **File:** `packages/core/src/targeting/target-validation.ts`
 - `validateTargetSelection` function
 
-### 7.2 @tcg/lorcana-engine
+### 7.2 @drmxrcy/tcg-lorcana-engine
 
 **Status:** Not yet implemented
 
-### 7.3 @tcg/gundam-engine
+### 7.3 @drmxrcy/tcg-gundam-engine
 
 **Status:** Not yet implemented
 

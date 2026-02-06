@@ -2,7 +2,7 @@
  * Test helper builders for Riftbound triggers
  *
  * Provides fluent builders for creating trigger objects in tests.
- * These match the types in @tcg/riftbound-types.
+ * These match the types in @drmxrcy/tcg-riftbound-types.
  */
 
 import type {
@@ -11,7 +11,7 @@ import type {
   TriggerEvent,
   TriggerRestriction,
   TriggerSubject,
-} from "@tcg/riftbound-types";
+} from "@drmxrcy/tcg-riftbound-types";
 
 /**
  * Trigger builder helpers for tests

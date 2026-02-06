@@ -6,7 +6,7 @@
  * Usage: bun run scripts/scrape-set.ts ST01
  */
 
-import type { CardDefinition } from "@tcg/gundam-types";
+import type { CardDefinition } from "@drmxrcy/tcg-gundam-types";
 import { createCardDefinition } from "../tools/generator/card-generator";
 import { generateSetIndex, saveCardFile } from "../tools/generator/file-writer";
 import { parseCardText } from "../tools/parser/text-parser";

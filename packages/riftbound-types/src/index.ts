@@ -1,5 +1,5 @@
 /**
- * @tcg/riftbound-types
+ * @drmxrcy/tcg-riftbound-types
  *
  * Complete type definitions for Riftbound TCG.
  * This package provides types without runtime dependencies,

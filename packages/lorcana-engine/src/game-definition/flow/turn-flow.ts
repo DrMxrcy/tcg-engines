@@ -1,4 +1,4 @@
-import { createPlayerId, type FlowDefinition } from "@tcg/core";
+import { createPlayerId, type FlowDefinition } from "@drmxrcy/tcg-core";
 import type { LorcanaCardMeta, LorcanaGameState } from "../../types";
 
 /**

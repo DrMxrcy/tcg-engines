@@ -1,5 +1,5 @@
 /**
- * Validation utilities for @tcg/core
+ * Validation utilities for @drmxrcy/tcg-core
  *
  * This module provides type guards, validators, and schema builders
  * for runtime validation of cards, moves, and game states.

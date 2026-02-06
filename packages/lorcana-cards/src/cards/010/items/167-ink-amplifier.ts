@@ -1,4 +1,4 @@
-import type { ItemCard } from "@tcg/lorcana-types";
+import type { ItemCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const inkAmplifier: ItemCard = {
   id: "1gc",

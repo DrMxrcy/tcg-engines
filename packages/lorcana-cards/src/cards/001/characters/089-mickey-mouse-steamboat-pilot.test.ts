@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { mickeyMouseSteamboatPilot } from "./089-mickey-mouse-steamboat-pilot";
 
 describe("Mickey Mouse - Steamboat Pilot", () => {

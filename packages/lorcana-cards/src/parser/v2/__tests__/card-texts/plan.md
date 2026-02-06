@@ -36,7 +36,7 @@ The purpose is to document what the parser *should* output for each card, so tha
 
 ### Parser Return Type
 
-Based on `@tcg/lorcana-types`, the parser returns:
+Based on `@drmxrcy/tcg-lorcana-types`, the parser returns:
 ```typescript
 interface MultiParseResult {
   success: boolean;
@@ -68,7 +68,7 @@ expect(result.abilities[0]).toEqual(...)
 
 ### Simple Keywords (no value)
 ```typescript
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 // Bodyguard, Support, Rush, Ward, Evasive, Reckless, Alert
 const bodyguard: KeywordAbilityDefinition = {
@@ -83,7 +83,7 @@ expect(result.abilities[0].ability).toEqual(
 
 ### Keywords with Value
 ```typescript
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 // Challenger +N, Resist +N, Singer N, Boost N
 const challenger: KeywordAbilityDefinition = {
@@ -99,7 +99,7 @@ expect(result.abilities[0].ability).toEqual(
 
 ### Shift Keyword (special structure)
 ```typescript
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const shift: KeywordAbilityDefinition = {
   type: "keyword",
@@ -150,7 +150,7 @@ expect(result.abilities[0].ability).toEqual(
 
 ### Example Triggered Ability
 ```typescript
-import type { TriggeredAbilityDefinition } from "@tcg/lorcana-types";
+import type { TriggeredAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const abilityName: TriggeredAbilityDefinition = {
   type: "triggered",
@@ -188,7 +188,7 @@ Static abilities provide continuous effects while in play.
 
 ### Example Static Abilities
 ```typescript
-import type { StaticAbilityDefinition } from "@tcg/lorcana-types";
+import type { StaticAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 // Stat modifier
 const highEnergy: StaticAbilityDefinition = {
@@ -244,7 +244,7 @@ expect(result.abilities[0].ability).toEqual(
 
 ### Cost Structure
 ```typescript
-import type { AbilityCost } from "@tcg/lorcana-types";
+import type { AbilityCost } from "@drmxrcy/tcg-lorcana-types";
 
 const cost: AbilityCost = {
   ink: 1,           // {I} cost
@@ -255,7 +255,7 @@ const cost: AbilityCost = {
 
 ### Example Activated Ability
 ```typescript
-import type { ActivatedAbilityDefinition } from "@tcg/lorcana-types";
+import type { ActivatedAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const wildRage: ActivatedAbilityDefinition = {
   type: "activated",
@@ -282,7 +282,7 @@ expect(result.abilities[0].ability).toEqual(
 Action cards have a single action ability with their effect.
 
 ```typescript
-import type { ActionAbilityDefinition } from "@tcg/lorcana-types";
+import type { ActionAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 // Simple action
 const banishAction: ActionAbilityDefinition = {
@@ -395,7 +395,7 @@ For each card:
 ### Example of a completed test (still skipped):
 
 ```typescript
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 it.skip("Baloo - Friend and Guardian: should parse card text", () => {
   const text = "Bodyguard...\nSupport...";
@@ -427,7 +427,7 @@ it.skip("Baloo - Friend and Guardian: should parse card text", () => {
 ### Complex Example with Multiple Ability Types
 
 ```typescript
-import type { KeywordAbilityDefinition, TriggeredAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition, TriggeredAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 it.skip("Scrooge McDuck - Cavern Prospector: should parse card text", () => {
   const text =
@@ -474,7 +474,7 @@ it.skip("Scrooge McDuck - Cavern Prospector: should parse card text", () => {
 
 1. **Always use `.ability`** - Access `result.abilities[X].ability`, not `result.abilities[X]`
 
-2. **Use typed ability definitions** - Import types from `@tcg/lorcana-types` for compile-time validation
+2. **Use typed ability definitions** - Import types from `@drmxrcy/tcg-lorcana-types` for compile-time validation
 
 3. **Use `expect.objectContaining`** - Wrap your typed ability in `expect.objectContaining()` to allow extra properties
 
@@ -500,10 +500,10 @@ it.skip("Scrooge McDuck - Cavern Prospector: should parse card text", () => {
 
 ### Use Typed Ability Definitions (PREFERRED)
 
-Define expected abilities using `AbilityDefinition` types from `@tcg/lorcana-types`. This provides **compile-time type checking** - if the ability structure is wrong, TypeScript will catch it before the test runs.
+Define expected abilities using `AbilityDefinition` types from `@drmxrcy/tcg-lorcana-types`. This provides **compile-time type checking** - if the ability structure is wrong, TypeScript will catch it before the test runs.
 
 ```typescript
-import type { ActivatedAbilityDefinition } from "@tcg/lorcana-types";
+import type { ActivatedAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const wildRage: ActivatedAbilityDefinition = {
   type: "activated",
@@ -531,7 +531,7 @@ expect(result.abilities[0].ability).toEqual(
 
 ### Available Ability Definition Types
 
-Import from `@tcg/lorcana-types`:
+Import from `@drmxrcy/tcg-lorcana-types`:
 
 | Type | Use For |
 |------|---------|
@@ -547,7 +547,7 @@ Import from `@tcg/lorcana-types`:
 
 #### Keyword ability
 ```typescript
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const bodyguard: KeywordAbilityDefinition = {
   type: "keyword",
@@ -561,7 +561,7 @@ expect(result.abilities[0].ability).toEqual(
 
 #### Keyword with value
 ```typescript
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const singer: KeywordAbilityDefinition = {
   type: "keyword",
@@ -576,7 +576,7 @@ expect(result.abilities[0].ability).toEqual(
 
 #### Shift keyword
 ```typescript
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const shift: KeywordAbilityDefinition = {
   type: "keyword",
@@ -591,7 +591,7 @@ expect(result.abilities[0].ability).toEqual(
 
 #### Triggered ability
 ```typescript
-import type { TriggeredAbilityDefinition } from "@tcg/lorcana-types";
+import type { TriggeredAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const castMySpell: TriggeredAbilityDefinition = {
   type: "triggered",
@@ -618,7 +618,7 @@ expect(result.abilities[0].ability).toEqual(
 
 #### Activated ability
 ```typescript
-import type { ActivatedAbilityDefinition } from "@tcg/lorcana-types";
+import type { ActivatedAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const quickShot: ActivatedAbilityDefinition = {
   type: "activated",
@@ -641,7 +641,7 @@ expect(result.abilities[0].ability).toEqual(
 
 #### Static ability
 ```typescript
-import type { StaticAbilityDefinition } from "@tcg/lorcana-types";
+import type { StaticAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const allForOne: StaticAbilityDefinition = {
   type: "static",
@@ -661,7 +661,7 @@ expect(result.abilities[0].ability).toEqual(
 
 #### Action ability
 ```typescript
-import type { ActionAbilityDefinition } from "@tcg/lorcana-types";
+import type { ActionAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const drawCards: ActionAbilityDefinition = {
   type: "action",
@@ -695,7 +695,7 @@ expect(result.abilities[0].ability).toEqual(
 );
 
 // ✅ CORRECT - Always use typed definitions
-import type { KeywordAbilityDefinition } from "@tcg/lorcana-types";
+import type { KeywordAbilityDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 const bodyguard: KeywordAbilityDefinition = {
   type: "keyword",

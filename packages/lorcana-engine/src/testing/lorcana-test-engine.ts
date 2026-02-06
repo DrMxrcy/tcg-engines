@@ -2,7 +2,7 @@
  * Lorcana Test Engine
  *
  * Convenient test wrapper around RuleEngine for testing Lorcana games.
- * Provides ergonomic API similar to legacy test engine while using @tcg/core framework.
+ * Provides ergonomic API similar to legacy test engine while using @drmxrcy/tcg-core framework.
  *
  * Features:
  * - Multiple engine instances (authoritative + player engines) for realistic testing
@@ -18,14 +18,14 @@ import {
   createPlayerId,
   createZoneOperations,
   type RuleEngineOptions,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 import type {
   LorcanaCardDefinition,
   ActionCard as LorcanaTypesActionCard,
   CharacterCard as LorcanaTypesCharacterCard,
   ItemCard as LorcanaTypesItemCard,
   LocationCard as LorcanaTypesLocationCard,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import { LorcanaEngine } from "../engine/lorcana-engine";
 import { lorcanaGameDefinition } from "../game-definition/definition";
 import type {
@@ -277,7 +277,7 @@ export class LorcanaTestEngine {
    * - Numbers: Creates placeholder cards (e.g., { hand: 7 })
    * - Card definitions: Creates real cards with the provided definitions (e.g., { play: [heiheiCard] })
    *
-   * TODO: @tcg/core should expose a proper TestEngine base class with this capability
+   * TODO: @drmxrcy/tcg-core should expose a proper TestEngine base class with this capability
    */
   private initializeZones(
     playerOneState: TestInitialState,

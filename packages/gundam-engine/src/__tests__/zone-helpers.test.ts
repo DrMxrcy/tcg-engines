@@ -1,19 +1,19 @@
 /**
  * Gundam Card Game - Zone Helper Tests
  *
- * Tests for gundam-specific zone helper functions using @tcg/core/testing utilities.
+ * Tests for gundam-specific zone helper functions using @drmxrcy/tcg-core/testing utilities.
  * Demonstrates proper usage of test factories, assertions, and builders.
  *
  * @module __tests__/zone-helpers
  */
 
 import { beforeEach, describe, expect, it } from "bun:test";
-import { type CardId, createPlayerId } from "@tcg/core";
+import { type CardId, createPlayerId } from "@drmxrcy/tcg-core";
 import {
   createTestCard,
   createTestCards,
   resetCardCounter,
-} from "@tcg/core/testing";
+} from "@drmxrcy/tcg-core/testing";
 import {
   createPlayerZones,
   deployUnit,
@@ -24,7 +24,7 @@ import {
   takeDamage,
 } from "../zones";
 
-describe("Gundam Zone Helpers - Using @tcg/core/testing", () => {
+describe("Gundam Zone Helpers - Using @drmxrcy/tcg-core/testing", () => {
   beforeEach(() => {
     // Reset card counter for deterministic test IDs
     resetCardCounter();

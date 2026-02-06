@@ -1,4 +1,4 @@
-import type { ActionCard } from "@tcg/lorcana-types";
+import type { ActionCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const trustInMe: ActionCard = {
   id: "1dp",

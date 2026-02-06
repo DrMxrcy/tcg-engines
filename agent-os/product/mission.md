@@ -1,8 +1,8 @@
-# @tcg/core - Product Mission
+# @drmxrcy/tcg-core - Product Mission
 
 ## Product Overview
 
-**@tcg/core** is a production-ready, declarative game engine framework for building trading card games (TCGs) and turn-based strategy games. It provides developers with a complete, type-safe foundation for implementing complex card game rules with immutable state management, network synchronization, and deterministic gameplay.
+**@drmxrcy/tcg-core** is a production-ready, declarative game engine framework for building trading card games (TCGs) and turn-based strategy games. It provides developers with a complete, type-safe foundation for implementing complex card game rules with immutable state management, network synchronization, and deterministic gameplay.
 
 ## Vision
 
@@ -69,7 +69,7 @@ Building a trading card game engine from scratch is complex and time-consuming:
 
 ## Solution
 
-@tcg/core solves these problems by providing:
+@drmxrcy/tcg-core solves these problems by providing:
 
 1. **Declarative Game Definitions** - Define games through configuration objects
 2. **Immutable State via Immer** - Automatic structural sharing for performance
@@ -111,7 +111,7 @@ Building a trading card game engine from scratch is complex and time-consuming:
 ## Success Metrics
 
 ### Adoption Metrics
-- Number of games built with @tcg/core
+- Number of games built with @drmxrcy/tcg-core
 - GitHub stars and community engagement
 - NPM downloads and active projects
 - Community contributions
@@ -155,7 +155,7 @@ Building a trading card game engine from scratch is complex and time-consuming:
 
 ### Differentiation
 
-@tcg/core is differentiated by:
+@drmxrcy/tcg-core is differentiated by:
 - TCG-specific abstractions (zones, cards, targeting)
 - TypeScript-first design
 - Declarative game definitions
@@ -258,7 +258,7 @@ See `roadmap.md` for detailed phase breakdown.
 
 ## Conclusion
 
-@tcg/core represents a comprehensive solution for building production-ready trading card games in TypeScript. By focusing on developer experience, type safety, and production features, it enables developers to build sophisticated card games efficiently while maintaining code quality and testability.
+@drmxrcy/tcg-core represents a comprehensive solution for building production-ready trading card games in TypeScript. By focusing on developer experience, type safety, and production features, it enables developers to build sophisticated card games efficiently while maintaining code quality and testability.
 
 The framework's declarative approach, combined with powerful features like delta synchronization and deterministic gameplay, positions it as the leading choice for TypeScript TCG development.
 

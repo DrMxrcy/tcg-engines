@@ -1,15 +1,15 @@
 /**
  * v2 Parser Type Definitions
  *
- * Re-exports types from @tcg/lorcana-types for use in the parser.
+ * Re-exports types from @drmxrcy/tcg-lorcana-types for use in the parser.
  * This allows the parser to work with proper types without depending
  * on the game engine.
  */
 
 // Import Ability type for local use in interface definitions
-import type { Ability as AbilityType } from "@tcg/lorcana-types";
+import type { Ability as AbilityType } from "@drmxrcy/tcg-lorcana-types";
 
-// Re-export all types from @tcg/lorcana-types
+// Re-export all types from @drmxrcy/tcg-lorcana-types
 export type {
   // Ability types
   Ability,
@@ -101,7 +101,7 @@ export type {
   TriggerSubject,
   TriggerTiming,
   ValueKeywordType,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 
 /**
  * Ability with original text preserved
@@ -222,4 +222,4 @@ export {
   singer,
   staticAbility,
   triggered,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";

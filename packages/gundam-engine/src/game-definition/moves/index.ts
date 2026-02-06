@@ -1,4 +1,4 @@
-import type { GameMoveDefinitions } from "@tcg/core";
+import type { GameMoveDefinitions } from "@drmxrcy/tcg-core";
 import type { GundamCardMeta, GundamGameState, GundamMoves } from "../../types";
 import { attackMove } from "./core/attack";
 import { concede } from "./core/concede";

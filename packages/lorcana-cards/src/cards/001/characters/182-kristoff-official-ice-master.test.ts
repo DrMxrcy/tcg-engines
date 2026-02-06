@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { kristoffOfficialIceMaster } from "./182-kristoff-official-ice-master";
 
 describe("Kristoff - Official Ice Master", () => {

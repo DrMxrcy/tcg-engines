@@ -7,7 +7,7 @@ import {
   Effects,
   Targets,
   Triggers,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import { parseAbilityTextMulti } from "../../parser";
 
 describe("Set 002 Card Text Parser Tests - Characters A M", () => {

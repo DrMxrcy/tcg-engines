@@ -7,7 +7,7 @@
  * Usage: bun run scripts/regenerate-all-from-json.ts
  */
 
-import type { CardDefinition } from "@tcg/gundam-types";
+import type { CardDefinition } from "@drmxrcy/tcg-gundam-types";
 import { createCardDefinition } from "../tools/generator/card-generator";
 import {
   generateMasterIndex,

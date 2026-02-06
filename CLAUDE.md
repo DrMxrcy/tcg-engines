@@ -56,7 +56,7 @@ bun run ci-check     # Run all checks
 
 1. Type-only imports (`import type`)
 2. External packages
-3. Internal packages (`@tcg/core`)
+3. Internal packages (`@drmxrcy/tcg-core`)
 4. Relative imports
 
 ## Project Structure

@@ -1,5 +1,5 @@
 /**
- * @tcg/config - Environment configuration package
+ * @drmxrcy/tcg-config - Environment configuration package
  *
  * Provides type-safe environment variable validation using Zod and @t3-oss/env-core.
  */

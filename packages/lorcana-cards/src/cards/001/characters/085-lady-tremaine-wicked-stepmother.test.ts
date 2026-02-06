@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { ladyTremaineWickedStepmother } from "./085-lady-tremaine-wicked-stepmother";
 
 describe("Lady Tremaine - Wicked Stepmother", () => {

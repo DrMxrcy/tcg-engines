@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { scarShamelessFirebrand } from "./123-scar-shameless-firebrand";
 
 describe("Scar - Shameless Firebrand", () => {

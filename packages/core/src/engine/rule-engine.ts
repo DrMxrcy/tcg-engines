@@ -82,7 +82,7 @@ export type MoveExecutionResult =
  * Record of a move execution for replay/undo functionality.
  * Contains full context, patches, and inverse patches for deterministic replay.
  *
- * Note: For user-facing history with localization, use HistoryEntry from @tcg/core/history
+ * Note: For user-facing history with localization, use HistoryEntry from @drmxrcy/tcg-core/history
  */
 export type ReplayHistoryEntry<
   TParams = any,

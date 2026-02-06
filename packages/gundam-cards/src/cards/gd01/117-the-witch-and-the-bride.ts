@@ -1,4 +1,4 @@
-import type { CommandCardDefinition } from "@tcg/gundam-types";
+import type { CommandCardDefinition } from "@drmxrcy/tcg-gundam-types";
 
 export const TheWitchAndTheBride: CommandCardDefinition = {
   id: "gd01-117",

@@ -10,13 +10,13 @@ import type {
   KeywordAbilityDefinition,
   LorcanaCardDefinition,
   ParameterizedKeywordType,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import {
   getFullName as cardGetFullName,
   isParameterizedKeywordAbility,
   isShiftKeywordAbility,
   isValueKeywordAbility,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 
 // Re-export getFullName for convenience
 export const getFullName = cardGetFullName;

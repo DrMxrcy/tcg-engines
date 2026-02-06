@@ -1,4 +1,4 @@
-# @tcg/core Type Specification
+# @drmxrcy/tcg-core Type Specification
 
 **Date:** 2025-10-09  
 **Version:** 2.0.0 (Breaking Changes)  
@@ -6,7 +6,7 @@
 
 ## Overview
 
-This document specifies the complete type system for `@tcg/core` framework, designed from first principles for trading card games. All types follow these core tenets:
+This document specifies the complete type system for `@drmxrcy/tcg-core` framework, designed from first principles for trading card games. All types follow these core tenets:
 
 1. **Immutability** - All state types are immutable
 2. **Type Safety** - Strict TypeScript with no `any` types
@@ -773,7 +773,7 @@ export type GameDefinition<TState, TMoves extends Record<string, any>> = {
 
 ```typescript
 // Core provides minimal base
-import type { CardDefinition } from "@tcg/core";
+import type { CardDefinition } from "@drmxrcy/tcg-core";
 
 // Game extends with intersection
 export type LorcanaCard = CardDefinition & {
@@ -790,7 +790,7 @@ export type LorcanaCard = CardDefinition & {
 
 ```typescript
 // Core provides base
-import type { GameState, PlayerId, CardId } from "@tcg/core";
+import type { GameState, PlayerId, CardId } from "@drmxrcy/tcg-core";
 
 // Game extends with intersection, overrides phase
 export type LorcanaPhase = "beginning" | "main" | "end";
@@ -813,7 +813,7 @@ export type LorcanaState = GameState & {
 
 ```typescript
 // Core provides base
-import type { CardInstance, CardId } from "@tcg/core";
+import type { CardInstance, CardId } from "@drmxrcy/tcg-core";
 
 // Game extends with custom state
 export type CharacterState = {

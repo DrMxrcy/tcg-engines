@@ -1,6 +1,6 @@
 # Move Enumeration Guide
 
-**@tcg/core** provides a comprehensive move enumeration system that enables AI agents and UI components to discover all available moves with their valid parameters at any game state.
+**@drmxrcy/tcg-core** provides a comprehensive move enumeration system that enables AI agents and UI components to discover all available moves with their valid parameters at any game state.
 
 ---
 
@@ -46,7 +46,7 @@ Move enumeration is the process of discovering all possible moves a player can m
 Add an `enumerator` field to your move definition:
 
 ```typescript
-import { type MoveDefinition } from '@tcg/core';
+import { type MoveDefinition } from '@drmxrcy/tcg-core';
 
 type PlayCardParams = { cardId: string };
 
@@ -617,7 +617,7 @@ function minimax(
 
 ```typescript
 import { useState, useEffect } from 'react';
-import type { RuleEngine, EnumeratedMove, PlayerId } from '@tcg/core';
+import type { RuleEngine, EnumeratedMove, PlayerId } from '@drmxrcy/tcg-core';
 
 function useAvailableMoves(engine: RuleEngine, playerId: PlayerId) {
   const [moves, setMoves] = useState<EnumeratedMove[]>([]);

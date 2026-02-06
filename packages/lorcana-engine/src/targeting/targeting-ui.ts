@@ -8,7 +8,7 @@
  * @module targeting/targeting-ui
  */
 
-import type { TargetingUIHint } from "@tcg/core";
+import type { TargetingUIHint } from "@drmxrcy/tcg-core";
 import {
   expandCharacterTarget,
   expandItemTarget,

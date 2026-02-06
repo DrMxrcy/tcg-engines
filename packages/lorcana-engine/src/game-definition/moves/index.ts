@@ -1,4 +1,4 @@
-import type { GameMoveDefinitions } from "@tcg/core";
+import type { GameMoveDefinitions } from "@drmxrcy/tcg-core";
 import type {
   LorcanaCardMeta,
   LorcanaGameState,

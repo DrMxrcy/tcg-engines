@@ -15,8 +15,8 @@
  * - Rule 6-4: Rested units cannot attack
  */
 
-import type { CardId, GameMoveDefinition, MoveContext } from "@tcg/core";
-import { isCardInZone } from "@tcg/core";
+import type { CardId, GameMoveDefinition, MoveContext } from "@drmxrcy/tcg-core";
+import { isCardInZone } from "@drmxrcy/tcg-core";
 import type { Draft } from "immer";
 import type { GundamGameState } from "../../../types";
 

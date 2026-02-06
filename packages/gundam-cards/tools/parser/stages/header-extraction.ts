@@ -2,7 +2,7 @@ import type {
   EffectCondition,
   EffectCost,
   EffectRestriction,
-} from "@tcg/gundam-types";
+} from "@drmxrcy/tcg-gundam-types";
 
 export interface Headers {
   restrictions: EffectRestriction[];

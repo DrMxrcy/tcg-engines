@@ -1,4 +1,4 @@
-import type { GameDefinition } from "@tcg/core";
+import type { GameDefinition } from "@drmxrcy/tcg-core";
 import type { GundamCardMeta, GundamGameState, GundamMoves } from "../types";
 import { gundamZones } from "../zones/zone-configs";
 import { gundamFlow } from "./flow/turn-flow";

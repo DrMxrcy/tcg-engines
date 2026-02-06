@@ -4,7 +4,7 @@
  * All move definitions for the Riftbound tabletop simulator.
  */
 
-import type { GameMoveDefinitions } from "@tcg/core";
+import type { GameMoveDefinitions } from "@drmxrcy/tcg-core";
 import type {
   RiftboundCardMeta,
   RiftboundGameState,

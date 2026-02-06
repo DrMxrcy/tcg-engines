@@ -1,4 +1,4 @@
-import type { CardZoneConfig, ZoneId } from "@tcg/core";
+import type { CardZoneConfig, ZoneId } from "@drmxrcy/tcg-core";
 
 /**
  * Gundam Zone Configurations

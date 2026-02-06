@@ -40,7 +40,7 @@ type FlowManagerOptions = {
 ### Basic Save/Load Pattern
 
 ```typescript
-import { FlowManager, type FlowDefinition, type SerializedFlowState } from "@tcg/core/flow";
+import { FlowManager, type FlowDefinition, type SerializedFlowState } from "@drmxrcy/tcg-core/flow";
 
 // Define your game flow
 const flow: FlowDefinition<GameState> = {

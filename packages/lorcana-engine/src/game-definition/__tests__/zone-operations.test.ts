@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { createCardId, createPlayerId } from "@tcg/core";
+import { createCardId, createPlayerId } from "@drmxrcy/tcg-core";
 import {
   addCardToZone,
   createZoneState,

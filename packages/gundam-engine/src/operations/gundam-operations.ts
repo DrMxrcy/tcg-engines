@@ -8,7 +8,7 @@
  * Each operation is pure and operates through the MoveContext API.
  */
 
-import type { CardId, MoveContext, PlayerId, ZoneId } from "@tcg/core";
+import type { CardId, MoveContext, PlayerId, ZoneId } from "@drmxrcy/tcg-core";
 import type { GundamCardMeta } from "../types";
 
 /**

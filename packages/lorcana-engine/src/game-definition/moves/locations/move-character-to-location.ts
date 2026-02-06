@@ -1,4 +1,4 @@
-import { createMove } from "@tcg/core";
+import { createMove } from "@drmxrcy/tcg-core";
 import { useLorcanaOps } from "../../../operations";
 import type {
   LorcanaCardMeta,

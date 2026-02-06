@@ -4,7 +4,7 @@ import {
   createMove,
   type PlayerId,
   type ZoneId,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 import type {
   LorcanaCardMeta,
   LorcanaGameState,

@@ -1,7 +1,7 @@
 /**
  * Testing Patterns Examples
  *
- * Demonstrates testing utilities and TDD patterns from @tcg/core/testing
+ * Demonstrates testing utilities and TDD patterns from @drmxrcy/tcg-core/testing
  * Run with: bun test packages/core/docs/examples/test-patterns.ts
  */
 

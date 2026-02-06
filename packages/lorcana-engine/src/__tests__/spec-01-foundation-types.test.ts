@@ -5,7 +5,7 @@
  */
 
 import { describe, expect, it } from "bun:test";
-import type { InkType, LorcanaCardDefinition } from "@tcg/lorcana-types";
+import type { InkType, LorcanaCardDefinition } from "@drmxrcy/tcg-lorcana-types";
 import {
   getAllKeywords,
   getFullName,

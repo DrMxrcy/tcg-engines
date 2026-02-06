@@ -1,4 +1,4 @@
-import type { BaseCardDefinition_Structure } from "@tcg/gundam-types";
+import type { BaseCardDefinition_Structure } from "@drmxrcy/tcg-gundam-types";
 
 export const The13thTacticalTestingSector: BaseCardDefinition_Structure = {
   id: "gd01-130",

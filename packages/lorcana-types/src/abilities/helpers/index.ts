@@ -7,7 +7,7 @@
  *
  * @example
  * ```typescript
- * import { Abilities, Triggers, Effects, Targets, Conditions, Costs } from "@tcg/lorcana-types";
+ * import { Abilities, Triggers, Effects, Targets, Conditions, Costs } from "@drmxrcy/tcg-lorcana-types";
  *
  * // Simple keyword
  * const rush = Abilities.Keyword("Rush");

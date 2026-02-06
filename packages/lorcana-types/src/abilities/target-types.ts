@@ -20,7 +20,7 @@
  * ```
  */
 
-import type { TargetDSL } from "@tcg/core-types";
+import type { TargetDSL } from "@drmxrcy/tcg-core-types";
 
 // ============================================================================
 // Player Targeting

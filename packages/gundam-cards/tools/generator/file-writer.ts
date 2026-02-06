@@ -4,7 +4,7 @@
  * Handles writing card definition files to disk.
  */
 
-import type { CardDefinition } from "@tcg/gundam-types";
+import type { CardDefinition } from "@drmxrcy/tcg-gundam-types";
 import { mkdir, writeFile } from "fs/promises";
 import { dirname, join } from "path";
 import {

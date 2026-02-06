@@ -1,4 +1,4 @@
-import type { Action, EffectCondition, TargetQuery } from "@tcg/gundam-types";
+import type { Action, EffectCondition, TargetQuery } from "@drmxrcy/tcg-gundam-types";
 import { parseTarget } from "./target-parser";
 
 export function parseAction(

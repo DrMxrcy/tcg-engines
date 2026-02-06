@@ -1,7 +1,7 @@
 /**
  * Gundam Card Game - Zone Operations Tests
  *
- * Tests for zone operations using @tcg/core utilities.
+ * Tests for zone operations using @drmxrcy/tcg-core utilities.
  * These tests verify that core zone operations work correctly with Gundam's zone structure.
  *
  * Test Coverage:
@@ -13,7 +13,7 @@
  *
  * References:
  * - Gundam Official Rules v1.0
- * - @tcg/core zone operations API
+ * - @drmxrcy/tcg-core zone operations API
  */
 
 import { beforeEach, describe, expect, it } from "bun:test";
@@ -30,7 +30,7 @@ import {
   removeCard,
   shuffle,
   type Zone,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 describe("Gundam Zone Operations - Core Integration", () => {
   let player1: PlayerId;

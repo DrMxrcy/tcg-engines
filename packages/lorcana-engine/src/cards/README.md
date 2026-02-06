@@ -30,14 +30,14 @@ This directory contains card definitions, abilities, and card-related functional
 
 ## Purpose
 
-This directory defines all Lorcana cards and their abilities, structured to work with the `@tcg/core` card system.
+This directory defines all Lorcana cards and their abilities, structured to work with the `@drmxrcy/tcg-core` card system.
 
 ## Card Definition Pattern
 
 Cards are defined declaratively:
 
 ```typescript
-import type { CardDefinition } from "@tcg/core";
+import type { CardDefinition } from "@drmxrcy/tcg-core";
 import type { LorcanaCard } from "../card-types";
 
 export const mickeyMouseTrueFriend: CardDefinition<LorcanaCard> = {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { cruellaDeVilMiserableAsUsual } from "./072-cruella-de-vil-miserable-as-usual";
 
 describe("Cruella De Vil - Miserable as Usual", () => {

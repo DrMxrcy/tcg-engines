@@ -1,13 +1,13 @@
 # Gundam Card Game - Zone Structure and Testing Patterns
 
-This document describes the zone structure for the Gundam Card Game and demonstrates best practices for testing using `@tcg/core` utilities.
+This document describes the zone structure for the Gundam Card Game and demonstrates best practices for testing using `@drmxrcy/tcg-core` utilities.
 
 ## Table of Contents
 
 1. [Zone Structure](#zone-structure)
 2. [Zone Operations](#zone-operations)
 3. [Testing Patterns](#testing-patterns)
-4. [Integration with @tcg/core](#integration-with-tcgcore)
+4. [Integration with @drmxrcy/tcg-core](#integration-with-tcgcore)
 
 ## Zone Structure
 
@@ -78,13 +78,13 @@ The Gundam Card Game uses the following zones per player:
 
 ## Zone Operations
 
-All zone operations are built on top of `@tcg/core` utilities for consistency and immutability.
+All zone operations are built on top of `@drmxrcy/tcg-core` utilities for consistency and immutability.
 
 ### Creating Player Zones
 
 ```typescript
-import { createPlayerZones } from "@tcg/gundam/zones";
-import { createPlayerId } from "@tcg/core";
+import { createPlayerZones } from "@drmxrcy/tcg-gundam/zones";
+import { createPlayerId } from "@drmxrcy/tcg-core";
 
 const playerId = createPlayerId("player1");
 const zones = createPlayerZones(playerId);
@@ -101,7 +101,7 @@ console.log(zones.battleArea);
 #### Drawing Cards
 
 ```typescript
-import { drawCards } from "@tcg/gundam/zones";
+import { drawCards } from "@drmxrcy/tcg-gundam/zones";
 
 const result = drawCards(deck, hand, 2);
 
@@ -113,7 +113,7 @@ console.log(result.cards); // Array of drawn card IDs
 #### Deploying Units
 
 ```typescript
-import { deployUnit } from "@tcg/gundam/zones";
+import { deployUnit } from "@drmxrcy/tcg-gundam/zones";
 
 const result = deployUnit(hand, battleArea, unitCardId);
 
@@ -124,7 +124,7 @@ console.log(result.battleArea); // Card added to battle area
 #### Placing Resources
 
 ```typescript
-import { placeResource } from "@tcg/gundam/zones";
+import { placeResource } from "@drmxrcy/tcg-gundam/zones";
 
 const result = placeResource(hand, resourceArea, cardId);
 
@@ -135,7 +135,7 @@ console.log(result.resourceArea); // Card added as resource
 #### Taking Damage
 
 ```typescript
-import { takeDamage } from "@tcg/gundam/zones";
+import { takeDamage } from "@drmxrcy/tcg-gundam/zones";
 
 const result = takeDamage(shieldSection, trash, 3);
 
@@ -147,7 +147,7 @@ console.log(result.removedShields); // Array of removed shield card IDs
 #### Destroying Units
 
 ```typescript
-import { destroyUnit } from "@tcg/gundam/zones";
+import { destroyUnit } from "@drmxrcy/tcg-gundam/zones";
 
 const result = destroyUnit(battleArea, trash, unitCardId);
 
@@ -157,7 +157,7 @@ console.log(result.trash); // Unit added to trash
 
 ## Testing Patterns
 
-All tests use `@tcg/core/testing` utilities for consistency and reduced boilerplate.
+All tests use `@drmxrcy/tcg-core/testing` utilities for consistency and reduced boilerplate.
 
 ### Basic Test Setup
 
@@ -167,9 +167,9 @@ import {
   createTestCard,
   createTestCards,
   resetCardCounter
-} from "@tcg/core/testing";
-import { createPlayerId } from "@tcg/core";
-import { createPlayerZones } from "@tcg/gundam/zones";
+} from "@drmxrcy/tcg-core/testing";
+import { createPlayerId } from "@drmxrcy/tcg-core";
+import { createPlayerZones } from "@drmxrcy/tcg-gundam/zones";
 
 describe("Zone Operations", () => {
   beforeEach(() => {
@@ -197,7 +197,7 @@ describe("Zone Operations", () => {
 ### Using Test Factories
 
 ```typescript
-import { createTestCard, createTestCards } from "@tcg/core/testing";
+import { createTestCard, createTestCards } from "@drmxrcy/tcg-core/testing";
 
 // Create a single card with custom properties
 const gundamUnit = createTestCard({
@@ -310,12 +310,12 @@ it("should not mutate original zones", () => {
 });
 ```
 
-## Integration with @tcg/core
+## Integration with @drmxrcy/tcg-core
 
-The Gundam engine fully integrates with `@tcg/core` for:
+The Gundam engine fully integrates with `@drmxrcy/tcg-core` for:
 
 ### Zone Operations
-- All zone operations use `@tcg/core` primitives (`addCard`, `removeCard`, `moveCard`, etc.)
+- All zone operations use `@drmxrcy/tcg-core` primitives (`addCard`, `removeCard`, `moveCard`, etc.)
 - Immutability guaranteed through Immer
 - Type-safe with branded types (`PlayerId`, `CardId`, `ZoneId`)
 
@@ -326,7 +326,7 @@ The Gundam engine fully integrates with `@tcg/core` for:
 - Test factories follow established patterns from lorcana-engine
 
 ### Type Guards
-- All type guards use `createTypeGuard` from `@tcg/core/validation`
+- All type guards use `createTypeGuard` from `@drmxrcy/tcg-core/validation`
 - Consistent pattern across all card types
 - Type-safe narrowing for union types
 
@@ -337,15 +337,15 @@ import { describe, expect, it, beforeEach } from "bun:test";
 import {
   createTestCards,
   resetCardCounter
-} from "@tcg/core/testing";
-import { createPlayerId } from "@tcg/core";
+} from "@drmxrcy/tcg-core/testing";
+import { createPlayerId } from "@drmxrcy/tcg-core";
 import {
   createPlayerZones,
   drawCards,
   deployUnit,
   takeDamage,
-} from "@tcg/gundam/zones";
-import { isUnitCard, isPilotCard } from "@tcg/gundam/cards";
+} from "@drmxrcy/tcg-gundam/zones";
+import { isUnitCard, isPilotCard } from "@drmxrcy/tcg-gundam/cards";
 
 describe("Full Game Integration", () => {
   beforeEach(() => {
@@ -400,7 +400,7 @@ describe("Full Game Integration", () => {
 
 ## Additional Resources
 
-- [@tcg/core Documentation](../../core/README.md)
-- [@tcg/core/testing Guide](../../core/docs/guides/testing-utilities.md)
+- [@drmxrcy/tcg-core Documentation](../../core/README.md)
+- [@drmxrcy/tcg-core/testing Guide](../../core/docs/guides/testing-utilities.md)
 - [Zone Operations API](../../core/docs/guides/zone-operations.md)
 - [Lorcana Engine Tests](../../lorcana-engine/src/game-definition/__tests__/) (reference implementation)

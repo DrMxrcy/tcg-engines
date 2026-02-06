@@ -5,7 +5,7 @@
  * exhausted state, damage, buffs, and stun.
  */
 
-import type { CardId as CoreCardId, GameMoveDefinitions } from "@tcg/core";
+import type { CardId as CoreCardId, GameMoveDefinitions } from "@drmxrcy/tcg-core";
 import type {
   RiftboundCardMeta,
   RiftboundGameState,

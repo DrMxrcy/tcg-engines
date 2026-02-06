@@ -1,4 +1,4 @@
-import { createMove, type ZoneId } from "@tcg/core";
+import { createMove, type ZoneId } from "@drmxrcy/tcg-core";
 import { useLorcanaOps } from "../../../operations";
 import type {
   LorcanaCardMeta,

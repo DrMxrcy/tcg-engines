@@ -7,7 +7,7 @@
  *
  * @example Basic usage
  * ```typescript
- * import { parseAbilityText } from "@tcg/lorcana/parser";
+ * import { parseAbilityText } from "@drmxrcy/tcg-lorcana/parser";
  *
  * const result = parseAbilityText("Rush");
  * if (result.success) {
@@ -17,7 +17,7 @@
  *
  * @example Batch processing
  * ```typescript
- * import { parseAbilityTexts } from "@tcg/lorcana/parser";
+ * import { parseAbilityTexts } from "@drmxrcy/tcg-lorcana/parser";
  *
  * const texts = ["Rush", "Ward", "Challenger +3"];
  * const results = parseAbilityTexts(texts);
@@ -26,7 +26,7 @@
  *
  * @example Multi-ability parsing
  * ```typescript
- * import { parseAbilityTextMulti } from "@tcg/lorcana/parser";
+ * import { parseAbilityTextMulti } from "@drmxrcy/tcg-lorcana/parser";
  *
  * const result = parseAbilityTextMulti("ABILITY ONE Effect. ABILITY TWO Other.");
  * if (result.success) {

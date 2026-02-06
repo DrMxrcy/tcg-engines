@@ -9,7 +9,7 @@ import { BaseVisitor } from "./base-visitor";
 
 /**
  * Placeholder types for abilities and effects.
- * These will be replaced with proper types from @tcg/lorcana in later phases.
+ * These will be replaced with proper types from @drmxrcy/tcg-lorcana in later phases.
  */
 interface Ability {
   type: string;

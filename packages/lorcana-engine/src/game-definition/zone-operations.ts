@@ -1,11 +1,11 @@
 /**
  * Zone Operations
  *
- * Task 7.3, 7.4: Migrated to use @tcg/core zone utilities
+ * Task 7.3, 7.4: Migrated to use @drmxrcy/tcg-core zone utilities
  *
  * This module provides zone operations for Lorcana. It includes:
  * 1. Flat ZoneState helpers (Record<PlayerId, CardId[]>) - mutable, for simple cases
- * 2. Core Zone re-exports - immutable Zone objects from @tcg/core (recommended)
+ * 2. Core Zone re-exports - immutable Zone objects from @drmxrcy/tcg-core (recommended)
  *
  * For new code, prefer using core Zone objects for immutability and advanced features.
  * The flat ZoneState pattern is maintained for backward compatibility.
@@ -13,10 +13,10 @@
  * All operations follow Comprehensive Rules Section 8 (Zones)
  */
 
-import type { CardId, PlayerId } from "@tcg/core";
+import type { CardId, PlayerId } from "@drmxrcy/tcg-core";
 
 // Re-export core zone utilities for direct use (recommended for new code)
-// These work with immutable Zone objects from @tcg/core
+// These work with immutable Zone objects from @drmxrcy/tcg-core
 // Re-export with aliases to avoid conflicts with flat ZoneState helpers
 export {
   addCard,
@@ -43,7 +43,7 @@ export {
   shuffle,
   type Zone,
   type ZoneVisibility,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 /**
  * Zone State
@@ -52,7 +52,7 @@ export {
  * Card order is significant for ordered zones (deck, discard).
  *
  * This is a simplified zone representation. For more advanced features,
- * consider using @tcg/core's Zone objects directly with zone-factory.
+ * consider using @drmxrcy/tcg-core's Zone objects directly with zone-factory.
  */
 export type ZoneState = Record<PlayerId, CardId[]>;
 
@@ -86,7 +86,7 @@ export const createZoneState = (players: PlayerId[]): ZoneState => {
  * For ordered zones (deck, discard), this maintains sequence.
  *
  * Note: This mutates the zone state. For immutable operations,
- * consider using @tcg/core's addCard with Zone objects.
+ * consider using @drmxrcy/tcg-core's addCard with Zone objects.
  *
  * @param zoneState - The zone state to modify
  * @param playerId - The player whose zone to add to
@@ -116,7 +116,7 @@ export const addCardToZone = (
  * Maintains order for ordered zones.
  *
  * Note: This mutates the zone state. For immutable operations,
- * consider using @tcg/core's removeCard with Zone objects.
+ * consider using @drmxrcy/tcg-core's removeCard with Zone objects.
  *
  * @param zoneState - The zone state to modify
  * @param playerId - The player whose zone to remove from
@@ -152,7 +152,7 @@ export const removeCardFromZone = (
  * Rule 8.1.5: Cards entering private zones lose all info
  *
  * Note: This mutates both zone states. For immutable operations,
- * consider using @tcg/core's moveCard with Zone objects.
+ * consider using @drmxrcy/tcg-core's moveCard with Zone objects.
  *
  * @param sourceZone - Zone to remove card from
  * @param destZone - Zone to add card to
@@ -185,7 +185,7 @@ export const moveCardBetweenZones = (
  * Check if card is in player's zone
  *
  * Uses array.includes which is optimized by JavaScript engines.
- * For checking across multiple zones, see @tcg/core's findCardInZones.
+ * For checking across multiple zones, see @drmxrcy/tcg-core's findCardInZones.
  *
  * @param zoneState - The zone state to check
  * @param playerId - The player whose zone to check
@@ -298,7 +298,7 @@ export const getTopCard = (
  * Used for game cleanup or reset scenarios.
  *
  * Note: This mutates the zone state. For immutable operations,
- * consider using @tcg/core's clearZone with Zone objects.
+ * consider using @drmxrcy/tcg-core's clearZone with Zone objects.
  *
  * @param zoneState - The zone state to modify
  * @param playerId - The player whose zone to clear
@@ -322,7 +322,7 @@ export const clearZone = (zoneState: ZoneState, playerId: PlayerId): void => {
  * Rule 8.2.4: Cards added to top/bottom in known order
  *
  * Note: This mutates the zone state. For immutable operations,
- * consider using @tcg/core's addCardToTop with Zone objects.
+ * consider using @drmxrcy/tcg-core's addCardToTop with Zone objects.
  *
  * @param zoneState - The zone state to modify
  * @param playerId - The player whose zone to add to
@@ -355,7 +355,7 @@ export const addCardToTop = (
  * Rule 3.1.6.1: Mulligan cards go to bottom
  *
  * Note: This mutates the zone state. For immutable operations,
- * consider using @tcg/core's addCardToBottom with Zone objects.
+ * consider using @drmxrcy/tcg-core's addCardToBottom with Zone objects.
  *
  * @param zoneState - The zone state to modify
  * @param playerId - The player whose zone to add to
@@ -385,7 +385,7 @@ export const addCardToBottom = (
  * The flat ZoneState helpers above (createZoneState, addCardToZone, etc.) are maintained
  * for backward compatibility. They use mutable operations suitable for use with Immer.
  *
- * For new code, prefer the immutable Zone objects from @tcg/core (re-exported above).
+ * For new code, prefer the immutable Zone objects from @drmxrcy/tcg-core (re-exported above).
  * Core Zone objects provide:
  * - Immutability by default
  * - Rich zone operations (shuffle, draw, mill, peek, search)

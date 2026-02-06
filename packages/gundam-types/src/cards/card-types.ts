@@ -1,8 +1,8 @@
 /**
  * Card Type Definitions for Gundam Card Game
  *
- * These types define the structure of card definitions in the @tcg/gundam engine.
- * All cards are plain data objects following @tcg/core patterns.
+ * These types define the structure of card definitions in the @drmxrcy/tcg-gundam engine.
+ * All cards are plain data objects following @drmxrcy/tcg-core patterns.
  */
 
 import type { TargetQuery } from "../targeting/gundam-target-dsl";
@@ -472,11 +472,11 @@ export type CardDefinition =
 // TYPE GUARDS
 // ============================================================================
 
-import { createTypeGuard } from "@tcg/core/validation";
+import { createTypeGuard } from "@drmxrcy/tcg-core/validation";
 
 /**
  * Type guard for Unit cards
- * Built using @tcg/core's createTypeGuard utility
+ * Built using @drmxrcy/tcg-core's createTypeGuard utility
  */
 export const isUnitCard = createTypeGuard<CardDefinition, "cardType", "UNIT">(
   "cardType",
@@ -485,7 +485,7 @@ export const isUnitCard = createTypeGuard<CardDefinition, "cardType", "UNIT">(
 
 /**
  * Type guard for Pilot cards
- * Built using @tcg/core's createTypeGuard utility
+ * Built using @drmxrcy/tcg-core's createTypeGuard utility
  */
 export const isPilotCard = createTypeGuard<CardDefinition, "cardType", "PILOT">(
   "cardType",
@@ -494,7 +494,7 @@ export const isPilotCard = createTypeGuard<CardDefinition, "cardType", "PILOT">(
 
 /**
  * Type guard for Command cards
- * Built using @tcg/core's createTypeGuard utility
+ * Built using @drmxrcy/tcg-core's createTypeGuard utility
  */
 export const isCommandCard = createTypeGuard<
   CardDefinition,
@@ -504,7 +504,7 @@ export const isCommandCard = createTypeGuard<
 
 /**
  * Type guard for Base cards
- * Built using @tcg/core's createTypeGuard utility
+ * Built using @drmxrcy/tcg-core's createTypeGuard utility
  */
 export const isBaseCard = createTypeGuard<CardDefinition, "cardType", "BASE">(
   "cardType",
@@ -513,7 +513,7 @@ export const isBaseCard = createTypeGuard<CardDefinition, "cardType", "BASE">(
 
 /**
  * Type guard for Resource cards
- * Built using @tcg/core's createTypeGuard utility
+ * Built using @drmxrcy/tcg-core's createTypeGuard utility
  */
 export const isResourceCard = createTypeGuard<
   CardDefinition,

@@ -12,7 +12,7 @@ import type {
   KeywordAbility,
   TargetQuery,
   TriggeredEffect,
-} from "@tcg/gundam-types";
+} from "@drmxrcy/tcg-gundam-types";
 import { parseAction } from "./stages/action-parser";
 import { extractHeaders } from "./stages/header-extraction";
 import { normalizeText } from "./stages/normalization";

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { tinkerBellGiantFairy } from "./193-tinker-bell-giant-fairy";
 
 describe("Tinker Bell - Giant Fairy", () => {

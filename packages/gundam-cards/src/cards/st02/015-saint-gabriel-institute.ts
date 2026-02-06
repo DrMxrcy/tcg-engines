@@ -1,4 +1,4 @@
-import type { BaseCardDefinition_Structure } from "@tcg/gundam-types";
+import type { BaseCardDefinition_Structure } from "@drmxrcy/tcg-gundam-types";
 
 export const SaintGabrielInstitute: BaseCardDefinition_Structure = {
   id: "st02-015",

@@ -18,7 +18,7 @@ import {
 } from "../index";
 
 /**
- * Integration test demonstrating @tcg/core/testing utilities
+ * Integration test demonstrating @drmxrcy/tcg-core/testing utilities
  */
 
 type TestGameState = {

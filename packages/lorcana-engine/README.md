@@ -1,10 +1,10 @@
-# @tcg/lorcana
+# @drmxrcy/tcg-lorcana
 
-Disney Lorcana TCG engine built with `@tcg/core` framework.
+Disney Lorcana TCG engine built with `@drmxrcy/tcg-core` framework.
 
 ## Overview
 
-This package implements the complete Disney Lorcana trading card game using the `@tcg/core` framework. It serves as both a production-ready Lorcana engine and a reference implementation demonstrating best practices for building TCG engines.
+This package implements the complete Disney Lorcana trading card game using the `@drmxrcy/tcg-core` framework. It serves as both a production-ready Lorcana engine and a reference implementation demonstrating best practices for building TCG engines.
 
 ## Status
 
@@ -58,7 +58,7 @@ Each directory contains a README.md explaining its purpose and usage.
 
 ## Architecture
 
-This package integrates with `@tcg/core` by:
+This package integrates with `@drmxrcy/tcg-core` by:
 
 1. **Defining game-specific state** - Extends base `GameState` with Lorcana data
 2. **Registering moves** - Implements move handlers for all player actions
@@ -69,8 +69,8 @@ This package integrates with `@tcg/core` by:
 ## Usage Example
 
 ```typescript
-import { RuleEngine } from "@tcg/core";
-import { lorcanaGame } from "@tcg/lorcana";
+import { RuleEngine } from "@drmxrcy/tcg-core";
+import { lorcanaGame } from "@drmxrcy/tcg-lorcana";
 
 // Create engine instance
 const engine = new RuleEngine(lorcanaGame, {
@@ -97,14 +97,14 @@ const state = engine.getState();
 
 ## Dependencies
 
-- `@tcg/core` - Core TCG engine framework
-- All dependencies from `@tcg/core` (Immer, Zod, nanoid, seedrandom, etc.)
+- `@drmxrcy/tcg-core` - Core TCG engine framework
+- All dependencies from `@drmxrcy/tcg-core` (Immer, Zod, nanoid, seedrandom, etc.)
 
 ## Boundaries
 
 This package uses Turborepo boundaries to enforce clean architecture:
 
-- ✅ Can depend on: `@tcg/core`
+- ✅ Can depend on: `@drmxrcy/tcg-core`
 - ❌ Cannot depend on: Other game engines, UI packages, networking
 
 ## Testing
@@ -156,5 +156,5 @@ MIT
 
 - [Disney Lorcana Official Site](https://www.disneylorcana.com/)
 - [Lorcana Official Rules](https://www.disneylorcana.com/rules)
-- `@tcg/core` framework documentation
+- `@drmxrcy/tcg-core` framework documentation
 

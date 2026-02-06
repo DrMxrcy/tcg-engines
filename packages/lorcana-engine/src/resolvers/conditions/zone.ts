@@ -1,10 +1,10 @@
-import type { CardInstance, PlayerId } from "@tcg/core";
+import type { CardInstance, PlayerId } from "@drmxrcy/tcg-core";
 import type {
   AtLocationCondition,
   HasCharacterHereCondition,
   HasNamedLocationCondition,
   ZoneCondition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import type { LorcanaCardMeta } from "../../types/game-state";
 import { conditionRegistry } from "../condition-registry";
 

@@ -8,7 +8,7 @@ import type {
   IsReadyCondition,
   NoDamageCondition,
   TurnCondition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import { conditionRegistry } from "../condition-registry";
 
 conditionRegistry.register<TurnCondition>("turn", {

@@ -2,7 +2,7 @@
  * Gundam Card Game - Zone Operations
  *
  * This module provides zone operation utilities for the Gundam Card Game,
- * built on top of @tcg/core zone operations.
+ * built on top of @drmxrcy/tcg-core zone operations.
  *
  * Zone Structure:
  * - Deck: Main deck (50 cards)
@@ -33,7 +33,7 @@ import {
   removeCard,
   shuffle,
   type Zone,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 /**
  * Creates a deck zone for a player

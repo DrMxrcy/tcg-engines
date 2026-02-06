@@ -1,4 +1,4 @@
-# Migration Guide: @tcg/core v2.0.0
+# Migration Guide: @drmxrcy/tcg-core v2.0.0
 
 **Date:** 2025-10-09  
 **Target Audience:** Game engine developers (lorcana-engine, gundam-engine)  
@@ -6,7 +6,7 @@
 
 ## Overview
 
-This guide provides step-by-step instructions for migrating to `@tcg/core` v2.0.0. The new version consolidates types to eliminate duplication and provide a stronger foundation for TCG engines.
+This guide provides step-by-step instructions for migrating to `@drmxrcy/tcg-core` v2.0.0. The new version consolidates types to eliminate duplication and provide a stronger foundation for TCG engines.
 
 ## Breaking Changes Summary
 
@@ -16,7 +16,7 @@ This guide provides step-by-step instructions for migrating to `@tcg/core` v2.0.
 4. **Game State** - New base `GameState` type added
 5. **Card Definition** - New optional metadata fields added
 
-## Migration for @tcg/lorcana-engine
+## Migration for @drmxrcy/tcg-lorcana-engine
 
 ### Step 1: Remove Branded Type Duplications
 
@@ -48,8 +48,8 @@ export const createPlayerId = (value: string): PlayerId => {
 //  This file is no longer needed
 
 // In all files that used branded types:
-import type { CardId, PlayerId, ZoneId, GameId, AbilityId } from "@tcg/core";
-import { createCardId, createPlayerId, createZoneId, createGameId, createAbilityId } from "@tcg/core";
+import type { CardId, PlayerId, ZoneId, GameId, AbilityId } from "@drmxrcy/tcg-core";
+import { createCardId, createPlayerId, createZoneId, createGameId, createAbilityId } from "@drmxrcy/tcg-core";
 ```
 
 **Files to update:**
@@ -57,7 +57,7 @@ import { createCardId, createPlayerId, createZoneId, createGameId, createAbility
 # Find all imports
 grep -r "from.*branded-types" packages/lorcana-engine/src
 
-# Update each file to import from "@tcg/core" instead
+# Update each file to import from "@drmxrcy/tcg-core" instead
 ```
 
 ### Step 2: Adopt Core's Zone Visibility Model
@@ -106,8 +106,8 @@ export const lorcanaZones: Record<LorcanaZoneId, ZoneConfig> = {
 
 **After:**
 ```typescript
-import type { ZoneVisibility, ZoneConfig } from "@tcg/core";
-import { createZoneId } from "@tcg/core";
+import type { ZoneVisibility, ZoneConfig } from "@drmxrcy/tcg-core";
+import { createZoneId } from "@drmxrcy/tcg-core";
 
 export type LorcanaZoneId = "deck" | "hand" | "play" | "discard" | "inkwell";
 
@@ -195,7 +195,7 @@ export const addCardToZone = (
 // Use core's zone operations instead
 
 // In files that used zone operations:
-import type { ZoneState } from "@tcg/core";
+import type { ZoneState } from "@drmxrcy/tcg-core";
 import {
   createZoneState,
   addCardToZone,
@@ -208,7 +208,7 @@ import {
   getZoneSize,
   getTopCard,
   clearZone,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 ```
 
 **Note:** All function signatures are identical, so no code changes needed beyond imports!
@@ -237,7 +237,7 @@ export type LorcanaState = {
 
 **After:**
 ```typescript
-import type { GameState, PlayerId, CardId } from "@tcg/core";
+import type { GameState, PlayerId, CardId } from "@drmxrcy/tcg-core";
 
 export type LorcanaPhase = "beginning" | "main" | "end";
 
@@ -312,7 +312,7 @@ export type {
   MoveExecutionResult,
   RuleEngine,
   RuleEngineOptions,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 ```
 
 **After:**
@@ -336,7 +336,7 @@ export type {
   ZoneId,
   GameId,
   AbilityId,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 export {
   // Re-export creator functions
@@ -357,10 +357,10 @@ export {
   getZoneSize,
   getTopCard,
   clearZone,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 ```
 
-## Migration for @tcg/gundam-engine
+## Migration for @drmxrcy/tcg-gundam-engine
 
 ### Status
 
@@ -369,14 +369,14 @@ Gundam engine is not yet implemented, so no migration needed. Follow these patte
 ### Pattern 1: Import Branded Types
 
 ```typescript
-import type { CardId, PlayerId, ZoneId, GameId, AbilityId } from "@tcg/core";
-import { createCardId, createPlayerId, createZoneId, createGameId, createAbilityId } from "@tcg/core";
+import type { CardId, PlayerId, ZoneId, GameId, AbilityId } from "@drmxrcy/tcg-core";
+import { createCardId, createPlayerId, createZoneId, createGameId, createAbilityId } from "@drmxrcy/tcg-core";
 ```
 
 ### Pattern 2: Extend Card Definitions
 
 ```typescript
-import type { CardDefinition } from "@tcg/core";
+import type { CardDefinition } from "@drmxrcy/tcg-core";
 
 export type GundamCardType = "UNIT" | "PILOT" | "COMMAND" | "BASE" | "RESOURCE";
 
@@ -391,7 +391,7 @@ export type GundamCard = CardDefinition & {
 ### Pattern 3: Extend Game State
 
 ```typescript
-import type { GameState, PlayerId, CardId } from "@tcg/core";
+import type { GameState, PlayerId, CardId } from "@drmxrcy/tcg-core";
 
 export type GundamPhase = "start" | "draw" | "resource" | "main" | "end";
 
@@ -410,8 +410,8 @@ export type GundamGameState = GameState & {
 ### Pattern 4: Use Zone System
 
 ```typescript
-import type { ZoneConfig, ZoneState } from "@tcg/core";
-import { createZoneId, createZoneState, moveCardBetweenZones } from "@tcg/core";
+import type { ZoneConfig, ZoneState } from "@drmxrcy/tcg-core";
+import { createZoneId, createZoneState, moveCardBetweenZones } from "@drmxrcy/tcg-core";
 
 export type GundamZoneId = "deck" | "hand" | "battle" | "shield" | "resource" | "trash" | "removal";
 
@@ -452,7 +452,7 @@ After migration, verify:
 - [ ] All zone operations use core utilities
 - [ ] Game state extends `GameState`
 - [ ] Zone visibility uses 3-tier model
-- [ ] Imports come from `@tcg/core`
+- [ ] Imports come from `@drmxrcy/tcg-core`
 
 ## Testing Strategy
 
@@ -466,7 +466,7 @@ import { createPlayerId, createCardId } from "../types/branded-types";
 import { createZoneState, addCardToZone } from "../game-definition/zone-operations";
 
 // After
-import { createPlayerId, createCardId, createZoneState, addCardToZone } from "@tcg/core";
+import { createPlayerId, createCardId, createZoneState, addCardToZone } from "@drmxrcy/tcg-core";
 ```
 
 ### Integration Tests
@@ -508,7 +508,7 @@ describe("Zone Visibility Migration", () => {
 
 **Cause:** Mixing old lorcana PlayerId with new core PlayerId
 
-**Solution:** Ensure all imports come from `@tcg/core`, not local types
+**Solution:** Ensure all imports come from `@drmxrcy/tcg-core`, not local types
 
 ### Issue 2: Zone Visibility Checks Fail
 

@@ -1,4 +1,4 @@
-import type { PlayerId } from "@tcg/core";
+import type { PlayerId } from "@drmxrcy/tcg-core";
 import { createInitialLorcanaState, type LorcanaGameState } from "../../types";
 
 /**

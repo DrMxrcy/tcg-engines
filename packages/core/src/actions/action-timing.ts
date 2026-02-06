@@ -105,7 +105,7 @@ export function validateActionTiming<TGameState extends TimingContext>(
  * Validate Action Instance
  *
  * Validates both timing and target selection for an action instance.
- * This bridges @tcg/core's validation with core-engine's execution.
+ * This bridges @drmxrcy/tcg-core's validation with core-engine's execution.
  *
  * @param instance - The action instance to validate
  * @param definition - The action definition
@@ -179,7 +179,7 @@ export function validateAction<
         controller: instance.playerId,
       };
 
-      // Validate target selection using @tcg/core's targeting system
+      // Validate target selection using @drmxrcy/tcg-core's targeting system
       if (!targetDef) {
         return {
           valid: false,

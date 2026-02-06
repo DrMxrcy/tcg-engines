@@ -11,8 +11,8 @@ import type {
   SimpleKeywordAbility,
   ValueKeyword,
   ValueKeywordAbility,
-} from "@tcg/riftbound-types";
-import type { Cost } from "@tcg/riftbound-types/abilities/cost-types";
+} from "@drmxrcy/tcg-riftbound-types";
+import type { Cost } from "@drmxrcy/tcg-riftbound-types/abilities/cost-types";
 import {
   extractAndParseCost,
   mergeCosts,

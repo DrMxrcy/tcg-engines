@@ -9,7 +9,7 @@ import type {
   PlayerId as CorePlayerId,
   ZoneId as CoreZoneId,
   GameMoveDefinitions,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 import type {
   RiftboundCardMeta,
   RiftboundGameState,

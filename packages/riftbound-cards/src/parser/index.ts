@@ -4,7 +4,7 @@
  * Parser for converting card ability text to structured ability objects.
  */
 
-import type { Ability, AbilityWithText } from "@tcg/riftbound-types";
+import type { Ability, AbilityWithText } from "@drmxrcy/tcg-riftbound-types";
 
 /**
  * Options for controlling parser behavior and output

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { theQueenWickedAndVain } from "./056-the-queen-wicked-and-vain";
 
 describe("The Queen - Wicked and Vain", () => {

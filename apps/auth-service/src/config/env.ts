@@ -1,11 +1,11 @@
 /**
  * Environment configuration for Auth Service
  *
- * Re-exports from @tcg/config for local use.
+ * Re-exports from @drmxrcy/tcg-config for local use.
  */
 export {
   type AuthEnv,
   assertAuthEnv,
   authEnv as env,
   parseAuthEnv,
-} from "@tcg/config";
+} from "@drmxrcy/tcg-config";

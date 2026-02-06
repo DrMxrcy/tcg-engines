@@ -1,4 +1,4 @@
-import { type PlayerId, RuleEngine } from "@tcg/core";
+import { type PlayerId, RuleEngine } from "@drmxrcy/tcg-core";
 import type { GundamCardMeta, GundamGameState, GundamMoves } from "../types";
 import type {
   AvailableMoveInfo,
@@ -188,7 +188,7 @@ export class GundamEngine extends RuleEngine<
    * with context and suggestions. Returns null if the move is valid.
    *
    * **Implementation Note**: This method uses `executeMove()` internally,
-   * which is safe because `@tcg/core`'s RuleEngine uses Immer for immutable
+   * which is safe because `@drmxrcy/tcg-core`'s RuleEngine uses Immer for immutable
    * state management. Failed move executions are automatically rolled back
    * and do not modify game state.
    *

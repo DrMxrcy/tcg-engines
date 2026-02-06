@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { cheshireCatNotAllThere } from "./071-cheshire-cat-not-all-there";
 
 describe("Cheshire Cat - Not All There", () => {

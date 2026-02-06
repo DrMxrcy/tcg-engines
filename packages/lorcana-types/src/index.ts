@@ -1,5 +1,5 @@
 /**
- * @tcg/lorcana-types
+ * @drmxrcy/tcg-lorcana-types
  *
  * Complete type definitions for Disney Lorcana TCG.
  * This package provides types without runtime dependencies,

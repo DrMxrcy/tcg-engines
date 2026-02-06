@@ -4,7 +4,7 @@
  * A test-friendly wrapper around the Riftbound engine.
  */
 
-import type { CardId } from "@tcg/core";
+import type { CardId } from "@drmxrcy/tcg-core";
 import {
   RiftboundEngine,
   type RiftboundGameConfig,

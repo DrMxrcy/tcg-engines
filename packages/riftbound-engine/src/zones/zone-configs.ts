@@ -5,7 +5,7 @@
  * Follows the official Riftbound zone structure from the Core Rules.
  */
 
-import type { CardZoneConfig, ZoneId } from "@tcg/core";
+import type { CardZoneConfig, ZoneId } from "@drmxrcy/tcg-core";
 import type { CardId } from "../types";
 
 /**

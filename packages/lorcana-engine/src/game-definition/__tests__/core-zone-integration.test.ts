@@ -15,12 +15,12 @@ import {
   isCardInZone,
   moveCard,
   removeCard,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 /**
  * Task 7.2: Tests verifying lorcana zone operations work with core utilities
  *
- * These tests verify that core zone operations from @tcg/core can handle
+ * These tests verify that core zone operations from @drmxrcy/tcg-core can handle
  * Lorcana's zone management needs, validating the migration path.
  *
  * Tests cover:

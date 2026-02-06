@@ -2,7 +2,7 @@ import type {
   GundamFilter,
   GundamLocationsId,
   TargetQuery,
-} from "@tcg/gundam-types";
+} from "@drmxrcy/tcg-gundam-types";
 
 export interface TargetParseResult {
   query: TargetQuery | TargetQuery[];

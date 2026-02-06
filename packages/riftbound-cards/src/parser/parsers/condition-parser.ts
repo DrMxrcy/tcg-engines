@@ -5,7 +5,7 @@
  * Conditions modify when abilities are active or trigger.
  */
 
-import type { Condition } from "@tcg/riftbound-types";
+import type { Condition } from "@drmxrcy/tcg-riftbound-types";
 
 // ============================================================================
 // Types

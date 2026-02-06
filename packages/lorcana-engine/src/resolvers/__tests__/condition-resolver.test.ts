@@ -1,15 +1,15 @@
 import { beforeEach, describe, expect, it } from "bun:test";
-import type { CardId, PlayerId, ZoneId } from "@tcg/core";
+import type { CardId, PlayerId, ZoneId } from "@drmxrcy/tcg-core";
 import { isConditionMet } from "../condition-resolver";
 import "../conditions/index"; // Register all
-import type { CardInstance, CardRegistry } from "@tcg/core";
+import type { CardInstance, CardRegistry } from "@drmxrcy/tcg-core";
 import type {
   Condition,
   HasNamedCharacterCondition,
   LorcanaCardDefinition,
   TurnCondition,
   UsedShiftCondition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import {
   createDefaultCardMeta,
   createInitialLorcanaState,

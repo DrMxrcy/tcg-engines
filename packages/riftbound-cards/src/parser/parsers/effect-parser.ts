@@ -18,12 +18,12 @@ import type {
   ReturnToHandEffect,
   StunEffect,
   TokenDefinition,
-} from "@tcg/riftbound-types/abilities/effect-types";
+} from "@drmxrcy/tcg-riftbound-types/abilities/effect-types";
 import type {
   AnyTarget,
   Location,
   Target,
-} from "@tcg/riftbound-types/targeting";
+} from "@drmxrcy/tcg-riftbound-types/targeting";
 import {
   COUNTER_PATTERN,
   CREATE_TOKEN_PATTERN,

@@ -9,7 +9,7 @@
  * - "{E}, 2 {I} - Deal 3 damage to chosen character"
  */
 
-import type { ActivatedAbility as ActivatedAbilityType } from "@tcg/lorcana";
+import type { ActivatedAbility as ActivatedAbilityType } from "@drmxrcy/tcg-lorcana";
 import { parseAtomicEffect, parseCompositeEffect } from "../effects";
 import { logger } from "../logging";
 

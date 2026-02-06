@@ -1,4 +1,4 @@
-# @tcg/core Type System Documentation
+# @drmxrcy/tcg-core Type System Documentation
 
 **Version:** 2.0.0 (Breaking Changes)  
 **Date:** 2025-10-09  
@@ -6,7 +6,7 @@
 
 ## Overview
 
-This directory contains comprehensive documentation for the `@tcg/core` type system redesign. The redesign consolidates types across the framework to eliminate duplication, improve type safety, and provide clear extension patterns for game engines.
+This directory contains comprehensive documentation for the `@drmxrcy/tcg-core` type system redesign. The redesign consolidates types across the framework to eliminate duplication, improve type safety, and provide clear extension patterns for game engines.
 
 ## Documentation Structure
 
@@ -109,7 +109,7 @@ The type system follows these core tenets:
 ### Pattern 1: Extending Card Definitions
 
 ```typescript
-import type { CardDefinition } from "@tcg/core";
+import type { CardDefinition } from "@drmxrcy/tcg-core";
 
 export type LorcanaCard = CardDefinition & {
   inkwell: boolean;
@@ -121,7 +121,7 @@ export type LorcanaCard = CardDefinition & {
 ### Pattern 2: Extending Game State
 
 ```typescript
-import type { GameState } from "@tcg/core";
+import type { GameState } from "@drmxrcy/tcg-core";
 
 export type LorcanaState = GameState & {
   phase: LorcanaPhase;  // Override
@@ -132,8 +132,8 @@ export type LorcanaState = GameState & {
 ### Pattern 3: Using Zone System
 
 ```typescript
-import type { ZoneConfig, ZoneState } from "@tcg/core";
-import { createZoneState } from "@tcg/core";
+import type { ZoneConfig, ZoneState } from "@drmxrcy/tcg-core";
+import { createZoneState } from "@drmxrcy/tcg-core";
 
 const zones = {
   deck: createZoneState(players),

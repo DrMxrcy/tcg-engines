@@ -1,4 +1,4 @@
-import type { GameDefinition, GameMoveDefinitions, PlayerId } from "@tcg/core";
+import type { GameDefinition, GameMoveDefinitions, PlayerId } from "@drmxrcy/tcg-core";
 import type { TemplateGameMoves, TemplateGameState } from "./types";
 
 /**
@@ -119,7 +119,7 @@ const moves: GameMoveDefinitions<TemplateGameState, TemplateGameMoves> = {
 /**
  * Game Definition
  *
- * The complete game configuration using @tcg/core types.
+ * The complete game configuration using @drmxrcy/tcg-core types.
  * No helper functions - just TypeScript types and plain objects.
  */
 export const templateGameDefinition: GameDefinition<

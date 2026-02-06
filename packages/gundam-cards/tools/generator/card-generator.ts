@@ -4,7 +4,7 @@
  * Generates TypeScript card definition files.
  */
 
-import type { CardDefinition } from "@tcg/gundam-types";
+import type { CardDefinition } from "@drmxrcy/tcg-gundam-types";
 import type { ParseResult } from "../parser/text-parser";
 import type { ScrapedCardData } from "../scraper/card-scraper";
 
@@ -104,7 +104,7 @@ export function generateCardFile(card: CardDefinition): string {
   const typeName = getTypeImportName(card.cardType);
 
   // Generate imports
-  const imports = `import type { ${typeName} } from "@tcg/gundam-types";\n\n`;
+  const imports = `import type { ${typeName} } from "@drmxrcy/tcg-gundam-types";\n\n`;
 
   // Generate card definition
   const cardDef = `export const ${variableName}: ${typeName} = ${formatCardObject(card, 0)};\n`;

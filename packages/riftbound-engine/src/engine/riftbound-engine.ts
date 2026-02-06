@@ -4,7 +4,7 @@
  * Main engine class for the Riftbound TCG tabletop simulator.
  */
 
-import type { RuleEngine } from "@tcg/core";
+import type { RuleEngine } from "@drmxrcy/tcg-core";
 import type { PlayerId, RiftboundGameState } from "../types";
 
 /**

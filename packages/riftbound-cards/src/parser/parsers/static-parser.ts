@@ -11,7 +11,7 @@ import type {
   Effect,
   StaticAbility,
   Target,
-} from "@tcg/riftbound-types";
+} from "@drmxrcy/tcg-riftbound-types";
 import { parseConditionFromText } from "./condition-parser";
 
 // ============================================================================

@@ -1,7 +1,7 @@
 import type {
   ThisTurnCountCondition,
   ThisTurnHappenedCondition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import { conditionRegistry } from "../condition-registry";
 
 conditionRegistry.register<ThisTurnHappenedCondition>("this-turn-happened", {

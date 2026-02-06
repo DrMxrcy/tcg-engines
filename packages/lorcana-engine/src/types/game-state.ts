@@ -2,11 +2,11 @@
  * Game State Types
  *
  * Core game state types for Lorcana engine.
- * Implements the @tcg/core IState pattern.
+ * Implements the @drmxrcy/tcg-core IState pattern.
  */
 
-import type { CardId, IState, PlayerId } from "@tcg/core";
-import type { LorcanaCardDefinition } from "@tcg/lorcana-types";
+import type { CardId, IState, PlayerId } from "@drmxrcy/tcg-core";
+import type { LorcanaCardDefinition } from "@drmxrcy/tcg-lorcana-types";
 
 /** Card ready/exerted state */
 export type CardReadyState = "ready" | "exerted";

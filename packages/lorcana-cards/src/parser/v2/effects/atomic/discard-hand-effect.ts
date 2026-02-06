@@ -3,7 +3,7 @@
  * Handles discard hand effects like "Each player discards their hand", "discard your hand"
  */
 
-import type { DiscardEffect } from "@tcg/lorcana-types";
+import type { DiscardEffect } from "@drmxrcy/tcg-lorcana-types";
 import type { CstNode } from "chevrotain";
 import { logger } from "../../logging";
 import type { EffectParser } from "./index";

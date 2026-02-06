@@ -14,8 +14,8 @@
  * - Rule 2-3: At start of turn, ready all units and refresh resources
  */
 
-import type { GameMoveDefinition, MoveContext, PlayerId } from "@tcg/core";
-import { getZoneSize } from "@tcg/core";
+import type { GameMoveDefinition, MoveContext, PlayerId } from "@drmxrcy/tcg-core";
+import { getZoneSize } from "@drmxrcy/tcg-core";
 import type { Draft } from "immer";
 import type { GundamGameState } from "../../../types";
 

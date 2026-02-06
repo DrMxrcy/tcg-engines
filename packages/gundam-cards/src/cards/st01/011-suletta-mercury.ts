@@ -1,4 +1,4 @@
-import type { PilotCardDefinition } from "@tcg/gundam-types";
+import type { PilotCardDefinition } from "@drmxrcy/tcg-gundam-types";
 
 export const SulettaMercury: PilotCardDefinition = {
   id: "st01-011",

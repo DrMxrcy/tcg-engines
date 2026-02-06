@@ -1,7 +1,7 @@
 import type {
   ResolutionCondition,
   UsedShiftCondition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import { conditionRegistry } from "../condition-registry";
 
 // Register Used-Shift Condition

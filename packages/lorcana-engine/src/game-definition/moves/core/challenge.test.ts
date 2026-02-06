@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from "bun:test";
-import { createPlayerId } from "@tcg/core";
+import { createPlayerId } from "@drmxrcy/tcg-core";
 import {
   LorcanaTestEngine,
   PLAYER_ONE,

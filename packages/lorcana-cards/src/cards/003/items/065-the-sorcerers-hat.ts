@@ -1,4 +1,4 @@
-import type { ItemCard } from "@tcg/lorcana-types";
+import type { ItemCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const theSorcerersHat: ItemCard = {
   id: "1tg",

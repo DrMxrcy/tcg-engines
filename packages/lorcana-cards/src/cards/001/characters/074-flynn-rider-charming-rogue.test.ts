@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { flynnRiderCharmingRogue } from "./074-flynn-rider-charming-rogue";
 
 describe("Flynn Rider - Charming Rogue", () => {

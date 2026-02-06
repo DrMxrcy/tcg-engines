@@ -4,7 +4,7 @@
  * This directory contains all move implementations for the Gundam Card Game.
  * Each move represents a possible player action that can modify game state.
  *
- * Moves follow the @tcg/core pattern using GameMoveDefinition type:
+ * Moves follow the @drmxrcy/tcg-core pattern using GameMoveDefinition type:
  * 1. Define move parameters in GundamMoves type (in types.ts)
  * 2. Implement condition function for validation (optional)
  * 3. Implement reducer function with Immer draft (mutate directly)
@@ -12,7 +12,7 @@
  *
  * @example Move Implementation
  * ```typescript
- * import type { GameMoveDefinition } from "@tcg/core";
+ * import type { GameMoveDefinition } from "@drmxrcy/tcg-core";
  * import type { GundamGameState } from "../types";
  *
  * export const myMove: GameMoveDefinition<GundamGameState> = {

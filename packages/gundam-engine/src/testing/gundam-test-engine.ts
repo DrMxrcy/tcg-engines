@@ -4,14 +4,14 @@ import {
   createPlayerId,
   createZoneOperations,
   type RuleEngineOptions,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 import type {
   BaseCardDefinition,
   CommandCardDefinition,
   CardDefinition as GundamCardDefinition,
   PilotCardDefinition,
   UnitCardDefinition,
-} from "@tcg/gundam-types";
+} from "@drmxrcy/tcg-gundam-types";
 import { GundamEngine } from "../engine/gundam-engine";
 import { gundamGameDefinition } from "../game-definition/definition";
 import type { GundamCardMeta, GundamGameState, GundamMoves } from "../types";
@@ -173,7 +173,7 @@ export class GundamTestEngine {
    * - Numbers: Creates placeholder cards (e.g., { hand: 7 })
    * - Card definitions: Creates real cards with the provided definitions (e.g., { play: [heiheiCard] })
    *
-   * TODO: @tcg/core should expose a proper TestEngine base class with this capability
+   * TODO: @drmxrcy/tcg-core should expose a proper TestEngine base class with this capability
    */
   private initializeZones(
     playerOneState: TestInitialState,

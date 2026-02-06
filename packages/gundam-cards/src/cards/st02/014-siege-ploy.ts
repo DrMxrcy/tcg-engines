@@ -1,4 +1,4 @@
-import type { CommandCardDefinition } from "@tcg/gundam-types";
+import type { CommandCardDefinition } from "@drmxrcy/tcg-gundam-types";
 
 export const SiegePloy: CommandCardDefinition = {
   id: "st02-014",

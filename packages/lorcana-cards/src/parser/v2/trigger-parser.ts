@@ -5,7 +5,7 @@
  * Migrated from v1 parser.
  */
 
-import type { Trigger } from "@tcg/lorcana-types";
+import type { Trigger } from "@drmxrcy/tcg-lorcana-types";
 
 /**
  * Parse trigger from text

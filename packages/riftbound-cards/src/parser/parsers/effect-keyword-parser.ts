@@ -12,7 +12,7 @@ import type {
   EffectKeyword,
   EffectKeywordAbility,
   Location,
-} from "@tcg/riftbound-types";
+} from "@drmxrcy/tcg-riftbound-types";
 
 // ============================================================================
 // Types

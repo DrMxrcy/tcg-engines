@@ -5,7 +5,7 @@
  * Costs use emoji-style notation: :rb_energy_N: and :rb_rune_domain:
  */
 
-import type { Domain } from "@tcg/riftbound-types/abilities/cost-types";
+import type { Domain } from "@drmxrcy/tcg-riftbound-types/abilities/cost-types";
 
 // ============================================================================
 // Domain Constants

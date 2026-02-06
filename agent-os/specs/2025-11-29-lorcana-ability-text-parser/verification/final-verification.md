@@ -125,7 +125,7 @@ None - All task groups have comprehensive implementation and verification report
 **Status:** No Updates Needed
 
 ### Notes
-The Lorcana Ability Text Parser is an internal feature for card data generation within the Lorcana Engine reference implementation. It does not appear as a distinct item in the product roadmap (`agent-os/product/roadmap.md`), which focuses on @tcg/core framework features.
+The Lorcana Ability Text Parser is an internal feature for card data generation within the Lorcana Engine reference implementation. It does not appear as a distinct item in the product roadmap (`agent-os/product/roadmap.md`), which focuses on @drmxrcy/tcg-core framework features.
 
 The roadmap references "Lorcana Engine (complex TCG)" as a completed reference implementation under Phase 0. This parser is supplementary tooling for that reference implementation.
 

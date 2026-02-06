@@ -1,8 +1,8 @@
-# @tcg/core - Technical Stack
+# @drmxrcy/tcg-core - Technical Stack
 
 ## Overview
 
-This document outlines the complete technical stack used in the @tcg/core framework, including core dependencies, development tools, testing infrastructure, and architectural patterns.
+This document outlines the complete technical stack used in the @drmxrcy/tcg-core framework, including core dependencies, development tools, testing infrastructure, and architectural patterns.
 
 ---
 
@@ -36,7 +36,7 @@ This document outlines the complete technical stack used in the @tcg/core framew
 - Why: Enables elegant immutable patterns without boilerplate
 
 ```typescript
-// Example usage in @tcg/core
+// Example usage in @drmxrcy/tcg-core
 import { produce } from 'immer';
 
 const newState = produce(state, (draft) => {
@@ -480,7 +480,7 @@ None required for target environments
 
 ## Contribution Tech Requirements
 
-To contribute to @tcg/core:
+To contribute to @drmxrcy/tcg-core:
 
 ### Required
 - Bun 1.2.14+ (or Node.js 18+)

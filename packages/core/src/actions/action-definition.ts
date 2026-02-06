@@ -51,7 +51,7 @@ export type ActionMetadata = {
  * This complements core-engine's EnumerableMove by providing:
  * - Timing validation (segments/phases/steps)
  * - Metadata for UI/logging/categorization
- * - Target specifications using @tcg/core's targeting system
+ * - Target specifications using @drmxrcy/tcg-core's targeting system
  *
  * The actual execution logic, game-specific constraints, and cost validation
  * are handled by core-engine's EnumerableMove.getConstraints() and execute().
@@ -69,7 +69,7 @@ export type ActionDefinition<TGameState = unknown> = {
   /** When this action can be performed */
   timing?: ActionTiming<TGameState>;
 
-  /** Target requirements using @tcg/core's targeting system */
+  /** Target requirements using @drmxrcy/tcg-core's targeting system */
   targets?: TargetDefinition[];
 
   /** Metadata for categorization and UI */
@@ -80,7 +80,7 @@ export type ActionDefinition<TGameState = unknown> = {
  * Action Instance
  *
  * Represents a specific action being performed by a player.
- * This is the bridge between @tcg/core's action definitions and
+ * This is the bridge between @drmxrcy/tcg-core's action definitions and
  * core-engine's move execution system.
  */
 export type ActionInstance = {

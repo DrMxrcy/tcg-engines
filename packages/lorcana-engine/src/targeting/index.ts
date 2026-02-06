@@ -15,7 +15,7 @@ export type {
   TargetCount,
   TargetDSL,
   TargetingUIHint,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 // Enum expansion utilities
 export {

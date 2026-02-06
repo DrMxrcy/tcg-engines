@@ -1,4 +1,4 @@
-import type { LocationCard } from "@tcg/lorcana-types";
+import type { LocationCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const theSorcerersTowerWondrousWorkspace: LocationCard = {
   id: "1ne",

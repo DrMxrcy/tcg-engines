@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine } from "@drmxrcy/tcg-lorcana/testing";
 import { teKLavaMonster } from "./058-te-k-lava-monster";
 
 describe("Te Kā - Lava Monster", () => {

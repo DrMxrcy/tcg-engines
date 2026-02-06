@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { moanaChosenByTheOcean } from "./117-moana-chosen-by-the-ocean";
 
 describe("Moana - Chosen by the Ocean", () => {

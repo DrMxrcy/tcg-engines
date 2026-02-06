@@ -1,4 +1,4 @@
-import { type ConditionFailure, createMove, type PlayerId } from "@tcg/core";
+import { type ConditionFailure, createMove, type PlayerId } from "@drmxrcy/tcg-core";
 import type {
   LorcanaCardMeta,
   LorcanaGameState,

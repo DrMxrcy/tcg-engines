@@ -1,10 +1,10 @@
 # Validation Guide
 
-> Type guards and runtime validators for @tcg/core
+> Type guards and runtime validators for @drmxrcy/tcg-core
 
 ## Overview
 
-The `@tcg/core/validation` module provides utilities for runtime type validation, type guards, and schema builders. These tools help ensure data integrity, enable type-safe filtering, and support runtime validation of cards, moves, and game states.
+The `@drmxrcy/tcg-core/validation` module provides utilities for runtime type validation, type guards, and schema builders. These tools help ensure data integrity, enable type-safe filtering, and support runtime validation of cards, moves, and game states.
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ import {
   isCardOfType,
   ValidatorBuilder,
   createValidator,
-} from '@tcg/core/validation';
+} from '@drmxrcy/tcg-core/validation';
 
 // 1. Type guards for filtering
 const isCreature = isCardOfType('creature');
@@ -53,7 +53,7 @@ Type guards enable type-safe filtering and narrowing in TypeScript.
 ### Basic Type Guard
 
 ```typescript
-import { createTypeGuard } from '@tcg/core/validation';
+import { createTypeGuard } from '@drmxrcy/tcg-core/validation';
 
 type Card = {
   type: 'creature' | 'spell' | 'artifact';
@@ -139,7 +139,7 @@ Specialized type guards for card filtering and validation.
 Convenient helper for checking card types:
 
 ```typescript
-import { isCardOfType } from '@tcg/core/validation';
+import { isCardOfType } from '@drmxrcy/tcg-core/validation';
 
 // Basic usage
 const isCreature = isCardOfType('creature');
@@ -167,7 +167,7 @@ function processCard(card: Card) {
 Check any card field:
 
 ```typescript
-import { isCardWithField } from '@tcg/core/validation';
+import { isCardWithField } from '@drmxrcy/tcg-core/validation';
 
 type ExtendedCard = Card & {
   rarity: 'common' | 'rare' | 'mythic';
@@ -191,7 +191,7 @@ const rareLegendaries = cards
 #### AND Logic
 
 ```typescript
-import { combineTypeGuards } from '@tcg/core/validation';
+import { combineTypeGuards } from '@drmxrcy/tcg-core/validation';
 
 const isCreature = isCardOfType('creature');
 const isRare = isCardWithField<ExtendedCard, 'rarity', 'rare'>('rarity', 'rare');
@@ -210,7 +210,7 @@ const rareLegendaryCreatures = cards.filter(isRareLegendaryCreature);
 #### OR Logic
 
 ```typescript
-import { combineTypeGuardsOr } from '@tcg/core/validation';
+import { combineTypeGuardsOr } from '@drmxrcy/tcg-core/validation';
 
 const isCreature = isCardOfType('creature');
 const isSpell = isCardOfType('spell');
@@ -224,7 +224,7 @@ const permanents = cards.filter(isPermanent);
 #### Negation
 
 ```typescript
-import { negateTypeGuard } from '@tcg/core/validation';
+import { negateTypeGuard } from '@drmxrcy/tcg-core/validation';
 
 const isCreature = isCardOfType('creature');
 const isNotCreature = negateTypeGuard(isCreature);
@@ -260,7 +260,7 @@ Build fluent validation rules for runtime data validation.
 ### Basic Validation
 
 ```typescript
-import { ValidatorBuilder } from '@tcg/core/validation';
+import { ValidatorBuilder } from '@drmxrcy/tcg-core/validation';
 
 type CardData = {
   name: string;
@@ -378,7 +378,7 @@ const thoroughValidator = new ValidatorBuilder<CardData>({
 ### Functional Style
 
 ```typescript
-import { createValidator } from '@tcg/core/validation';
+import { createValidator } from '@drmxrcy/tcg-core/validation';
 
 const validator = createValidator<CardData>((builder) =>
   builder
@@ -441,7 +441,7 @@ import {
   extendSchema,
   mergeSchemas,
   createDiscriminatedUnion,
-} from '@tcg/core/validation';
+} from '@drmxrcy/tcg-core/validation';
 import { z } from 'zod';
 
 // Create base card schema
@@ -578,7 +578,7 @@ import {
   isCardWithField,
   combineTypeGuards,
   combineTypeGuardsOr,
-} from '@tcg/core/validation';
+} from '@drmxrcy/tcg-core/validation';
 
 type GameCard = {
   id: string;
@@ -628,7 +628,7 @@ const highValueTargets = cards.filter(
 ### Complete Validation System
 
 ```typescript
-import { ValidatorBuilder, type Validator } from '@tcg/core/validation';
+import { ValidatorBuilder, type Validator } from '@drmxrcy/tcg-core/validation';
 
 type CardData = {
   name: string;
@@ -727,8 +727,8 @@ function isValidCard(card: any): boolean {
   );
 }
 
-// NEW (@tcg/core/validation)
-import { ValidatorBuilder } from '@tcg/core/validation';
+// NEW (@drmxrcy/tcg-core/validation)
+import { ValidatorBuilder } from '@drmxrcy/tcg-core/validation';
 
 const validator = new ValidatorBuilder<Card>()
   .required('name', 'Name is required')
@@ -744,7 +744,7 @@ const result = validator.validate(card);
 // Result includes detailed error messages
 ```
 
-**Benefits of @tcg/core/validation:**
+**Benefits of @drmxrcy/tcg-core/validation:**
 - Clear error messages
 - Fluent, readable API
 - Type-safe validation rules

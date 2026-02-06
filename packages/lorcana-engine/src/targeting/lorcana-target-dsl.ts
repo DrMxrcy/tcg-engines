@@ -1,4 +1,4 @@
-import type { BaseContext, PlayerTargetDSL, TargetDSL } from "@tcg/core";
+import type { BaseContext, PlayerTargetDSL, TargetDSL } from "@drmxrcy/tcg-core";
 import type { KeywordType } from "../types/keywords";
 
 /** Lorcana zone IDs */

@@ -14,7 +14,7 @@ import type {
   CharacterCard,
   ItemCard,
   LocationCard,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import { parseAbilityText } from "../../src/parser";
 import {
   getManualEntry,
@@ -450,7 +450,7 @@ export function generateCardFileContent(
     .replace(/"([^"]+)":/g, "$1:") // Remove quotes from keys
     .replace(/"/g, '"'); // Use double quotes for strings
 
-  return `import type { ${typeName} } from "@tcg/lorcana-types";
+  return `import type { ${typeName} } from "@drmxrcy/tcg-lorcana-types";
 
 export const ${exportName}: ${typeName} = ${cardJson};
 `;
@@ -506,7 +506,7 @@ export function generateSetIndexContent(
     .join("\n");
 
   const importedTypes = typeUnion.split(" | ").join(", ");
-  return `import type { ${importedTypes} } from "@tcg/lorcana-types";
+  return `import type { ${importedTypes} } from "@drmxrcy/tcg-lorcana-types";
 ${imports}
 
 export const all${setFolderName}Cards: (${typeUnion})[] = [
@@ -541,7 +541,7 @@ export function generateMainCardsContent(setFolderNames: string[]): string {
     .map((name) => `  ...all${name}CardsById,`)
     .join("\n");
 
-  return `import type { CharacterCard, ActionCard, ItemCard, LocationCard } from "@tcg/lorcana-types";
+  return `import type { CharacterCard, ActionCard, ItemCard, LocationCard } from "@drmxrcy/tcg-lorcana-types";
 ${imports}
 
 export const allCards: (CharacterCard | ActionCard | ItemCard | LocationCard)[] = [
@@ -558,7 +558,7 @@ ${byIdSpreads}
  * Generate content for index.ts entry point
  */
 export function generateEntryPointContent(): string {
-  return `import type { CharacterCard, ActionCard, ItemCard, LocationCard } from "@tcg/lorcana-types";
+  return `import type { CharacterCard, ActionCard, ItemCard, LocationCard } from "@drmxrcy/tcg-lorcana-types";
 
 let allCardsCache: (CharacterCard | ActionCard | ItemCard | LocationCard)[] | null = null;
 let allCardsByIdCache: Record<string, CharacterCard | ActionCard | ItemCard | LocationCard> | null = null;
@@ -878,7 +878,7 @@ export function generateTestFileContent(
   }
 
   return `import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine } from "@drmxrcy/tcg-lorcana/testing";
 import { ${exportName} } from "${importPath}";
 
 describe("${card.fullName}", () => {

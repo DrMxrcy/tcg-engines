@@ -23,8 +23,8 @@ alwaysApply: true
   {
     "compilerOptions": {
       "paths": {
-        "@tcg/core-engine": ["../../packages/engines/core-engine/src"],
-        "@tcg/core-engine/*": ["../../packages/engines/core-engine/src/*"]
+        "@drmxrcy/tcg-core-engine": ["../../packages/engines/core-engine/src"],
+        "@drmxrcy/tcg-core-engine/*": ["../../packages/engines/core-engine/src/*"]
       }
     }
   }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine } from "@drmxrcy/tcg-lorcana/testing";
 import { olafTrustingCompanion } from "./150-olaf-trusting-companion";
 
 describe("Olaf - Trusting Companion", () => {

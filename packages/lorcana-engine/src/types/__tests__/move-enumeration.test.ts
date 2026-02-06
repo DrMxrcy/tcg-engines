@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import type { PlayerId } from "@tcg/core";
+import type { PlayerId } from "@drmxrcy/tcg-core";
 import type {
   AvailableMoveInfo,
   MoveParameterOptions,

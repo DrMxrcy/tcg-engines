@@ -2,7 +2,7 @@
  * Test helper builders for Riftbound effects
  *
  * Provides fluent builders for creating effect objects in tests.
- * These match the types in @tcg/riftbound-types.
+ * These match the types in @drmxrcy/tcg-riftbound-types.
  */
 
 import type {
@@ -59,7 +59,7 @@ import type {
   Target,
   TokenDefinition,
   WinGameEffect,
-} from "@tcg/riftbound-types";
+} from "@drmxrcy/tcg-riftbound-types";
 
 /**
  * Effect builder helpers for tests

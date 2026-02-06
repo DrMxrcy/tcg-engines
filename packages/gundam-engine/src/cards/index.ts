@@ -2,7 +2,7 @@
  * Gundam Card Game - Card Definitions
  *
  * This directory contains all card definitions for the Gundam Card Game.
- * In @tcg/core, cards are plain data objects - no helper functions needed.
+ * In @drmxrcy/tcg-core, cards are plain data objects - no helper functions needed.
  *
  * Organization:
  * - sets/           - Cards organized by set (ST01, ST02, GD01, etc.)
@@ -11,7 +11,7 @@
  *
  * @example Unit Card Definition
  * ```typescript
- * import type { CardId } from "@tcg/core";
+ * import type { CardId } from "@drmxrcy/tcg-core";
  *
  * // Card definition type (static data)
  * type UnitCardDefinition = {
@@ -91,7 +91,7 @@
  *
  * @example Card Instance in Game State
  * ```typescript
- * import type { CardId, PlayerId } from "@tcg/core";
+ * import type { CardId, PlayerId } from "@drmxrcy/tcg-core";
  *
  * // Card instance (runtime state)
  * type UnitCardInstance = {

@@ -1,10 +1,10 @@
-# @tcg/gundam
+# @drmxrcy/tcg-gundam
 
-> Gundam Card Game engine implementation using @tcg/core
+> Gundam Card Game engine implementation using @drmxrcy/tcg-core
 
 ## Overview
 
-This package implements the Gundam Card Game using the `@tcg/core` framework. It provides:
+This package implements the Gundam Card Game using the `@drmxrcy/tcg-core` framework. It provides:
 
 - Complete game rules and mechanics
 - Card definitions for all sets
@@ -16,13 +16,13 @@ This package implements the Gundam Card Game using the `@tcg/core` framework. It
 ## Installation
 
 ```bash
-bun install @tcg/gundam
+bun install @drmxrcy/tcg-gundam
 ```
 
 ## Quick Start
 
 ```typescript
-import { gundamGame } from "@tcg/gundam";
+import { gundamGame } from "@drmxrcy/tcg-gundam";
 
 // Create a new game instance
 const game = gundamGame.create({
@@ -81,7 +81,7 @@ bun run scripts/scrape-set.ts ST01
 
 ### Card Definitions
 
-Cards are plain TypeScript objects following @tcg/core patterns:
+Cards are plain TypeScript objects following @drmxrcy/tcg-core patterns:
 
 ```typescript
 import type { UnitCardDefinition } from "./cards/card-types";

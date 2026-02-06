@@ -8,7 +8,7 @@
  * Each operation is pure and operates through the MoveContext API.
  */
 
-import type { CardId, MoveContext, PlayerId } from "@tcg/core";
+import type { CardId, MoveContext, PlayerId } from "@drmxrcy/tcg-core";
 import type { Draft } from "immer";
 import type { LorcanaCardMeta, LorcanaGameState } from "../types";
 

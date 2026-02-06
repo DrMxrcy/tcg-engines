@@ -5,7 +5,7 @@
  *
  * @example
  * ```typescript
- * import { Logger, LogLevel } from '@tcg/core/logging';
+ * import { Logger, LogLevel } from '@drmxrcy/tcg-core/logging';
  *
  * const logger = new Logger({
  *   level: 'DEVELOPER',

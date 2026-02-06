@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaTestEngine, PLAYER_ONE } from "@tcg/lorcana/testing";
+import { LorcanaTestEngine, PLAYER_ONE } from "@drmxrcy/tcg-lorcana/testing";
 import { starkeyHooksHenchman } from "./191-starkey-hooks-henchman";
 
 describe("Starkey - Hook’s Henchman", () => {

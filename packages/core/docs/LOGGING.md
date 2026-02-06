@@ -1,6 +1,6 @@
 # Logging System
 
-Production-grade structured logging for `@tcg/core` with configurable verbosity levels and zero-overhead SILENT mode.
+Production-grade structured logging for `@drmxrcy/tcg-core` with configurable verbosity levels and zero-overhead SILENT mode.
 
 ## Overview
 
@@ -14,7 +14,7 @@ The logging system provides:
 ## Quick Start
 
 ```typescript
-import { RuleEngine } from '@tcg/core';
+import { RuleEngine } from '@drmxrcy/tcg-core';
 
 const engine = new RuleEngine(gameDefinition, players, {
   seed: 'game-123',

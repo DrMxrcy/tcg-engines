@@ -1,6 +1,6 @@
 # Engine Integration Guide
 
-Complete guide for building trading card game engines using the `@tcg/core` framework.
+Complete guide for building trading card game engines using the `@drmxrcy/tcg-core` framework.
 
 ## Table of Contents
 
@@ -20,7 +20,7 @@ Complete guide for building trading card game engines using the `@tcg/core` fram
 
 ## Overview
 
-The `@tcg/core` framework provides a foundation for building trading card game engines with:
+The `@drmxrcy/tcg-core` framework provides a foundation for building trading card game engines with:
 
 - **Immutable state management** via Immer
 - **Delta-based synchronization** via Immer patches
@@ -90,14 +90,14 @@ packages/your-game-engine/
 
 ```json
 {
-  "name": "@tcg/your-game",
+  "name": "@drmxrcy/tcg-your-game",
   "version": "0.1.0",
-  "description": "Your TCG engine built with @tcg/core",
+  "description": "Your TCG engine built with @drmxrcy/tcg-core",
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.d.ts",
   "dependencies": {
-    "@tcg/core": "workspace:*"
+    "@drmxrcy/tcg-core": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.4",
@@ -134,7 +134,7 @@ Use Turborepo boundaries to enforce dependencies:
     "tags": {
       "game-engine": {
         "dependencies": {
-          "allow": ["@tcg/core"]
+          "allow": ["@drmxrcy/tcg-core"]
         }
       }
     }
@@ -152,7 +152,7 @@ The `GameDefinition` is the central configuration that tells the framework how y
 
 ```typescript
 // src/game-definition/your-game-definition.ts
-import { createGameDefinition, type Player } from "@tcg/core";
+import { createGameDefinition, type Player } from "@drmxrcy/tcg-core";
 import type { YourGameState } from "./state-shape";
 import { yourGameZones } from "./zones";
 import { yourGameFlow } from "./flow";
@@ -194,7 +194,7 @@ export type YourGame = typeof yourGame;
 ### Creating Game Instances
 
 ```typescript
-import { RuleEngine } from "@tcg/core";
+import { RuleEngine } from "@drmxrcy/tcg-core";
 import { yourGame } from "./game-definition";
 
 // Create engine
@@ -251,7 +251,7 @@ Add game-specific data:
 
 ```typescript
 // src/game-definition/state-shape.ts
-import type { GameState, PlayerId, CardId } from "@tcg/core";
+import type { GameState, PlayerId, CardId } from "@drmxrcy/tcg-core";
 
 export type YourGameState = GameState & {
   yourGame: {
@@ -301,7 +301,7 @@ Zones are where cards exist during gameplay (deck, hand, play, discard, etc.).
 
 ```typescript
 // src/game-definition/zones.ts
-import type { ZoneConfiguration } from "@tcg/core";
+import type { ZoneConfiguration } from "@drmxrcy/tcg-core";
 
 export const yourGameZones: ZoneConfiguration = {
   // Deck - ordered, only owner sees
@@ -362,7 +362,7 @@ import {
   getCardsInZone,
   shuffleZone,
   drawCard,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 // Move card between zones
 moveCard(state, cardId, "hand", "play");
@@ -389,7 +389,7 @@ Each move has two parts: validation and execution.
 
 ```typescript
 // src/moves/play-card.ts
-import type { Move, MoveContext } from "@tcg/core";
+import type { Move, MoveContext } from "@drmxrcy/tcg-core";
 import type { YourGameState } from "../types";
 
 export const playCardMove: Move<YourGameState> = {
@@ -539,7 +539,7 @@ Define turn/phase/step structure using XState state machine.
 
 ```typescript
 // src/game-definition/flow.ts
-import { createFlow } from "@tcg/core";
+import { createFlow } from "@drmxrcy/tcg-core";
 
 export const yourGameFlow = createFlow({
   id: "yourGameFlow",
@@ -610,7 +610,7 @@ Define cards and their properties.
 
 ```typescript
 // src/cards/card-definitions/example-card.ts
-import type { CardDefinition } from "@tcg/core";
+import type { CardDefinition } from "@drmxrcy/tcg-core";
 import type { YourGameCard } from "../card-types";
 
 export const exampleCard: CardDefinition<YourGameCard> = {
@@ -645,7 +645,7 @@ Define game-specific card types:
 
 ```typescript
 // src/cards/card-types.ts
-import type { CardDefinition, CardId } from "@tcg/core";
+import type { CardDefinition, CardId } from "@drmxrcy/tcg-core";
 
 export type YourGameCardType = 
   | "creature"
@@ -755,7 +755,7 @@ Use behavior-driven testing with real engine instances.
 ```typescript
 // src/__tests__/play-card.test.ts
 import { describe, it, expect } from "bun:test";
-import { RuleEngine } from "@tcg/core";
+import { RuleEngine } from "@drmxrcy/tcg-core";
 import { yourGame } from "../game-definition";
 
 describe("Play Card Move", () => {
@@ -813,7 +813,7 @@ export const createTestState = (overrides?: Partial<YourGameState>) => {
 
 ### 1. Keep Core Agnostic
 
-Don't modify `@tcg/core`. If you need core changes, discuss with framework maintainers.
+Don't modify `@drmxrcy/tcg-core`. If you need core changes, discuss with framework maintainers.
 
 ### 2. Use Branded Types
 
@@ -915,13 +915,13 @@ type PlayCardParams = {
 
 ## Complete Example
 
-See `@tcg/lorcana` for a complete reference implementation demonstrating all these patterns.
+See `@drmxrcy/tcg-lorcana` for a complete reference implementation demonstrating all these patterns.
 
 ## Support
 
-- Framework issues: Open issue in `@tcg/core` repository
+- Framework issues: Open issue in `@drmxrcy/tcg-core` repository
 - Integration questions: Check `ENGINE_INTEGRATION.md` (this doc)
-- Examples: See `@tcg/lorcana` reference implementation
+- Examples: See `@drmxrcy/tcg-lorcana` reference implementation
 
 ---
 

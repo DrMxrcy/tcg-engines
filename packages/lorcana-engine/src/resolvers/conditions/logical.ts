@@ -2,7 +2,7 @@ import type {
   AndCondition,
   NotCondition,
   OrCondition,
-} from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-lorcana-types";
 import { conditionRegistry } from "../condition-registry";
 import { isConditionMet } from "../condition-resolver";
 

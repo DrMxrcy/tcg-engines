@@ -3,7 +3,7 @@
 ## Changes Implemented
 
 ### 1. State Structure Refactoring
-- Updated `LorcanaGameState` to implement `@tcg/core`'s `IState` interface.
+- Updated `LorcanaGameState` to implement `@drmxrcy/tcg-core`'s `IState` interface.
 - Structured state into `internal` (framework-managed) and `external` (game-logic) sections.
 - Defined `LorcanaExternalState` to hold:
   - `loreScores`

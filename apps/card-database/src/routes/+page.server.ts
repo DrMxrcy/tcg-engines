@@ -1,5 +1,5 @@
-import { getAllCards } from "@tcg/lorcana-cards/cards";
-import type { LorcanaCard } from "@tcg/lorcana-types";
+import { getAllCards } from "@drmxrcy/tcg-lorcana-cards/cards";
+import type { LorcanaCard } from "@drmxrcy/tcg-lorcana-types";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {

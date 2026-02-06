@@ -1,7 +1,7 @@
 /**
  * Zone Management Examples
  *
- * Demonstrates comprehensive usage of zone operations from @tcg/core
+ * Demonstrates comprehensive usage of zone operations from @drmxrcy/tcg-core
  * Run with: bun run packages/core/docs/examples/zone-management.ts
  */
 

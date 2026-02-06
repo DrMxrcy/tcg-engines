@@ -1,7 +1,7 @@
 /**
  * Lorcana Integration Example
  *
- * Demonstrates how to build a Lorcana engine using @tcg/core framework.
+ * Demonstrates how to build a Lorcana engine using @drmxrcy/tcg-core framework.
  * This example shows:
  * - Using the new Operations API (zones, cards, registry)
  * - Framework-managed zone and card state
@@ -16,9 +16,9 @@ import type {
   GameDefinition,
   MoveContext,
   PlayerId,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
-import { createCardId, createPlayerId, RuleEngine } from "@tcg/core";
+import { createCardId, createPlayerId, RuleEngine } from "@drmxrcy/tcg-core";
 
 // Define AbilityId locally (game-specific type)
 export type AbilityId = string;

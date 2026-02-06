@@ -20,7 +20,7 @@ import {
   type MoveDefinition,
   type Player,
   RuleEngine,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 
 // ============================================================================
 // GAME STATE TYPES

@@ -51,8 +51,8 @@ alwaysApply: true
   ```json
   {
     "dependencies": {
-      "@tcg/shared": "workspace:*",
-      "@tcg/core-engine": "workspace:*"
+      "@drmxrcy/tcg-shared": "workspace:*",
+      "@drmxrcy/tcg-core-engine": "workspace:*"
     }
   }
   ```
@@ -82,7 +82,7 @@ alwaysApply: true
 ## Example Package.json
 ```json
 {
-  "name": "@tcg/core-engine",
+  "name": "@drmxrcy/tcg-core-engine",
   "version": "1.0.0",
   "private": true,
   "description": "Core TCG game engine for card game logic",
@@ -106,7 +106,7 @@ alwaysApply: true
     "check": "turbo format lint check-types test"
   },
   "dependencies": {
-    "@tcg/shared": "workspace:*",
+    "@drmxrcy/tcg-shared": "workspace:*",
     "@tanstack/store": "0.7.0"
   },
   "devDependencies": {

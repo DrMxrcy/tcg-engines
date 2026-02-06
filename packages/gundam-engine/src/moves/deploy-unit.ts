@@ -14,8 +14,8 @@
  * - Rule 5-3: Battle area capacity is 6 units maximum
  */
 
-import type { CardId, GameMoveDefinition, MoveContext } from "@tcg/core";
-import { getZoneSize, isCardInZone, moveCard } from "@tcg/core";
+import type { CardId, GameMoveDefinition, MoveContext } from "@drmxrcy/tcg-core";
+import { getZoneSize, isCardInZone, moveCard } from "@drmxrcy/tcg-core";
 import type { Draft } from "immer";
 import type { GundamGameState } from "../types";
 

@@ -1,7 +1,7 @@
 {
   "name": "@drmxrcy/tcg-riftbound",
   "version": "0.1.0",
-  "description": "Riftbound TCG engine implementation using @tcg/core framework",
+  "description": "Riftbound TCG engine implementation using @drmxrcy/tcg-core framework",
   "private": false,
   "main": "./src/index.ts",
   "types": "./src/index.d.ts",

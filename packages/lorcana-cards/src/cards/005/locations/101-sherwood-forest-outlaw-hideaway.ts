@@ -1,4 +1,4 @@
-import type { LocationCard } from "@tcg/lorcana-types";
+import type { LocationCard } from "@drmxrcy/tcg-lorcana-types";
 
 export const sherwoodForestOutlawHideaway: LocationCard = {
   id: "1kh",

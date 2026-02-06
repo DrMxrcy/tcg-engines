@@ -1,21 +1,21 @@
-# @tcg/riftbound
+# @drmxrcy/tcg-riftbound
 
-Riftbound TCG engine implementation using the @tcg/core framework.
+Riftbound TCG engine implementation using the @drmxrcy/tcg-core framework.
 
 ## Overview
 
-This package provides a complete implementation of the Riftbound TCG game engine. It serves as both a production-ready game engine and a reference implementation for building TCG engines with @tcg/core.
+This package provides a complete implementation of the Riftbound TCG game engine. It serves as both a production-ready game engine and a reference implementation for building TCG engines with @drmxrcy/tcg-core.
 
 ## Installation
 
 ```bash
-bun add @tcg/riftbound
+bun add @drmxrcy/tcg-riftbound
 ```
 
 ## Usage
 
 ```typescript
-import { RiftboundEngine } from "@tcg/riftbound";
+import { RiftboundEngine } from "@drmxrcy/tcg-riftbound";
 
 // Create a new game engine instance
 const engine = new RiftboundEngine();
@@ -29,7 +29,7 @@ const gameState = engine.createGame({
 
 ## Architecture
 
-The engine follows the @tcg/core framework patterns:
+The engine follows the @drmxrcy/tcg-core framework patterns:
 
 - **NO** `defineMove()`, `defineZone()`, `definePhase()`, `defineCard()` helpers
 - Use `GameDefinition<TState, TMoves>` type directly
@@ -64,6 +64,6 @@ bun test
 
 ## Related Packages
 
-- `@tcg/riftbound-types` - Type definitions
-- `@tcg/riftbound-cards` - Card definitions and parser
-- `@tcg/core` - Core framework
+- `@drmxrcy/tcg-riftbound-types` - Type definitions
+- `@drmxrcy/tcg-riftbound-cards` - Card definitions and parser
+- `@drmxrcy/tcg-core` - Core framework

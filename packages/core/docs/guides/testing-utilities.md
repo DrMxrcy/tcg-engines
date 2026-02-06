@@ -1,10 +1,10 @@
 # Testing Utilities Guide
 
-> Complete guide to TDD workflow and test utilities in @tcg/core
+> Complete guide to TDD workflow and test utilities in @drmxrcy/tcg-core
 
 ## Overview
 
-The `@tcg/core/testing` module provides comprehensive utilities for testing game engines using Test-Driven Development (TDD). These utilities eliminate test boilerplate, ensure consistent testing patterns, and make it easy to write robust tests for your game logic.
+The `@drmxrcy/tcg-core/testing` module provides comprehensive utilities for testing game engines using Test-Driven Development (TDD). These utilities eliminate test boilerplate, ensure consistent testing patterns, and make it easy to write robust tests for your game logic.
 
 ## Table of Contents
 
@@ -27,8 +27,8 @@ import {
   createTestCard,
   createTestDeck,
   withSeed,
-} from '@tcg/core/testing';
-import { RuleEngine } from '@tcg/core';
+} from '@drmxrcy/tcg-core/testing';
+import { RuleEngine } from '@drmxrcy/tcg-core';
 
 // 1. Create test game setup
 const gameDefinition = { /* your game */ };
@@ -57,7 +57,7 @@ const shuffled = withSeed('test-seed', (rng) => {
 The easiest way to create a test engine with sensible defaults:
 
 ```typescript
-import { createTestEngine } from '@tcg/core/testing';
+import { createTestEngine } from '@drmxrcy/tcg-core/testing';
 
 // Create with default 2 players
 const engine = createTestEngine(gameDefinition);
@@ -80,7 +80,7 @@ const engine = createTestEngine(gameDefinition, undefined, {
 ### Creating Test Players
 
 ```typescript
-import { createTestPlayers } from '@tcg/core/testing';
+import { createTestPlayers } from '@drmxrcy/tcg-core/testing';
 
 // Create 2 players with default names
 const players = createTestPlayers();
@@ -103,7 +103,7 @@ const players = createTestPlayers(4, ['Alice', 'Bob']);
 ### Creating Test State
 
 ```typescript
-import { createTestState } from '@tcg/core/testing';
+import { createTestState } from '@drmxrcy/tcg-core/testing';
 
 // Define your state type
 type GameState = {
@@ -139,7 +139,7 @@ const state = createTestState<GameState>({
 Execute a move and verify it succeeds:
 
 ```typescript
-import { expectMoveSuccess } from '@tcg/core/testing';
+import { expectMoveSuccess } from '@drmxrcy/tcg-core/testing';
 
 const result = expectMoveSuccess(engine, 'playCard', {
   playerId: 'p1',
@@ -160,7 +160,7 @@ expect(result.patches.length).toBeGreaterThan(0);
 Verify a move fails as expected:
 
 ```typescript
-import { expectMoveFailure } from '@tcg/core/testing';
+import { expectMoveFailure } from '@drmxrcy/tcg-core/testing';
 
 // Assert move fails (any error)
 expectMoveFailure(engine, 'invalidMove', {
@@ -189,7 +189,7 @@ expect(result.error).toContain('card not found');
 Verify state properties with dot notation and array indexing:
 
 ```typescript
-import { expectStateProperty } from '@tcg/core/testing';
+import { expectStateProperty } from '@drmxrcy/tcg-core/testing';
 
 // Simple properties
 expectStateProperty(engine, 'turnNumber', 1);
@@ -224,7 +224,7 @@ expectStateProperty(engine, 'deck.cards.length', 40);
 Verify phase/turn transitions:
 
 ```typescript
-import { expectPhaseTransition } from '@tcg/core/testing';
+import { expectPhaseTransition } from '@drmxrcy/tcg-core/testing';
 
 // Verify phase changed
 expectPhaseTransition(engine, 'draw', 'main');
@@ -246,7 +246,7 @@ expectPhaseTransition(engine, 'main', 'combat');
 Verify game has ended with specific winner:
 
 ```typescript
-import { expectGameEnd } from '@tcg/core/testing';
+import { expectGameEnd } from '@drmxrcy/tcg-core/testing';
 
 // Execute winning move
 expectMoveSuccess(engine, 'attack', {
@@ -263,7 +263,7 @@ expectGameEnd(engine, 'p1');
 Verify game is still in progress:
 
 ```typescript
-import { expectGameNotEnded } from '@tcg/core/testing';
+import { expectGameNotEnded } from '@drmxrcy/tcg-core/testing';
 
 expectMoveSuccess(engine, 'playCard', { playerId: 'p1' });
 expectGameNotEnded(engine);
@@ -276,7 +276,7 @@ expectGameNotEnded(engine);
 Create test cards with sensible defaults:
 
 ```typescript
-import { createTestCard, createTestCards, resetCardCounter } from '@tcg/core/testing';
+import { createTestCard, createTestCards, resetCardCounter } from '@drmxrcy/tcg-core/testing';
 
 // Create single card
 const card = createTestCard();
@@ -312,7 +312,7 @@ import {
   createTestHand,
   createTestPlayArea,
   createTestGraveyard,
-} from '@tcg/core/testing';
+} from '@drmxrcy/tcg-core/testing';
 
 // Generic test zone
 const zone = createTestZone(
@@ -341,7 +341,7 @@ const emptyDeck = createTestDeck();
 ### Deterministic Testing
 
 ```typescript
-import { withSeed, createDeterministicRNG } from '@tcg/core/testing';
+import { withSeed, createDeterministicRNG } from '@drmxrcy/tcg-core/testing';
 
 // Execute code with seeded RNG
 const result = withSeed('test-seed', (rng) => {
@@ -362,7 +362,7 @@ const roll2 = rng.rollDice(6);
 ### Testing RNG Behavior
 
 ```typescript
-import { expectDeterministicBehavior } from '@tcg/core/testing';
+import { expectDeterministicBehavior } from '@drmxrcy/tcg-core/testing';
 
 // Verify function produces same output with same seed
 expectDeterministicBehavior(
@@ -388,7 +388,7 @@ expectDeterministicBehavior(
 Test behavior across different random scenarios:
 
 ```typescript
-import { testWithMultipleSeeds } from '@tcg/core/testing';
+import { testWithMultipleSeeds } from '@drmxrcy/tcg-core/testing';
 
 // Test with 10 different random scenarios
 const results = testWithMultipleSeeds(10, (rng) => {
@@ -411,7 +411,7 @@ results.forEach(state => {
 Create deterministic sequences for testing:
 
 ```typescript
-import { createPredictableSequence } from '@tcg/core/testing';
+import { createPredictableSequence } from '@drmxrcy/tcg-core/testing';
 
 // Create sequence that always returns same values
 const sequence = createPredictableSequence([
@@ -431,7 +431,7 @@ expect(sequence()).toBe(0.1); // Wraps around
 ### Deterministic Replay Verification
 
 ```typescript
-import { expectDeterministicReplay } from '@tcg/core/testing';
+import { expectDeterministicReplay } from '@drmxrcy/tcg-core/testing';
 
 // Create engine with seed
 const engine = createTestEngine(gameDefinition, players, {
@@ -461,7 +461,7 @@ expectDeterministicReplay(engine);
 
 ```typescript
 import { describe, test, expect } from 'bun:test';
-import { createTestEngine, expectMoveSuccess, expectStateProperty } from '@tcg/core/testing';
+import { createTestEngine, expectMoveSuccess, expectStateProperty } from '@drmxrcy/tcg-core/testing';
 
 describe('PlayCard Move', () => {
   test('should move card from hand to field', () => {
@@ -700,7 +700,7 @@ import {
   expectGameEnd,
   expectDeterministicReplay,
   createTestCards,
-} from '@tcg/core/testing';
+} from '@drmxrcy/tcg-core/testing';
 
 describe('Card Game: Full Integration', () => {
   let engine: RuleEngine<GameState, GameMoves>;
@@ -821,8 +821,8 @@ function expectStateValue(engine, path, value) {
   expect(actual).toBe(value);
 }
 
-// NEW (@tcg/core/testing)
-import { expectMoveSuccess, expectStateProperty } from '@tcg/core/testing';
+// NEW (@drmxrcy/tcg-core/testing)
+import { expectMoveSuccess, expectStateProperty } from '@drmxrcy/tcg-core/testing';
 
 expectMoveSuccess(engine, 'move', context);
 expectStateProperty(engine, 'players[0].score', 10);

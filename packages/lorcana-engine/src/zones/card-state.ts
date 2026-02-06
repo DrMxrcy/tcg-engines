@@ -8,7 +8,7 @@
  * - Drying state (summoning sickness)
  */
 
-import type { CardId } from "@tcg/core";
+import type { CardId } from "@drmxrcy/tcg-core";
 import type {
   CardReadyState,
   LorcanaCardMeta,

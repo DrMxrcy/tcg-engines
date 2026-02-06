@@ -1,5 +1,5 @@
 {
-  "extends": "@lorcanito/typescript-config/base.json",
+  "extends": "@drmxrcy/tcg-typescript-config/base.json",
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",

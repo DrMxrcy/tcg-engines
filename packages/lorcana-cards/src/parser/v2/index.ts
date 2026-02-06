@@ -180,7 +180,7 @@ export class LorcanaParserV2 {
    * Extracts trigger information for triggered abilities.
    * Note: Uses type assertions because the parser produces intermediate
    * representations that don't fully match the strict Ability types from
-   * @tcg/lorcana-types. These will be further processed by consuming code.
+   * @drmxrcy/tcg-lorcana-types. These will be further processed by consuming code.
    */
   private wrapEffectAsAbility(effect: Effect, originalText: string): Ability {
     // Extract ability name if present (e.g., "NAME Whenever X, do Y")

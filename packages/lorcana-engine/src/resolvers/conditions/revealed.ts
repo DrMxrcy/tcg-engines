@@ -1,4 +1,4 @@
-import type { RevealedMatchesNamedCondition } from "@tcg/lorcana-types";
+import type { RevealedMatchesNamedCondition } from "@drmxrcy/tcg-lorcana-types";
 import { conditionRegistry } from "../condition-registry";
 
 conditionRegistry.register<RevealedMatchesNamedCondition>(

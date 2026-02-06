@@ -5,8 +5,8 @@ import type {
   CardRegistry,
   PlayerId,
   ZoneId,
-} from "@tcg/core";
-import type { LorcanaCardDefinition } from "@tcg/lorcana-types";
+} from "@drmxrcy/tcg-core";
+import type { LorcanaCardDefinition } from "@drmxrcy/tcg-lorcana-types";
 import type { LorcanaCardMeta, LorcanaGameState } from "../../types/game-state";
 import { createTargetFiltersPredicate } from "../filter-resolver";
 import type { LorcanaFilter } from "../lorcana-target-dsl";

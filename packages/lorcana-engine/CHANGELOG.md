@@ -1,6 +1,6 @@
-# @tcg/lorcana Changelog
+# @drmxrcy/tcg-lorcana Changelog
 
-All notable changes to the @tcg/lorcana game engine will be documented in this file.
+All notable changes to the @drmxrcy/tcg-lorcana game engine will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -9,12 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-#### Zone Operations Migration to @tcg/core
-- **BREAKING**: Migrated zone operations to use `@tcg/core` utilities
+#### Zone Operations Migration to @drmxrcy/tcg-core
+- **BREAKING**: Migrated zone operations to use `@drmxrcy/tcg-core` utilities
   - Replaced custom `zone-operations.ts` implementations with core imports
-  - Now using `createZone`, `addCard`, `removeCard`, `moveCard`, `shuffle`, `draw` from @tcg/core
+  - Now using `createZone`, `addCard`, `removeCard`, `moveCard`, `shuffle`, `draw` from @drmxrcy/tcg-core
   - Zone operations now export aliased functions to avoid naming conflicts with flat ZoneState helpers
-- Updated all zone operation call sites across the engine to use @tcg/core API
+- Updated all zone operation call sites across the engine to use @drmxrcy/tcg-core API
 - Removed duplicate zone operation code (~200 lines eliminated)
 - Zone operations now have consistent immutability guarantees with other @tcg games
 
@@ -27,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Documentation
 - Added migration guide: `docs/migration-to-core-zones.md`
 - Documented before/after examples for common zone operations
-- Added best practices for working with @tcg/core zones in Lorcana context
+- Added best practices for working with @drmxrcy/tcg-core zones in Lorcana context
 
 ### Performance
 - Zone operations maintain equivalent or improved performance vs previous implementation

@@ -1,4 +1,4 @@
-import type { AuthSession, AuthUser, SessionResult } from "@tcg/shared";
+import type { AuthSession, AuthUser, SessionResult } from "@drmxrcy/tcg-shared";
 import type { BetterAuthOptions } from "better-auth";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";

@@ -1,8 +1,8 @@
-# @tcg/core - Design Philosophy
+# @drmxrcy/tcg-core - Design Philosophy
 
 ## Overview
 
-This document outlines the core design philosophy behind @tcg/core, explaining the principles, decisions, and trade-offs that shape the framework. Understanding these principles will help you build better games and contribute more effectively to the project.
+This document outlines the core design philosophy behind @drmxrcy/tcg-core, explaining the principles, decisions, and trade-offs that shape the framework. Understanding these principles will help you build better games and contribute more effectively to the project.
 
 ## When Context is Missing
 
@@ -164,7 +164,7 @@ These tenets guide the development and evolution of the engine, ensuring consist
 
 **Principle**: Games should be defined through configuration, not imperative code.
 
-Unlike general-purpose game engines like [boardgame.io](https://boardgame.io/) that focus on turn-based games broadly, @tcg/core is specifically designed for trading card games. This specialization allows us to provide declarative abstractions that eliminate boilerplate.
+Unlike general-purpose game engines like [boardgame.io](https://boardgame.io/) that focus on turn-based games broadly, @drmxrcy/tcg-core is specifically designed for trading card games. This specialization allows us to provide declarative abstractions that eliminate boilerplate.
 
 **What This Means**:
 
@@ -235,7 +235,7 @@ type Move =
 
 **Principle**: Optimize for trading card game patterns, not general board games.
 
-While [boardgame.io](https://boardgame.io/) is excellent for general turn-based games, @tcg/core is purpose-built for TCGs. This means first-class support for concepts that are central to card games but secondary in board games.
+While [boardgame.io](https://boardgame.io/) is excellent for general turn-based games, @drmxrcy/tcg-core is purpose-built for TCGs. This means first-class support for concepts that are central to card games but secondary in board games.
 
 **TCG-Specific Features**:
 
@@ -248,7 +248,7 @@ While [boardgame.io](https://boardgame.io/) is excellent for general turn-based 
 
 **Comparison with boardgame.io**:
 
-| Feature | boardgame.io | @tcg/core |
+| Feature | boardgame.io | @drmxrcy/tcg-core |
 |---------|--------------|-----------|
 | **Scope** | General turn-based games | Trading card games specifically |
 | **State Management** | Manual state updates | Declarative with Immer |
@@ -308,7 +308,7 @@ reducer: (draft, context) => {
 
 **Principle**: Provide opinionated architecture that guides best practices, not just utilities.
 
-@tcg/core is a framework, not a library. It makes decisions for you about how games should be structured, how state should be managed, and how moves should be validated. This reduces decision fatigue and ensures consistency.
+@drmxrcy/tcg-core is a framework, not a library. It makes decisions for you about how games should be structured, how state should be managed, and how moves should be validated. This reduces decision fatigue and ensures consistency.
 
 **What This Means**:
 
@@ -374,7 +374,7 @@ Every API decision considers: Is this easy to use? Is it discoverable? Does it p
 
 **Principle**: Built-in features that real games need, not optional add-ons.
 
-Unlike frameworks that require you to build multiplayer, replay, or debugging features yourself, @tcg/core includes these from day one.
+Unlike frameworks that require you to build multiplayer, replay, or debugging features yourself, @drmxrcy/tcg-core includes these from day one.
 
 **Built-in Production Features**:
 
@@ -388,7 +388,7 @@ Unlike frameworks that require you to build multiplayer, replay, or debugging fe
 
 **Comparison with boardgame.io**:
 
-| Feature | boardgame.io | @tcg/core |
+| Feature | boardgame.io | @drmxrcy/tcg-core |
 |---------|--------------|-----------|
 | **Multiplayer** | Built-in lobby system | Delta patches (you build transport) |
 | **Replay** | Game logs | Deterministic replay with seeded RNG |
@@ -417,7 +417,7 @@ Testing isn't an afterthought—it's built into the framework design. The framew
 
 ```typescript
 // ✅ Framework designed for testing
-import { createTestEngine, expectMoveSuccess } from '@tcg/core/testing';
+import { createTestEngine, expectMoveSuccess } from '@drmxrcy/tcg-core/testing';
 
 const engine = createTestEngine(gameDefinition, players, { seed: 'test' });
 
@@ -527,7 +527,7 @@ const result2 = engine2.executeMove('drawCard', { playerId: 'p1' });
 
 ### vs. boardgame.io
 
-[boardgame.io](https://boardgame.io/) is an excellent framework for general turn-based games. @tcg/core is specifically designed for trading card games.
+[boardgame.io](https://boardgame.io/) is an excellent framework for general turn-based games. @drmxrcy/tcg-core is specifically designed for trading card games.
 
 **When to use boardgame.io**:
 - Building non-card board games
@@ -535,7 +535,7 @@ const result2 = engine2.executeMove('drawCard', { playerId: 'p1' });
 - Want auto-generated AI bots
 - Prefer JavaScript over TypeScript
 
-**When to use @tcg/core**:
+**When to use @drmxrcy/tcg-core**:
 - Building trading card games
 - Need TCG-specific features (zones, targeting, card abilities)
 - Want type safety and TypeScript
@@ -552,7 +552,7 @@ Building your own game engine gives you complete control but requires significan
 - Have extensive game engine experience
 - Building proprietary technology
 
-**When to use @tcg/core**:
+**When to use @drmxrcy/tcg-core**:
 - Building a TCG (saves months of development)
 - Want production-ready features
 - Need type safety and testing tools
@@ -568,7 +568,7 @@ Full game engines are powerful but overkill for web-based TCGs.
 - Need physics simulation
 - Building action games
 
-**When to use @tcg/core**:
+**When to use @drmxrcy/tcg-core**:
 - Building web-based TCGs
 - Want lightweight, fast framework
 - Need server-side game logic
@@ -617,7 +617,7 @@ const moves: GameMoveDefinitions<State, Moves> = {
 
 ## Conclusion
 
-@tcg/core's philosophy centers on making TCG development faster, safer, and more enjoyable. By being opinionated about architecture, prioritizing type safety, and providing TCG-specific abstractions, we enable developers to focus on what makes their game unique rather than reinventing infrastructure.
+@drmxrcy/tcg-core's philosophy centers on making TCG development faster, safer, and more enjoyable. By being opinionated about architecture, prioritizing type safety, and providing TCG-specific abstractions, we enable developers to focus on what makes their game unique rather than reinventing infrastructure.
 
 The trade-offs are intentional: we optimize for TCG development at the expense of general-purpose flexibility. If you're building a trading card game, these trade-offs are worth it. If you're building something else, consider [boardgame.io](https://boardgame.io/) or another framework.
 

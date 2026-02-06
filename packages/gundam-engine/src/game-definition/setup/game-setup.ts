@@ -1,4 +1,4 @@
-import type { PlayerId, Zone, ZoneId } from "@tcg/core";
+import type { PlayerId, Zone, ZoneId } from "@drmxrcy/tcg-core";
 import type { GundamGameState } from "../../types";
 import {
   createBaseSectionZone,

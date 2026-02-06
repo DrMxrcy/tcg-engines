@@ -374,7 +374,7 @@ export class LorcanaAbilityParser extends CstParser {
 ```typescript
 import type { CstNode } from "chevrotain";
 import { LorcanaAbilityParser } from "../grammar";
-import type { Ability, Effect } from "@tcg/lorcana";
+import type { Ability, Effect } from "@drmxrcy/tcg-lorcana";
 import { logger } from "../logging";
 
 const parser = new LorcanaAbilityParser();
@@ -441,7 +441,7 @@ Individual effect parser (50-100 lines each):
 
 ```typescript
 import type { CstNode } from "chevrotain";
-import type { Effect } from "@tcg/lorcana";
+import type { Effect } from "@drmxrcy/tcg-lorcana";
 import { logger } from "../../logging";
 import { extractNumber } from "../../../numeric-extractor";
 
@@ -635,7 +635,7 @@ if (process.env.PARSER_DEBUG === "true") {
 **File:** `v2/effects/composite/sequence-effect.ts`
 
 ```typescript
-import type { Effect } from "@tcg/lorcana";
+import type { Effect } from "@drmxrcy/tcg-lorcana";
 import { logger } from "../../logging";
 import { parseAtomicEffect } from "../atomic";
 
@@ -693,7 +693,7 @@ import { LorcanaLexer } from "./lexer";
 import { LorcanaAbilityParser } from "./grammar";
 import { AbilityVisitor } from "./visitors";
 import { parseAtomicEffect } from "./effects/atomic";
-import type { Ability } from "@tcg/lorcana";
+import type { Ability } from "@drmxrcy/tcg-lorcana";
 import { logger } from "./logging";
 
 export class LorcanaParserV2 {
@@ -754,7 +754,7 @@ export const parserV2 = new LorcanaParserV2();
 **Main Parser API:**
 
 ```typescript
-import type { Ability } from "@tcg/lorcana";
+import type { Ability } from "@drmxrcy/tcg-lorcana";
 
 export class LorcanaParserV2 {
   /**
@@ -1537,7 +1537,7 @@ The implementation is organized into 7 phases but will be delivered as a **singl
 | Dependency | Version | Purpose | Risk |
 |------------|---------|---------|------|
 | chevrotain | 11.0.3+ | Lexer and parser framework | Low - stable library |
-| @tcg/lorcana | workspace | Effect type definitions | None - internal |
+| @drmxrcy/tcg-lorcana | workspace | Effect type definitions | None - internal |
 | Bun | 1.3.3+ | Test runner | None - already in use |
 
 ### Internal Dependencies

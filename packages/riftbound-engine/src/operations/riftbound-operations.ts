@@ -9,7 +9,7 @@
  * provided for game-specific state like victory points and rune pools.
  */
 
-import type { CardId } from "@tcg/core";
+import type { CardId } from "@drmxrcy/tcg-core";
 import { produce } from "immer";
 import type {
   Domain,

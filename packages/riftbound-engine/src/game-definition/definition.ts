@@ -5,7 +5,7 @@
  * This is a tabletop simulator - moves handle card manipulation without rule validation.
  */
 
-import type { GameDefinition } from "@tcg/core";
+import type { GameDefinition } from "@drmxrcy/tcg-core";
 import type {
   RiftboundCardMeta,
   RiftboundGameState,

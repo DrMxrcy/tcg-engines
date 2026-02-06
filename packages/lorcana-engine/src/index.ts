@@ -1,7 +1,7 @@
 /**
- * @tcg/lorcana - Disney Lorcana TCG Engine
+ * @drmxrcy/tcg-lorcana - Disney Lorcana TCG Engine
  *
- * A complete implementation of Disney Lorcana using the @tcg/core framework.
+ * A complete implementation of Disney Lorcana using the @drmxrcy/tcg-core framework.
  * This package serves as both a production-ready Lorcana engine and a reference
  * implementation demonstrating best practices for building TCG engines.
  *
@@ -21,7 +21,7 @@ export type {
   MoveExecutionResult,
   RuleEngine,
   RuleEngineOptions,
-} from "@tcg/core";
+} from "@drmxrcy/tcg-core";
 // Export card-utils
 export {
   canInk,
