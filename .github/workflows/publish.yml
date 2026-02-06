@@ -1,0 +1,45 @@
+name: Publish to npm
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install deps
+        run: bun install
+
+      - name: Bump versions (timestamp)
+        run: |
+          TS=$(date -u +"%Y%m%d%H%M")
+          node -e "const fs=require('fs'); const path=require('path'); \
+          const pkgs=JSON.parse(fs.readFileSync('package.json','utf8')).workspaces || []; \
+          const globs=pkgs.flatMap(p=>p.replace('/*','')); \
+          const dirs=globs.map(g=>g).filter(Boolean); \
+          const walk=(dir)=>fs.existsSync(dir)?fs.readdirSync(dir).map(f=>path.join(dir,f)).filter(p=>fs.existsSync(path.join(p,'package.json'))):[]; \
+          const packages=dirs.flatMap(walk); \
+          packages.forEach(p=>{ \
+            const file=path.join(p,'package.json'); \
+            const json=JSON.parse(fs.readFileSync(file,'utf8')); \
+            json.version = `0.0.0-${TS}`; \
+            fs.writeFileSync(file, JSON.stringify(json,null,2)); \
+          }); \
+          const root=JSON.parse(fs.readFileSync('package.json','utf8')); \
+          root.version = `0.0.0-${TS}`; \
+          fs.writeFileSync('package.json', JSON.stringify(root,null,2));"
+
+      - name: Publish all workspaces
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish -ws --access public

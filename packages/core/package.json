@@ -1,8 +1,8 @@
 {
-  "name": "@tcg/core",
+  "name": "@drmxrcy/tcg-core",
   "version": "0.1.0",
   "description": "Core TCG engine framework with declarative game definitions",
-  "private": true,
+  "private": false,
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "types": "./src/index.ts",

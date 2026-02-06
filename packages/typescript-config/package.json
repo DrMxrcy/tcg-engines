@@ -1,7 +1,7 @@
 {
-  "name": "@lorcanito/typescript-config",
+  "name": "@drmxrcy/tcg-typescript-config",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "TypeScript configurations for the Lorcanito monorepo",
   "files": [
     "*.json"

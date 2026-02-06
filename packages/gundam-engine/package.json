@@ -1,8 +1,8 @@
 {
-  "name": "@tcg/gundam",
+  "name": "@drmxrcy/tcg-gundam",
   "version": "0.1.0",
   "description": "Gundam Card Game engine implementation using @tcg/core framework",
-  "private": true,
+  "private": false,
   "main": "./src/index.ts",
   "types": "./src/index.d.ts",
   "files": [
@@ -26,8 +26,8 @@
     "check": "turbo format lint check-types test"
   },
   "dependencies": {
-    "@tcg/core": "workspace:*",
-    "@tcg/gundam-types": "workspace:*",
+    "@drmxrcy/tcg-core": "workspace:*",
+    "@drmxrcy/tcg-gundam-types": "workspace:*",
     "immer": "11.0.1"
   },
   "devDependencies": {

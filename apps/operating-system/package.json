@@ -1,6 +1,6 @@
 {
-  "name": "@tcg/os",
-  "private": true,
+  "name": "@drmxrcy/tcg-os",
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "scripts": {

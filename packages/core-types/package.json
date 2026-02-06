@@ -1,8 +1,8 @@
 {
-  "name": "@tcg/core-types",
+  "name": "@drmxrcy/tcg-core-types",
   "version": "0.1.0",
   "description": "Core type definitions shared across all TCG engines",
-  "private": true,
+  "private": false,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "files": [

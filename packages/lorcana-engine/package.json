@@ -1,8 +1,8 @@
 {
-  "name": "@tcg/lorcana",
+  "name": "@drmxrcy/tcg-lorcana",
   "version": "0.1.0",
   "description": "Disney Lorcana TCG engine implementation using @tcg/core framework",
-  "private": true,
+  "private": false,
   "main": "./src/index.ts",
   "types": "./src/index.d.ts",
   "files": [
@@ -30,8 +30,8 @@
     "check": "turbo format lint check-types test"
   },
   "dependencies": {
-    "@tcg/core": "workspace:*",
-    "@tcg/lorcana-types": "workspace:*",
+    "@drmxrcy/tcg-core": "workspace:*",
+    "@drmxrcy/tcg-lorcana-types": "workspace:*",
     "immer": "11.0.1"
   },
   "devDependencies": {

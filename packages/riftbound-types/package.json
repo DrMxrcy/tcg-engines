@@ -1,8 +1,8 @@
 {
-  "name": "@tcg/riftbound-types",
+  "name": "@drmxrcy/tcg-riftbound-types",
   "version": "0.1.0",
   "description": "Riftbound-specific type definitions for abilities, effects, and cards",
-  "private": true,
+  "private": false,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "files": [
@@ -52,8 +52,8 @@
     "check": "turbo format lint check-types"
   },
   "dependencies": {
-    "@tcg/core": "workspace:*",
-    "@tcg/core-types": "workspace:*"
+    "@drmxrcy/tcg-core": "workspace:*",
+    "@drmxrcy/tcg-core-types": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.11",

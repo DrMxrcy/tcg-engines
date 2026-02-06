@@ -1,5 +1,5 @@
 {
-  "name": "@tcg/template",
+  "name": "@drmxrcy/tcg-template",
   "version": "0.1.0",
   "type": "module",
   "main": "./src/index.ts",
@@ -13,12 +13,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@tcg/core": "workspace:*"
+    "@drmxrcy/tcg-core": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.11",
     "@types/bun": "1.2.14",
     "bun-types": "1.2.18",
     "typescript": "5.8.3"
-  }
+  },
+  "private": false
 }
