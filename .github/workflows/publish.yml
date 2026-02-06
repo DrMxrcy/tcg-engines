@@ -10,6 +10,8 @@ jobs:
     permissions:
       contents: read
       id-token: write
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,10 +22,10 @@ jobs:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install deps
+      - name: "[DrMxrcy] Install deps"
         run: bun install
 
-      - name: Bump versions (timestamp)
+      - name: "[DrMxrcy] Bump versions (timestamp)"
         run: |
           TS=$(date -u +"%Y%m%d%H%M")
           node -e "const fs=require('fs'); const path=require('path'); \
@@ -42,12 +44,12 @@ jobs:
           root.version = `0.0.0-${TS}`; \
           fs.writeFileSync('package.json', JSON.stringify(root,null,2));"
 
-      - name: Publish all workspaces
-        if: ${{ secrets.NPM_TOKEN != '' }}
+      - name: "[DrMxrcy] Publish all workspaces (token)"
+        if: ${{ env.NPM_TOKEN != '' }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish -ws --access public
 
-      - name: Publish all workspaces (trusted publishing)
-        if: ${{ secrets.NPM_TOKEN == '' }}
+      - name: "[DrMxrcy] Publish all workspaces (trusted publishing)"
+        if: ${{ env.NPM_TOKEN == '' }}
         run: npm publish -ws --access public

@@ -15,19 +15,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
-      - name: Configure git
+      - name: "[DrMxrcy] Configure git"
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@users.noreply.github.com"
-      - name: Add upstream
+      - name: "[DrMxrcy] Add upstream"
         run: |
           git remote add upstream https://github.com/TheCardGoat/tcg-engines.git || true
           git fetch upstream
-      - name: Sync main
+      - name: "[DrMxrcy] Sync main"
         run: |
           git checkout main
           git merge upstream/main
-      - name: Enforce @drmxrcy/tcg-* package scope
+      - name: "[DrMxrcy] Enforce @drmxrcy/tcg-* package scope"
         run: |
           node -e "const fs=require('fs'); const path=require('path'); \
           const workspaces=JSON.parse(fs.readFileSync('package.json','utf8')).workspaces||[]; \
@@ -70,11 +70,11 @@ jobs:
             root[key]=out; \
           } \
           fs.writeFileSync('package.json', JSON.stringify(root,null,2));"
-      - name: Commit scope updates (if any)
+      - name: "[DrMxrcy] Commit scope updates (if any)"
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "chore: enforce drmxrcy package scope"
           fi
-      - name: Push
+      - name: "[DrMxrcy] Push"
         run: git push origin main
