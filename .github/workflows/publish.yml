@@ -43,4 +43,11 @@ jobs:
           fs.writeFileSync('package.json', JSON.stringify(root,null,2));"
 
       - name: Publish all workspaces
+        if: ${{ secrets.NPM_TOKEN != '' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish -ws --access public
+
+      - name: Publish all workspaces (trusted publishing)
+        if: ${{ secrets.NPM_TOKEN == '' }}
         run: npm publish -ws --access public
