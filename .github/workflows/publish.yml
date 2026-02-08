@@ -41,7 +41,7 @@ jobs:
       - name: "[DrMxrcy] Bump versions (timestamp) and resolve workspace deps"
         run: |
           TS=$(date -u +"%Y%m%d%H%M")
-          TS="$TS" node -e 'const fs=require("fs"); const path=require("path"); const TS=process.env.TS; const pkgs=JSON.parse(fs.readFileSync("package.json","utf8")).workspaces || []; const globs=pkgs.flatMap(p=>p.replace("/*","")); const dirs=globs.map(g=>g).filter(Boolean); const walk=(dir)=>fs.existsSync(dir)?fs.readdirSync(dir).map(f=>path.join(dir,f)).filter(p=>fs.existsSync(path.join(p,"package.json"))):[]; const packages=dirs.flatMap(walk); const setVersion=(file)=>{ const json=JSON.parse(fs.readFileSync(file,"utf8")); json.version=`0.0.0-${TS}`; for (const key of ["dependencies","devDependencies","peerDependencies","optionalDependencies"]) { const deps=json[key]; if(!deps) continue; for (const [k,v] of Object.entries(deps)) { if (typeof v === "string" && v.startsWith("workspace:")) deps[k]=`0.0.0-${TS}`; } } fs.writeFileSync(file, JSON.stringify(json,null,2)); }; packages.forEach(p=>setVersion(path.join(p,"package.json"))); setVersion("package.json");'
+          TS="$TS" node .github/scripts/bump-versions.js
 
       - name: "[DrMxrcy] Publish selected workspaces (token)"
         if: ${{ env.NPM_TOKEN != '' }}
