@@ -1,0 +1,65 @@
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/state/match-rules.test.ts
+  s_dc899c5a0fed47::t_4f4fa000097615 1-402
+  s_dc899c5a0fed47::t_76885cf199b4e6 403-428
+submodules/lorcana/packages/lorcana/lorcana-engine/src/types/match-rules.ts
+  s_dc899c5a0fed47::t_3425894b9691de 1-63
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/state/match-rules.ts
+  s_dc899c5a0fed47::t_9c95d8b80a6415 1-350,353
+  s_dc899c5a0fed47::t_2c8144a742d3a3 351-352
+submodules/lorcana/packages/lorcana/lorcana-engine/src/core/runtime/zone-operations.ts
+  s_dc899c5a0fed47::t_b9481eff44e5e0 10-13,250-259
+submodules/lorcana/packages/lorcana/lorcana-engine/src/flow/runtime-flow-config.ts
+  s_dc899c5a0fed47::t_3a1e38098131d3 7,52-54,60
+submodules/lorcana/packages/lorcana/lorcana-engine/src/lorcana-server.ts
+  s_dc899c5a0fed47::t_47c61d187bd718 27,53,82-88,99-113,115
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-game/definition.ts
+  s_dc899c5a0fed47::t_bbcb3fcf160254 8-14,29-36,50-69,125,167-211
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-game/index.ts
+  s_dc899c5a0fed47::t_ae458268bcdb6d 7
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/effects/win-condition-effects.ts
+  s_dc899c5a0fed47::t_956d45933ad97e 22-23,51-53,88,98,105-112,114
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/moves/turn/pass-turn.ts
+  s_dc899c5a0fed47::t_f675ae42fd95e0 64-68,370,635-639
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/draw-effect.ts
+  s_dc899c5a0fed47::t_69f763b84bdcc9 10,99
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/draw-until-hand-size-effect.ts
+  s_dc899c5a0fed47::t_5f5e4afdc1e3f6 9,45
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/play-card-effect.ts
+  s_dc899c5a0fed47::t_b787e4034ae061 64,224-230
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/return-random-from-inkwell-effect.ts
+  s_dc899c5a0fed47::t_b9528c80854b48 7,63-69,74
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/selection-context.ts
+  s_dc899c5a0fed47::t_a21913ab522652 48,1501-1504
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/state/game-state-check.ts
+  s_dc899c5a0fed47::t_ce1b7952b0a6ba 101-102,104,110,112,114,131-132
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/state/locked-inkwell.ts
+  s_dc899c5a0fed47::t_a428d2072811c6 1-31
+submodules/lorcana/packages/lorcana/lorcana-engine/src/targeting/runtime/target-resolver.ts
+  s_dc899c5a0fed47::t_28f3f12bf74a6f 32,1346-1352
+submodules/lorcana/packages/lorcana/lorcana-engine/src/testing/index.ts
+  s_dc899c5a0fed47::t_e3bcc25ffb4f13 70-71
+submodules/lorcana/packages/lorcana/lorcana-engine/src/testing/lorcana-multiplayer-test-engine-helpers.ts
+  s_dc899c5a0fed47::t_98d5169dd97193 252
+submodules/lorcana/packages/lorcana/lorcana-engine/src/testing/lorcana-multiplayer-test-engine.ts
+  s_dc899c5a0fed47::t_1fb077f4fe8d60 38,118-123,209,358,601-603
+submodules/lorcana/packages/lorcana/lorcana-engine/src/types/index.ts
+  s_dc899c5a0fed47::t_d395889cd80e47 116-122
+submodules/lorcana/packages/lorcana/lorcana-engine/src/types/runtime-state.ts
+  s_dc899c5a0fed47::t_633df0ecb24b80 21,605-610,639-640,644-649
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1cb776887e32603b000eeacc30ad3fb9a8831dd8",
+  "prompts": {},
+  "sessions": {
+    "s_dc899c5a0fed47": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2af13316-93b1-4016-bc62-646e96b8e890",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "DrMxrcy <drmxrcy@gmail.com>"
+    }
+  }
+}
