@@ -514,6 +514,41 @@ function canonicalizeTargetSignatureValue(value: unknown): unknown {
   return canonicalRecord;
 }
 
+function reusedTargetsStillInZone(
+  ctx: PlayCardExecutionContext,
+  targets: ReadonlyArray<CardInstanceId | PlayerId>,
+  descriptor: EffectChosenTargetDescriptor["descriptor"],
+): boolean {
+  const zones =
+    Array.isArray(descriptor?.zones) && descriptor.zones.length > 0 ? descriptor.zones : ["play"];
+  const playerIds = ctx.framework.state.playerIds as readonly string[];
+  return targets.every((target) => {
+    if (playerIds.includes(String(target))) {
+      return true;
+    }
+    const zoneKey =
+      ctx.framework.zones.getCardZone?.(target as CardInstanceId) ??
+      ctx.framework.state._zonesPrivate?.cardIndex?.[target as CardInstanceId]?.zoneKey;
+    return typeof zoneKey === "string" && zones.includes(zoneKey.split(":")[0] ?? "");
+  });
+}
+
+/**
+ * The chosen-target signature a later step of the same sequence would share
+ * with this one (one chosen descriptor only), or undefined. A step answered at
+ * a prompt passes it on so the sequence's later same-signature steps reuse the
+ * answer instead of asking again.
+ */
+export function getReusableChosenTargetSignature(
+  ctx: PlayCardExecutionContext,
+  cardPlayed: CardPlayedPayload,
+  effect: unknown,
+  resolutionInput: ActionResolutionInput,
+): string | undefined {
+  const descriptors = getEffectChosenTargetDescriptors(ctx, cardPlayed, effect, resolutionInput);
+  return descriptors.length === 1 ? descriptors[0]?.signature : undefined;
+}
+
 function getExplicitTargetSignature(
   ctx: PlayCardExecutionContext,
   cardPlayed: CardPlayedPayload,
@@ -1523,6 +1558,13 @@ const actionEffectResolvers: Record<SupportedActionEffectType, ActionEffectResol
     const contextTargets = getContextSelectionTargets(resolutionInput);
     const currentTargets = getCurrentSelectionTargets(resolutionInput);
     const selectedTargetsBySignature = new Map<string, Array<CardInstanceId | PlayerId>>();
+    if (!stagedSequence) {
+      for (const { signature, targets } of options?.reusableChosenTargets ?? []) {
+        if (targets.length > 0 && !selectedTargetsBySignature.has(signature)) {
+          selectedTargetsBySignature.set(signature, [...targets]);
+        }
+      }
+    }
     let consumedTargets = 0;
     let stagedTargetCursor = 0;
 
@@ -1622,9 +1664,17 @@ const actionEffectResolvers: Record<SupportedActionEffectType, ActionEffectResol
         requiresFullTargetContext ||
         stepRequiresPriorTargetContext(chosenTargetDescriptors) ||
         effectTreeContainsRequireDifferentTargets(nestedEffect);
-      const reusedTargets =
+      const signatureTargets =
         !stagedSequence && targetSignature
           ? selectedTargetsBySignature.get(targetSignature)
+          : undefined;
+      // A card an earlier step moved is a new object (The Family Scattered
+      // returns one character, then puts another on the bottom): the later
+      // step chooses again instead of reusing it.
+      const reusedTargets =
+        signatureTargets &&
+        reusedTargetsStillInZone(ctx, signatureTargets, chosenTargetDescriptors[0]?.descriptor)
+          ? signatureTargets
           : undefined;
       const priorStepTargets = currentTargets.slice(0, consumedTargets);
       const stepContextTargets = [...contextTargets, ...priorStepTargets];
@@ -1693,6 +1743,9 @@ const actionEffectResolvers: Record<SupportedActionEffectType, ActionEffectResol
 
         return resolutionInput;
       })();
+      if (reusedTargets && reusedTargets.length > 0 && nestedResolutionInput !== resolutionInput) {
+        nestedResolutionInput = { ...nestedResolutionInput, reusedChosenTargets: true };
+      }
       if (
         !stagedSequence &&
         currentTargets.length > consumedTargets &&

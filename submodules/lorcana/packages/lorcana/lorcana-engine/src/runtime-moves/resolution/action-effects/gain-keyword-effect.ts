@@ -40,6 +40,9 @@ export function resolveGainKeywordEffect(
       effect.target,
       getEffectTargetSelectionInput(effect.target, resolutionInput),
       resolutionInput.eventSnapshot,
+      // A target reused from an earlier step was chosen before that step gave
+      // it Ward (Dodge!: "Chosen character gains Ward and Evasive").
+      resolutionInput.reusedChosenTargets === true ? { skipWardExclusion: true } : undefined,
     ) ?? [];
   if (resolvedTargets.length === 0) {
     return;

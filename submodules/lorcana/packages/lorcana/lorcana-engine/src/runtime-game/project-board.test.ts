@@ -803,16 +803,14 @@ describe("projectLorcanaBoardView", () => {
     expect(
       testEngine.asPlayerOne().playCard(projectedKeywordRestrictionAction),
     ).toBeSuccessfulCommand();
+    // "Chosen character gains Evasive and can't challenge": one choice, so the
+    // restriction step reuses the character chosen for the keyword step.
     expect(
       testEngine.asPlayerOne().resolvePendingByCard(projectedKeywordRestrictionAction, {
         targets: [keywordTarget],
       }),
     ).toBeSuccessfulCommand();
-    expect(
-      testEngine.asPlayerOne().resolvePendingByCard(projectedKeywordRestrictionAction, {
-        targets: [restrictionTarget],
-      }),
-    ).toBeSuccessfulCommand();
+    expect(testEngine.asPlayerOne().getPendingEffects()).toHaveLength(0);
 
     const board = testEngine.asPlayerOne().getBoard();
     const sourceId = board.players[CANONICAL_PLAYER_ONE]?.discard.find(
@@ -820,9 +818,6 @@ describe("projectLorcanaBoardView", () => {
     );
     const keywordTargetId = board.players[CANONICAL_PLAYER_ONE]?.play.find(
       (cardId) => board.cards[cardId]?.fullName === "Projected Friendly Evasive Target",
-    );
-    const restrictionTargetId = board.players[CANONICAL_PLAYER_ONE]?.play.find(
-      (cardId) => board.cards[cardId]?.fullName === "Projected Friendly Restriction Target",
     );
 
     expect(board.activeEffects).toEqual(
@@ -837,7 +832,7 @@ describe("projectLorcanaBoardView", () => {
         expect.objectContaining({
           type: "temporary-restriction",
           sourceId,
-          targetCardId: restrictionTargetId,
+          targetCardId: keywordTargetId,
           startsAtTurn: 1,
           expiresAtTurn: 2,
         }),
