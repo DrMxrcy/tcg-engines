@@ -1,0 +1,31 @@
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/gain-keyword-effect.ts
+  s_197b70b8a56efd::t_16661edd69c9af 43-45
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-game/project-board.test.ts
+  s_197b70b8a56efd::t_fcbad21a6f5d09 806-807,813
+  s_197b70b8a56efd::t_fd244290ece7a7 835
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/types.ts
+  s_197b70b8a56efd::t_a721432c38f89b 21-27,88-98
+submodules/lorcana/packages/lorcana/lorcana-cards/src/cards/004/actions/093-dodge.test.ts
+  s_197b70b8a56efd::t_ef074f241ede45 2,25-56
+  s_197b70b8a56efd::t_111302e84a2646 57-62
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/composed-effect-resolver.ts
+  s_197b70b8a56efd::t_fa444ec230b3df 517-551,1561-1567,1667,1671-1678,1746-1748
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/resolve-effect.ts
+  s_197b70b8a56efd::t_bd32271db3d314 14-17,1518-1531,1543-1547
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7ce1965430a789400b0739c3a03ff1aa1b78bc3b",
+  "prompts": {},
+  "sessions": {
+    "s_197b70b8a56efd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5a6fcfdd-d675-48fc-951f-ecfad2aa10d8",
+        "model": "unknown"
+      },
+      "human_author": null
+    }
+  }
+}
