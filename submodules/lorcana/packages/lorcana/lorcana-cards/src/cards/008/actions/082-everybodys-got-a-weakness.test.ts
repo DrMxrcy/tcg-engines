@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaMultiplayerTestEngine } from "@tcg/lorcana-engine/testing";
+import { LorcanaMultiplayerTestEngine, PLAYER_ONE, PLAYER_TWO } from "@tcg/lorcana-engine/testing";
 import {
   mickeyMouseArtfulRogue,
   mickeyMouseDetective,
@@ -36,5 +36,34 @@ describe("Everybody's Got a Weakness", () => {
     expect(playerOne.getDamage(mickeyMouseTrueFriend)).toBe(0);
     expect(playerTwo.getDamage(goofyKnightForADay)).toBe(2);
     expect(playerOne.getZonesCardCount().hand).toBe(2);
+  });
+
+  it("offers opposing characters only for the chosen opposing character", () => {
+    const testEngine = LorcanaMultiplayerTestEngine.createWithFixture(
+      {
+        hand: [everybodysGotAWeakness],
+        inkwell: everybodysGotAWeakness.cost,
+        play: [simbaProtectiveCub],
+        deck: [mickeyMouseArtfulRogue],
+      },
+      {
+        play: [goofyKnightForADay],
+      },
+    );
+    const simba = testEngine.findCardInstanceId(simbaProtectiveCub, "play", PLAYER_ONE);
+    const goofy = testEngine.findCardInstanceId(goofyKnightForADay, "play", PLAYER_TWO);
+    expect(testEngine.asServer().manualSetDamage(simbaProtectiveCub, 1)).toBeSuccessfulCommand();
+
+    expect(testEngine.asPlayerOne().playCard(everybodysGotAWeakness)).toBeSuccessfulCommand();
+    const enumerated = testEngine.getServerEngine().enumerateAutomatedActionsForCurrentActor({});
+    const offered = new Set(
+      (enumerated.candidates ?? [])
+        .filter((candidate) => candidate.family === "resolveEffect")
+        .flatMap((candidate) => [...(candidate.targets ?? [])].map(String)),
+    );
+    expect([...offered]).toEqual([goofy]);
+    expect(
+      testEngine.asPlayerOne().resolvePendingByCard(everybodysGotAWeakness, { targets: [simba] }),
+    ).not.toBeSuccessfulCommand();
   });
 });
