@@ -1,0 +1,35 @@
+submodules/lorcana/packages/lorcana/lorcana-cards/src/cards/012/characters/153-isabela-madrigal-perfectly-in-control.test.ts
+  s_197b70b8a56efd::t_ca488326f245f8 48-88
+  s_197b70b8a56efd::t_d5ac572fb70521 2-7
+  s_197b70b8a56efd::t_6265f82c637d1c 89-90
+submodules/lorcana/packages/lorcana/lorcana-cards/src/cards/008/actions/082-everybodys-got-a-weakness.test.ts
+  s_197b70b8a56efd::t_bf7a90d5d6c4c4 2
+  s_197b70b8a56efd::t_047afc9e003412 40-67
+  s_197b70b8a56efd::t_1766bdb3178ead 68
+submodules/lorcana/packages/lorcana/lorcana-cards/src/cards/003/actions/060-bestow-a-gift.test.ts
+  s_197b70b8a56efd::t_93e0d13e98317a 2-3,6-13,37-96
+submodules/lorcana/packages/lorcana/lorcana-cards/src/cards/011/characters/047-morgana-macawber-reformed-spellcaster.test.ts
+  s_197b70b8a56efd::t_36c50cf753ee49 278-315
+submodules/lorcana/packages/lorcana/lorcana-engine/src/automation/planner.ts
+  s_197b70b8a56efd::t_1944803b1d6e3e 1397-1475,1713-1719,1769
+submodules/lorcana/packages/lorcana/lorcana-engine/src/runtime-moves/resolution/action-effects/move-damage-effect.ts
+  s_197b70b8a56efd::t_5eb66f64cde8b1 7-11,108-141
+submodules/lorcana/packages/lorcana/lorcana-engine/src/targeting/runtime/target-analysis.ts
+  s_197b70b8a56efd::t_91ad2c94dc0218 124-130,532-535,542-623,662-666,670-672,674-676,1784-1795,2031,2135-2155
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "de7debdab889103fd74051dcb321e3ea34f7b973",
+  "prompts": {},
+  "sessions": {
+    "s_197b70b8a56efd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5a6fcfdd-d675-48fc-951f-ecfad2aa10d8",
+        "model": "unknown"
+      },
+      "human_author": null
+    }
+  }
+}
