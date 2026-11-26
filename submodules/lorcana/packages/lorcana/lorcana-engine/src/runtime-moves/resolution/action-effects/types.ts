@@ -19,6 +19,13 @@ type PlayCardExecutionContext = Pick<
 type ActionResolutionInput = {
   targets?: TargetSelectionInput;
   /**
+   * Set on a sequence step whose targets are reused from an earlier step's
+   * choice (same chosen-target signature). The choice was made, and checked,
+   * once; what the earlier step did to the card since (Dodge! giving it Ward)
+   * does not undo it.
+   */
+  reusedChosenTargets?: boolean;
+  /**
    * Structured selections for multi-slot effects (move-damage, shift-and-choose,
    * banish-and-play, etc.). When set, slot-aware resolvers read from this field
    * directly instead of relying on positional `targets` ordering. `targets` is
@@ -78,6 +85,17 @@ type ActionEffectResolutionOptions = {
    * Bag and on-play resolution omit this so mandatory triggers fizzle instead.
    */
   allowSuspendWithZeroTargetCandidates?: boolean;
+  /**
+   * Targets already chosen for an earlier step of the same sequence, keyed by
+   * that step's chosen-target signature. A later step with the same signature
+   * reuses them instead of asking again, exactly as it does when the targets
+   * were supplied up front (Dodge!: "Chosen character gains Ward and Evasive"
+   * is one choice, even when the first step had to prompt for it).
+   */
+  reusableChosenTargets?: ReadonlyArray<{
+    signature: string;
+    targets: ReadonlyArray<CardInstanceId | PlayerId>;
+  }>;
 };
 
 export type {

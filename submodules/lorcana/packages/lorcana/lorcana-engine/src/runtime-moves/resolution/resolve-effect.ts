@@ -11,7 +11,10 @@ import type {
   TargetResolutionSelectionContext,
 } from "../../types";
 import type { LogTargetId, ScryDestinationEntry } from "../../types/log-messages";
-import { resolveActionEffect } from "./action-effects/composed-effect-resolver";
+import {
+  getReusableChosenTargetSignature,
+  resolveActionEffect,
+} from "./action-effects/composed-effect-resolver";
 import { isScryEffect, validateScrySelection } from "./action-effects/scry-effect";
 import { scopeResolutionToOpponent } from "./action-effects/for-each-opponent-effect";
 import { buildResolutionSelectionContext } from "./action-effects/selection-context";
@@ -1512,6 +1515,20 @@ export const resolveEffect: LorcanaMoveDefinition<"resolveEffect"> = {
       pendingEffect,
       resolutionInput,
     );
+    // The answer to this prompt is also the answer for any later step of the
+    // same sequence that names the same chosen target (Dodge!: Ward and
+    // Evasive go to one chosen character), as when targets come up front.
+    const answeredTargets =
+      pendingEffect.kind === "target-selection" ? getCurrentSelectionTargets(resolutionInput) : [];
+    const answeredSignature =
+      answeredTargets.length > 0
+        ? getReusableChosenTargetSignature(
+            ctx,
+            pendingEffect.cardPlayed,
+            pendingEffect.effect,
+            pendingEffect.resolutionInput,
+          )
+        : undefined;
     const continuationResult = resolveActionEffect(
       ctx,
       pendingEffect.cardPlayed,
@@ -1523,6 +1540,11 @@ export const resolveEffect: LorcanaMoveDefinition<"resolveEffect"> = {
       {
         allowPromptForExistingChosenTargets: true,
         sourceAbilityIndex: pendingEffect.abilityIndex,
+        ...(answeredSignature
+          ? {
+              reusableChosenTargets: [{ signature: answeredSignature, targets: answeredTargets }],
+            }
+          : {}),
         ...(pendingEffect.allowSuspendWithZeroTargetCandidates === true
           ? { allowSuspendWithZeroTargetCandidates: true as const }
           : {}),

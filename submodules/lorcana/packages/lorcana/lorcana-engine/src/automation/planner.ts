@@ -1394,6 +1394,85 @@ function buildTargetVariants(args: {
   return boundedCombinations;
 }
 
+function effectTreeHasMoveDamage(node: unknown, depth = 0): boolean {
+  if (!node || typeof node !== "object" || depth > 12) {
+    return false;
+  }
+  if (Array.isArray(node)) {
+    return node.some((entry) => effectTreeHasMoveDamage(entry, depth + 1));
+  }
+  const record = node as Record<string, unknown>;
+  if (record.type === "move-damage") {
+    return true;
+  }
+  return Object.values(record).some(
+    (value) => typeof value === "object" && effectTreeHasMoveDamage(value, depth + 1),
+  );
+}
+
+/**
+ * A move-damage whose two ends are both chosen moves damage one way, and a
+ * flat two-card answer names the source first. Each unordered pair becomes
+ * the orders the card allows: both for two characters that may each be either
+ * end ("from chosen character to chosen opposing character" with two opposing
+ * characters), one for a character of yours and an opposing one. A pair no
+ * order allows is dropped; when no pair is left the variants are kept as they
+ * were, so the decision still has an answer.
+ */
+function orderDamageMoveTargetVariants(args: {
+  adapter: AutomatedActionPlannerAdapter;
+  analysisPlayerId: PlayerId;
+  effect: Effect | undefined;
+  sourceCardId: CardInstanceId;
+  targetVariants: AutomatedActionTargetId[][];
+}): AutomatedActionTargetId[][] {
+  const { adapter, analysisPlayerId, effect, sourceCardId, targetVariants } = args;
+  if (
+    !effect ||
+    !targetVariants.some((variant) => variant.length === 2) ||
+    !effectTreeHasMoveDamage(effect)
+  ) {
+    return targetVariants;
+  }
+  const readContext = buildReadContext(adapter, analysisPlayerId);
+  const endpoints = analyzeEffectTargets(
+    effect,
+    analysisPlayerId,
+    readContext as unknown as Parameters<typeof analyzeEffectTargets>[2],
+    sourceCardId,
+  ).damageMoveEndpoints;
+  if (!endpoints) {
+    return targetVariants;
+  }
+  const sources = new Set(endpoints.from.map(String));
+  const destinations = new Set(endpoints.to.map(String));
+  const legal = (source: AutomatedActionTargetId, destination: AutomatedActionTargetId) =>
+    source !== destination && sources.has(String(source)) && destinations.has(String(destination));
+  const seen = new Set<string>();
+  const ordered: AutomatedActionTargetId[][] = [];
+  let pairs = 0;
+  for (const variant of targetVariants) {
+    if (variant.length !== 2) {
+      ordered.push(variant);
+      continue;
+    }
+    const [first, second] = variant as [AutomatedActionTargetId, AutomatedActionTargetId];
+    for (const [source, destination] of [
+      [first, second],
+      [second, first],
+    ] as const) {
+      const key = `${source}>${destination}`;
+      if (!legal(source, destination) || seen.has(key)) {
+        continue;
+      }
+      seen.add(key);
+      ordered.push([source, destination]);
+      pairs += 1;
+    }
+  }
+  return pairs > 0 ? ordered : targetVariants;
+}
+
 function expandOrderedTargetVariants(args: {
   analysisPlayerId: PlayerId;
   adapter: AutomatedActionPlannerAdapter;
@@ -1631,6 +1710,13 @@ function buildResolutionVariants(args: {
   if (!orderedTargetVariants) {
     return null;
   }
+  const damageMoveTargetVariants = orderDamageMoveTargetVariants({
+    adapter,
+    analysisPlayerId,
+    effect: planningEffect,
+    sourceCardId,
+    targetVariants: orderedTargetVariants,
+  });
 
   const forcedChoiceIndex =
     typeof baseResolutionInput?.choiceIndex === "number"
@@ -1680,7 +1766,7 @@ function buildResolutionVariants(args: {
 
   const groups = cartesianProduct<ResolutionVariantPart>(
     [
-      orderedTargetVariants.map((targets) => ({ targets })),
+      damageMoveTargetVariants.map((targets) => ({ targets })),
       choiceValues.map((choiceIndex) => ({ choiceIndex })),
       namedCardValues.map((namedCard) => ({ namedCard })),
       optionalValues.map((resolveOptional) => ({ resolveOptional })),

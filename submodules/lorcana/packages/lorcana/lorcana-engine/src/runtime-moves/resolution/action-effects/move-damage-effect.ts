@@ -4,7 +4,11 @@ import { isUpToAmount, unwrapAmount } from "@tcg/lorcana-types";
 import type { CardPlayedPayload } from "../../../types";
 import type { ActionResolutionInput, PlayCardExecutionContext } from "./types";
 import { effectTargetUsesSelectionContext, getEffectTargetSelectionInput } from "./selection-state";
-import { normalizeSelectedTargets, resolveEffectTargets } from "../../../targeting/runtime";
+import {
+  isChosenMoveDamageEndpoint,
+  normalizeSelectedTargets,
+  resolveEffectTargets,
+} from "../../../targeting/runtime";
 import { isSlotted } from "../../../targeting/slotted-targets";
 import { createProjectionState, getEffectiveWillpower } from "../../../rules/derived-state";
 import { applyReplacementEffects } from "../../effects/replacement-effects";
@@ -99,6 +103,40 @@ export function resolveMoveDamageEffect(
     }
     applyMoveDamage(ctx, cardPlayed, effect, resolutionInput, sourceTargets, destinationId);
     return;
+  }
+
+  // Two chosen ends answered with a flat pair: the first card is the source
+  // and the second the destination, so a move between two characters on the
+  // same side goes the way the player picked. A pair that is only legal the
+  // other way round (an older caller that sent the destination first) is
+  // read that way; a pair legal neither way falls through to the path below.
+  const chosenPair =
+    isChosenMoveDamageEndpoint(effect.from) && isChosenMoveDamageEndpoint(effect.to);
+  const flatSelection = chosenPair ? normalizeSelectedTargets(resolutionInput.targets) : undefined;
+  if (flatSelection && flatSelection.length === 2) {
+    const [first, second] = flatSelection as [CardInstanceId, CardInstanceId];
+    for (const [sourceId, destinationId] of [
+      [first, second],
+      [second, first],
+    ] as const) {
+      if (sourceId === destinationId) {
+        continue;
+      }
+      const source =
+        resolveEffectTargets(ctx, cardPlayed, effect.from, [sourceId], undefined, {
+          skipWardExclusion: true,
+        }) ?? [];
+      const destination = resolveEffectTargets(ctx, cardPlayed, effect.to, [destinationId]) ?? [];
+      if (
+        source.length === 1 &&
+        source[0] === sourceId &&
+        destination.length === 1 &&
+        destination[0] === destinationId
+      ) {
+        applyMoveDamage(ctx, cardPlayed, effect, resolutionInput, [sourceId], destinationId);
+        return;
+      }
+    }
   }
 
   // Legacy positional path: targets is a flat array where (by convention) the

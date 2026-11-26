@@ -1,5 +1,10 @@
 import { describe, expect, it } from "bun:test";
-import { LorcanaMultiplayerTestEngine, createMockCharacter } from "@tcg/lorcana-engine/testing";
+import {
+  LorcanaMultiplayerTestEngine,
+  PLAYER_ONE,
+  PLAYER_TWO,
+  createMockCharacter,
+} from "@tcg/lorcana-engine/testing";
 import { isabelaMadrigalPerfectlyInControl } from "./153-isabela-madrigal-perfectly-in-control";
 
 const damagedAlly = createMockCharacter({
@@ -38,6 +43,49 @@ describe("Isabela Madrigal - Perfectly in Control", () => {
 
       expect(testEngine.asPlayerOne().getDamage(damagedAlly)).toBe(0);
       expect(testEngine.asPlayerOne().getDamage(isabelaMadrigalPerfectlyInControl)).toBe(3);
+    });
+
+    it("offers only characters of yours to move damage from", () => {
+      const opposingDamaged = createMockCharacter({
+        id: "isabela-test-opposing-damaged",
+        name: "Opposing Damaged",
+        cost: 3,
+        strength: 2,
+        willpower: 6,
+      });
+      const testEngine = LorcanaMultiplayerTestEngine.createWithFixture(
+        {
+          hand: [isabelaMadrigalPerfectlyInControl],
+          play: [{ card: damagedAlly, damage: 3 }],
+          inkwell: isabelaMadrigalPerfectlyInControl.cost,
+          deck: 5,
+        },
+        { play: [{ card: opposingDamaged, damage: 2 }], deck: 5 },
+      );
+      const ally = testEngine.findCardInstanceId(damagedAlly, "play", PLAYER_ONE);
+      const opposing = testEngine.findCardInstanceId(opposingDamaged, "play", PLAYER_TWO);
+
+      expect(
+        testEngine.asPlayerOne().playCard(isabelaMadrigalPerfectlyInControl),
+      ).toBeSuccessfulCommand();
+      const enumerated = testEngine.getServerEngine().enumerateAutomatedActionsForCurrentActor({});
+      const offered = new Set(
+        (enumerated.candidates ?? [])
+          .filter((candidate) => candidate.family === "resolveBag")
+          .flatMap((candidate) => [...(candidate.targets ?? [])].map(String)),
+      );
+      expect(offered.has(ally)).toBe(true);
+      expect(offered.has(opposing)).toBe(false);
+
+      expect(
+        testEngine.asPlayerOne().resolvePendingByCard(isabelaMadrigalPerfectlyInControl, {
+          resolveOptional: true,
+        }),
+      ).toBeSuccessfulCommand();
+      expect(
+        testEngine.asPlayerOne().resolveNextPending({ targets: [opposing] }),
+      ).not.toBeSuccessfulCommand();
+      expect(testEngine.asPlayerTwo().getDamage(opposing)).toBe(2);
     });
 
     it("may decline the optional trigger on play", () => {

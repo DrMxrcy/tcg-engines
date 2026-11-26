@@ -121,6 +121,13 @@ type TargetAnalysisOptions = {
 
 export type TargetAnalysis = {
   movementTargetPairs?: Array<{ subject: TargetDescriptor; location: TargetDescriptor }>;
+  /**
+   * A move-damage whose source and destination are both chosen: the cards
+   * each end may name. A flat two-card answer names the source first; it is
+   * legal when that order is, or (for callers that sent it the other way
+   * round) when the reverse is.
+   */
+  damageMoveEndpoints?: { from: CardInstanceId[]; to: CardInstanceId[] };
   targetDsl: LorcanaTargetDSL[];
   cardCandidates: CardInstanceId[];
   playerCandidates: PlayerId[];
@@ -522,10 +529,96 @@ function normalizeMoveDamageParticipantOwner(target: unknown): "you" | "opponent
   if (target === "CHOSEN_OPPOSING_CHARACTER" || target === "CHOSEN_OPPONENT_CHARACTER") {
     return "opponent";
   }
+  // "chosen character of yours" (Isabela Madrigal - Perfectly in Control).
+  if (typeof target === "string" && target.startsWith("CHOSEN_") && target.endsWith("_OF_YOURS")) {
+    return "you";
+  }
   if (typeof target === "string" && target.startsWith("CHOSEN_")) {
     return "any";
   }
   return normalizeTargetOwner(target);
+}
+
+/**
+ * A move-damage endpoint the player picks: a `CHOSEN_*` constant or a
+ * `selector: "chosen"` descriptor. `SELF`, `ALL_CHARACTERS`, `selector: "all"`
+ * and references are fixed by the card, so they offer no card to choose.
+ */
+export function isChosenMoveDamageEndpoint(target: unknown): boolean {
+  if (typeof target === "string") {
+    return target.startsWith("CHOSEN_");
+  }
+  if (!target || typeof target !== "object" || Array.isArray(target)) {
+    return false;
+  }
+  if ("ref" in target || "reference" in target) {
+    return false;
+  }
+  return (target as Record<string, unknown>).selector === "chosen";
+}
+
+function moveDamageEndpointDescriptor(
+  endpoint: unknown,
+  otherEndpointIsSelf: boolean,
+): RemoveDamageTargetDescriptor | undefined {
+  if (!isChosenMoveDamageEndpoint(endpoint)) {
+    return undefined;
+  }
+  const record =
+    endpoint && typeof endpoint === "object" ? (endpoint as Record<string, unknown>) : undefined;
+  return {
+    owner: normalizeMoveDamageParticipantOwner(endpoint),
+    cardTypes: ["character"],
+    filter: record?.filter,
+    filters: record?.filters,
+    ...(record?.excludeSelf === true || otherEndpointIsSelf ? { excludeSelf: true } : {}),
+  };
+}
+
+/**
+ * The one move-damage in an effect whose source and destination are both
+ * chosen ("Move 1 damage counter from chosen character to chosen opposing
+ * character"), or undefined when there is none or more than one.
+ */
+function findChosenDamageMovePair(
+  effect: unknown,
+): { from: RemoveDamageTargetDescriptor; to: RemoveDamageTargetDescriptor } | undefined {
+  const pairs: Array<{ from: RemoveDamageTargetDescriptor; to: RemoveDamageTargetDescriptor }> = [];
+  const visit = (node: unknown): void => {
+    if (!node || typeof node !== "object") {
+      return;
+    }
+    if (Array.isArray(node)) {
+      node.forEach(visit);
+      return;
+    }
+    const record = node as Record<string, unknown>;
+    if (record.type === "move-damage") {
+      const from = moveDamageEndpointDescriptor(record.from, record.to === "SELF");
+      const to = moveDamageEndpointDescriptor(record.to, record.from === "SELF");
+      if (from && to) {
+        pairs.push({ from, to });
+      }
+      return;
+    }
+    for (const key of [
+      "effect",
+      "effects",
+      "steps",
+      "options",
+      "choices",
+      "then",
+      "else",
+      "trueEffect",
+      "falseEffect",
+      "ifTrue",
+      "ifFalse",
+    ]) {
+      visit(record[key]);
+    }
+  };
+  visit(effect);
+  return pairs.length === 1 ? pairs[0] : undefined;
 }
 
 function collectRemoveDamageTargetDescriptors(effect: unknown): RemoveDamageTargetDescriptor[] {
@@ -566,34 +659,21 @@ function collectRemoveDamageTargetDescriptors(effect: unknown): RemoveDamageTarg
     // card does, the resolver's source-equals-destination guard already
     // produces a clean no-op execution, so leaving the candidate list empty
     // here is safe: the bag/pending-effect drains without prompting.
+    //
+    // Only an endpoint the player chooses offers candidates, from its own side:
+    // "move 1 damage from each other character to chosen opposing character"
+    // (Morgana Macawber - Reformed Spellcaster) offers opposing characters
+    // only, and "chosen character of yours" offers yours only.
     const fromIsSelf = effectRecord.from === "SELF";
     const toIsSelf = effectRecord.to === "SELF";
-    const fromRecord =
-      effectRecord.from && typeof effectRecord.from === "object"
-        ? (effectRecord.from as Record<string, unknown>)
-        : undefined;
-    const toRecord =
-      effectRecord.to && typeof effectRecord.to === "object"
-        ? (effectRecord.to as Record<string, unknown>)
-        : undefined;
     const descriptors: RemoveDamageTargetDescriptor[] = [];
-    if (effectRecord.from !== undefined && !fromIsSelf) {
-      descriptors.push({
-        owner: normalizeMoveDamageParticipantOwner(effectRecord.from),
-        cardTypes: ["character"],
-        filter: fromRecord?.filter,
-        filters: fromRecord?.filters,
-        ...(fromRecord?.excludeSelf === true || toIsSelf ? { excludeSelf: true } : {}),
-      });
+    const fromDescriptor = moveDamageEndpointDescriptor(effectRecord.from, toIsSelf);
+    if (fromDescriptor) {
+      descriptors.push(fromDescriptor);
     }
-    if (effectRecord.to !== undefined && !toIsSelf) {
-      descriptors.push({
-        owner: normalizeMoveDamageParticipantOwner(effectRecord.to),
-        cardTypes: ["character"],
-        filter: toRecord?.filter,
-        filters: toRecord?.filters,
-        ...(toRecord?.excludeSelf === true || fromIsSelf ? { excludeSelf: true } : {}),
-      });
+    const toDescriptor = moveDamageEndpointDescriptor(effectRecord.to, fromIsSelf);
+    if (toDescriptor) {
+      descriptors.push(toDescriptor);
     }
     return descriptors;
   }
@@ -1701,6 +1781,18 @@ export function analyzeEffectTargets(
 ): TargetAnalysis {
   const movementTargetPairs = collectMovementTargetPairs(effect);
   const removeDamageTargetDescriptors = collectRemoveDamageTargetDescriptors(effect);
+  const chosenDamageMovePair = findChosenDamageMovePair(effect);
+  const damageMoveEndpoints = chosenDamageMovePair
+    ? {
+        from: resolveActionTargetCandidates(
+          [chosenDamageMovePair.from],
+          playerId,
+          ctx,
+          sourceCardId,
+        ),
+        to: resolveActionTargetCandidates([chosenDamageMovePair.to], playerId, ctx, sourceCardId),
+      }
+    : undefined;
   const returnToHandTargetDescriptors = collectReturnToHandTargetDescriptors(effect);
   const returnFromDiscardTargetDescriptors = collectReturnFromDiscardTargetDescriptors(effect);
   const discardTargetDescriptors = collectDiscardTargetDescriptors(effect);
@@ -1936,6 +2028,7 @@ export function analyzeEffectTargets(
         ),
       })),
     movementTargetPairs,
+    ...(damageMoveEndpoints ? { damageMoveEndpoints } : {}),
     sameOwnerTargetGroups: chosenCardTargetDescriptors
       .filter((descriptor) => descriptor.requireSameOwner)
       .map((descriptor) => {
@@ -2037,6 +2130,27 @@ export function validateAndNormalizeTargetSelection(
       error: "Too many targets selected",
       errorCode: "TOO_MANY_TARGETS",
     };
+  }
+
+  // A flat two-card answer to a chosen-to-chosen damage move names a source
+  // and a destination; at least one order must be legal for its two ends.
+  const damageMoveEndpoints = analysis.damageMoveEndpoints;
+  if (
+    damageMoveEndpoints &&
+    !isSlottedTargetInput(targets) &&
+    cardIds.length === 2 &&
+    playerIds.length === 0
+  ) {
+    const [first, second] = cardIds as [CardInstanceId, CardInstanceId];
+    const legal = (source: CardInstanceId, destination: CardInstanceId) =>
+      damageMoveEndpoints.from.includes(source) && damageMoveEndpoints.to.includes(destination);
+    if (!legal(first, second) && !legal(second, first)) {
+      return {
+        valid: false,
+        error: "Choose a character to move damage from and a legal character to move it to",
+        errorCode: "INVALID_ACTION_TARGETS",
+      };
+    }
   }
 
   // Validate each typed movement choice before executing the sequence.

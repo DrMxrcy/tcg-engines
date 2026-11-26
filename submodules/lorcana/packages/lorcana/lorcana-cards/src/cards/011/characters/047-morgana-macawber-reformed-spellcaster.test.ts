@@ -275,6 +275,44 @@ describe("Morgana Macawber - Reformed Spellcaster", () => {
       expect(testEngine.asPlayerTwo().getDamage(elsaQueenRegent)).toBe(3);
     });
 
+    it("offers opposing characters only for the chosen character, not yours", () => {
+      const testEngine = LorcanaMultiplayerTestEngine.createWithFixture(
+        {
+          inkwell: morganaMacawberReformedSpellcaster.cost,
+          hand: [morganaMacawberReformedSpellcaster],
+          play: [{ card: goofyKnightForADay, damage: 2 }],
+          deck: 5,
+        },
+        {
+          play: [mickeyMouseTrueFriend],
+          deck: 5,
+        },
+      );
+      const goofy = testEngine.findCardInstanceId(goofyKnightForADay, "play", PLAYER_ONE);
+      const mickey = testEngine.findCardInstanceId(mickeyMouseTrueFriend, "play", PLAYER_TWO);
+
+      expect(
+        testEngine.asPlayerOne().playCard(morganaMacawberReformedSpellcaster),
+      ).toBeSuccessfulCommand();
+      const enumerated = testEngine.getServerEngine().enumerateAutomatedActionsForCurrentActor({});
+      const offered = new Set(
+        (enumerated.candidates ?? [])
+          .filter((candidate) => candidate.family === "resolveBag")
+          .flatMap((candidate) => [...(candidate.targets ?? [])].map(String)),
+      );
+      expect([...offered]).toEqual([mickey]);
+
+      expect(
+        testEngine
+          .asPlayerOne()
+          .resolvePendingByCard(morganaMacawberReformedSpellcaster, { resolveOptional: true }),
+      ).toBeSuccessfulCommand();
+      expect(
+        testEngine.asPlayerOne().resolveNextPending({ targets: [goofy] }),
+      ).not.toBeSuccessfulCommand();
+      expect(testEngine.asPlayerOne().getDamage(goofyKnightForADay)).toBe(2);
+    });
+
     it("triggers when played via Shift", () => {
       const testEngine = LorcanaMultiplayerTestEngine.createWithFixture(
         {
